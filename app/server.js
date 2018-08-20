@@ -3,7 +3,7 @@
 const app = require('express')();
 const logger = require('morgan');
 const bodyParser = require('body-parser');
-const cors = require('cors');
+
 
 // require router connections
 const dogRouter = require('./routes/DogRoutes');
@@ -15,7 +15,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(cors());
+
 
 // set up routers
 app.use('/dogs', dogRouter);
