@@ -45,4 +45,23 @@ module.exports = {
       .catch(next);
   },
 
+  createOne(req, res, next) {
+    const data = {
+      dogs_id: req.params.id,
+      potty_training: 'false',
+      stay: 'false',
+      leash_training: 'false',
+      sit: 'false',
+      quiet: 'false',
+      leave_it: 'false',
+    };
+
+    gradesModel.newGrade(data)
+      .then((grade) => {
+        res.locals.grade = grade;
+        next();
+      })
+      .catch(next);
+  },
+
 };

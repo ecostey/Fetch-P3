@@ -24,6 +24,7 @@ module.exports = {
 
   // create a new entry to the dogs table & store data in res.locals
   createOne(req, res, next) {
+
     const data = {
       owner: req.body.owner,
       name: req.body.name,
@@ -32,11 +33,10 @@ module.exports = {
       age: req.body.age,
       picture: req.body.picture,
     };
-    
+
     dogModel.newDog(data)
       .then((dog) => {
         res.locals.dog = dog;
-        next();
       })
       .catch(next);
   },
