@@ -15,9 +15,6 @@ module.exports = {
     FROM gradebook
     WHERE dogs_id = $1`, id);
   },
-<<<<<<< HEAD
-
-=======
   // update grades for one dog
   updateOne(data) {
     db.one(`
@@ -32,5 +29,4 @@ module.exports = {
     comments = $/comments/
     WHERE dog_id = $/dog_id/`, data)
   },
->>>>>>> 967a6658f80bc33e3c3652534819bb4ad09c797a
 };

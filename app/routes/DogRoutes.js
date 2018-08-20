@@ -6,8 +6,8 @@ const DogController = require('../controllers/DogController');
 router.get('/', DogController.getAll,
   (req, res) => res.json(res.locals.dogs));
 // get one dog with all information
-router.get('/:id', DogController.getOneDog);
-
+router.get('/:id', DogController.getOneDog,
+  (req, res) => res.json(res.locals.dog));
 // create a new dog student
 // router.post('/', DogController.createOne);
 
