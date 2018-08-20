@@ -1,4 +1,4 @@
-const { db, pgp } = require('../config/conn');
+const { db } = require('../config/conn');
 
 module.exports = {
   // get all grades

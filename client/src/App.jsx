@@ -17,8 +17,8 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <DogsIndex dogs={dogs}/>
+      <div className="App">
+        <DogsIndex dogs={this.state.dogs}/>
       </div>
     );
   }

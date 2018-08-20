@@ -1,6 +1,6 @@
 \c fetch_db
 
-INSERT INTO dogs (owner, name, breed, size, age)
+INSERT INTO dogs (owner, name, breed, size, age, picture)
 VALUES
 ('Liz Costey', 'Rocky', 'Pekingnese Mix', 'small', 8),
 ('Roland Munich', 'Frank', 'Bulldog', 'medium', 1),
