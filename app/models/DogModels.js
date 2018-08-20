@@ -37,9 +37,7 @@ module.exports = {
 
   //Query to Delete a dog from dog's table and gradebook table
   //Accessed through puppyProfile page
-  deleteDog()
- {
+  deleteDog() {
 
  },
-
 };
