@@ -23,7 +23,9 @@ module.exports = {
   },
 
   // Set user input in object 'gradeData' & pass as a parameter to
+
   // the updateOne function from Models.
+
   // Store returned data in res.locals.
   updateGrade(req, res, next) {
     const gradeData = {
