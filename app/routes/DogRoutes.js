@@ -10,7 +10,7 @@ router.get('/',
 // get one dog with all information
 router.get('/:id',
   DogController.getOneDog,
-  (req, res) => res.json(res.locals.dogs));
+  (req, res) => res.json({ dog: res.locals.dog }));
 
 // create a new dog student
 router.post('/',

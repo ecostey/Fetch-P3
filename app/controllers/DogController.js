@@ -4,9 +4,11 @@ module.exports = {
 
   // get all of the dogs in the db
   getAll(req, res, next) {
+    debugger;
     dogModel.index()
       .then((dogs) => {
         res.locals.dogs = dogs;
+        next();
       })
       .catch(next);
   },
@@ -14,6 +16,7 @@ module.exports = {
   // get one dog in the data base by id
 
   getOneDog(req, res, next) {
+    debugger;
     dogModel.getOneDog(req.params.id)
       .then((dogs) => {
         res.locals.dogs = dogs;
