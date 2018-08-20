@@ -45,9 +45,11 @@ module.exports = {
 
   // update one dog's data and store data in res.locals.
   updateDog(req, res, next) {
-    const dogData = {
+    const data = {
+      id: req.params.id,
       owner: req.body.owner,
       name: req.body.breed,
+      breed: req.body.breed,
       size: req.body.size,
       age: req.body.age,
       picture: req.body.picture,
