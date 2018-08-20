@@ -12,6 +12,7 @@ module.exports = {
   },
 
   // get one dog in the data base by id
+
   getOneDog(req, res, next) {
     dogModel.getOneDog(req.params.id)
       .then((dogs) => {
@@ -32,7 +33,7 @@ module.exports = {
       age: req.body.age,
       picture: req.body.picture,
     };
-
+    
     dogModel.createOne(data)
       .then((dogs) => {
         res.locals.dogs = dogs;
@@ -40,7 +41,6 @@ module.exports = {
       })
       .catch(next);
   },
-
 
   // update the new entry to the db
   updateDog(req, res, next) {
