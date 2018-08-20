@@ -3,7 +3,7 @@ const { db } = require('../config/conn');
 module.exports = {
   // get all grades for gradebook page
   getAll() {
-    db.many(`
+    return db.many(`
       SELECT *
       FROM gradebook`);
   },
@@ -11,7 +11,7 @@ module.exports = {
   // get grades for one dog
   // Displayed on puppyProfile page
   getOne(id) {
-    db.one(`
+    return db.one(`
       SELECT *
       FROM gradebook
       WHERE dogs_id = $1`, id);
@@ -19,16 +19,17 @@ module.exports = {
   // update grades for one dog
   // Accessed through puppyProfile page
   updateOne(data) {
-    db.one(`
+    return db.one(`
       UPDATE gradebook
       SET
-      potty_training = $/potty_training/
-      stay = $/stay/
-      leash_training = $/leash_training/
-      sit = $/sit/
-      quiet = $/quiet/
-      leave_it = $/leave_it/
+      potty_training = $/potty_training/,
+      stay = $/stay/,
+      leash_training = $/leash_training/,
+      sit = $/sit/,
+      quiet = $/quiet/,
+      leave_it = $/leave_it/,
       comments = $/comments/
-      WHERE dogs_id = $/dogs_id/`, data)
+      WHERE dogs_id = $/dogs_id/
+      RETURNING *`, data);
   },
 };
