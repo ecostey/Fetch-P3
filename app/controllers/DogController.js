@@ -20,7 +20,7 @@ module.exports = {
     
     })
     .catch(next);
-  }
+  },
 
 
   // create a new entry to the db
@@ -31,7 +31,7 @@ module.exports = {
       breed: req.body.breed,
     }
 
-  }
+  },
 
 
   //update the new entry to the db 
@@ -39,7 +39,7 @@ module.exports = {
     const data {
   
     }
-  }
+  },
 
   //delete an entry to the db
 
