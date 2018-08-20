@@ -15,4 +15,5 @@ module.exports = {
     FROM gradebook
     WHERE dogs_id = $1`, id);
   },
+
 };

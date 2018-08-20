@@ -22,7 +22,7 @@ module.exports = {
       WHERE dogs.id = $1
     `, id);
   },
-  
+
   // Query creates & adds one new dog to dogs Table
   // Will be used in the 'Create New Dog Form', accessable through the landing pg.
   newDog(dog) {
@@ -58,7 +58,6 @@ module.exports = {
     DELETE FROM dogs
     WHERE id = $/id/
     `, id);
- },
+  },
 
 };
-
