@@ -7,3 +7,11 @@ export function fetchDogs() {
         throw Error(e);
     });
 }
+
+export function fetchOneDog(id) {
+    return fetch(`${BASE_URL}/${id}`)
+    .then(resp => resp.json())
+    .catch((e) => {
+        throw Error(e);
+    });
+}
