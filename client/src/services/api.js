@@ -15,3 +15,12 @@ export function fetchOneDog(id) {
         throw Error(e);
     });
 }
+
+
+export function updateDoggy(dogs) {
+    return fetch(`${BASE_URL}/${id}`)
+    .then(resp => resp.json())
+    .catch((e) => {
+        throw Error(e);
+    });
+}

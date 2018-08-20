@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchOneDog } from '../services/api';
+import { fetchOneDog, updateDoggy } from '../services/api';
 
 class PupProfile extends Component {
   constructor(props) {

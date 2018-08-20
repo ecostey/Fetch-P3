@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import DogsIndex from './components/DogsIndex';
+import UpdateDog from './components/UpdateDog';
 import PupProfile from './components/PupProfile';
-import {fetchDogs, fetchOneDog} from './services/api';
+import {
+  fetchDogs, 
+  fetchOneDog,
+  updateDoggy,
+} from './services/api';
 
 class App extends Component {
   constructor(props) {
@@ -11,6 +16,8 @@ class App extends Component {
       selectedDog: '',
       currentView: '',
     }
+
+
   }
 
   componentDidMount() {
@@ -29,6 +36,15 @@ class App extends Component {
 
   }
   // edit dog function
+  updateDoggy(dog) {
+    updateDoggy(dog)
+    .then(data => fetchOneDog())
+    .then(data => {
+      this.setState({
+        dog : data.dog
+      });
+    })
+  };
 
   // delete dog function
 
