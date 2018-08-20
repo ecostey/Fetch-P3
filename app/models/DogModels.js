@@ -1,4 +1,7 @@
-const { db, pgp } = require('../config/conn');
+const {
+  db,
+  pgp
+} = require('../config/conn');
 
 module.exports = {
 
@@ -6,9 +9,9 @@ module.exports = {
   // Will be displayed on the Landing page.
   index() {
     return db.many(`
-        SELECT *
-        FROM dogs
-        `);
+      SELECT *
+      FROM dogs
+      `);
   },
 
   // Query for ONE dog & dog's grades by dog's ID.
@@ -55,9 +58,9 @@ module.exports = {
   // Accessed through puppyProfile page
   deleteDog(id) {
     return db.none(`
-    DELETE FROM dogs
-    WHERE id = $/id/
-    `, id);
+      DELETE FROM dogs
+      WHERE id = $/id/
+      `, id);
   },
 
 };
