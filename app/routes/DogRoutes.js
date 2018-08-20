@@ -6,10 +6,10 @@ const DogController = require('../controllers/DogController');
 router.get('/', DogController.getAll);
 
 // get one dog with all information
-router.get('/', DogController.getOne);
+router.get('/', DogController.getOneDog);
 
 // create a new dog student
-router.post('/', DogController.newDog);
+router.post('/', DogController.createOne);
 
 // update dog by id
 router.put('/:id', DogController.updateDog);
