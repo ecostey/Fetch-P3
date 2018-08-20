@@ -14,11 +14,12 @@ module.exports = {
   },
 
   // get one dog in the data base by id
+
   getOneDog(req, res, next) {
     debugger;
     dogModel.getOneDog(req.params.id)
-      .then((dog) => {
-        res.locals.dog = dog;
+      .then((dogs) => {
+        res.locals.dogs = dogs;
         next();
       })
       .catch(next);
@@ -35,14 +36,14 @@ module.exports = {
       age: req.body.age,
       picture: req.body.picture,
     };
-
+    
     dogModel.createOne(data)
       .then((dogs) => {
         res.locals.dogs = dogs;
+        next();
       })
       .catch(next);
   },
-
 
   // update the new entry to the db
   updateDog(req, res, next) {
@@ -56,8 +57,9 @@ module.exports = {
     dogModel.updateDog(data)
       .then((dog) => {
         res.locals.dog = dog;
+        next();
       })
-      .catch(next);  
+      .catch(next);
   },
 
   // delete an entry to the db

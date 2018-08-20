@@ -1,7 +1,7 @@
 const { db } = require('../config/conn');
 
 module.exports = {
-  // get all grades
+  // get all grades for gradebook page
   getAll() {
     db.many(`
     SELECT *
