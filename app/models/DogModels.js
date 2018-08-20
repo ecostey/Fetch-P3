@@ -56,7 +56,7 @@ module.exports = {
   deleteDog(id) {
     return db.none(`
     DELETE FROM dogs
-    WHERE id = $/id/
+    WHERE id = $1
     `, id);
   },
 
