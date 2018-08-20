@@ -16,6 +16,7 @@ module.exports = {
     dogModel.getOneDog(req.params.id)
       .then((dogs) => {
         res.locals.dogs = dogs;
+        next();
       })
       .catch(next);
   },
@@ -35,6 +36,7 @@ module.exports = {
     dogModel.createOne(data)
       .then((dogs) => {
         res.locals.dogs = dogs;
+        next();
       })
       .catch(next);
   },
@@ -52,8 +54,9 @@ module.exports = {
     dogModel.updateDog(data)
       .then((dog) => {
         res.locals.dog = dog;
+        next();
       })
-      .catch(next);  
+      .catch(next);
   },
 
   // delete an entry to the db
