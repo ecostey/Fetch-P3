@@ -36,7 +36,7 @@ module.exports = {
 
   //Query to update a dog's data in the dog's table
   //Update form will be accessed through puppyProfile page
-  updateDog() {
+  updateDog(id) {
     return db.one(`
       UPDATE dogs
       SET 
@@ -48,16 +48,16 @@ module.exports = {
       picture=$/picture/
       WHERE id = $/id/
       RETURNING *
-      `, dog);
-    }
+      `, id);
   },
 
   //Query to Delete a dog from dog's table and gradebook table
   //Accessed through puppyProfile page
-  deleteDog() {
+  deleteDog(id) {
     return db.none(`
-      
-    `)
- },
- 
-};
+    DELETE FROM dogs
+    WHERE id = $/id/
+    `, id);
+ }
+
+}
