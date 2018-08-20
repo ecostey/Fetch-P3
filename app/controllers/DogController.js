@@ -18,8 +18,8 @@ module.exports = {
   getOneDog(req, res, next) {
     debugger;
     dogModel.getOneDog(req.params.id)
-      .then((dogs) => {
-        res.locals.dogs = dogs;
+      .then((dog) => {
+        res.locals.dog = dog;
         next();
       })
       .catch(next);
