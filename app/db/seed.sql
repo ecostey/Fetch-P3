@@ -7,9 +7,9 @@ VALUES
 ('Carol Wang', 'Link', 'Lab Pitbull Mix', 'large', 3)
 ;
 
-INSERT INTO gradebook (potty_training, stay, leash_training, sit, quiet, leave_it)
+INSERT INTO gradebook (dogs_id, potty_training, stay, leash_training, sit, quiet, leave_it)
 VALUES
-    (true,false,true,true,false,false),
-    (true,false,false,true,false,false),
-    (true,false,true,false,false,true)
+    (1, true,false,true,true,false,false),
+    (2, true,false,false,true,false,false),
+    (3, true,false,true,false,false,true)
 ;
