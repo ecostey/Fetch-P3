@@ -53,7 +53,7 @@ module.exports = {
       .then((dog) => {
         res.locals.dog = dog;
       })
-      .catch(next);
+      .catch(next);  
   },
 
   // delete an entry to the db
