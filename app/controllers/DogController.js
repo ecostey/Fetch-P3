@@ -37,9 +37,9 @@ module.exports = {
       picture: req.body.picture,
     };
     
-    dogModel.createOne(data)
-      .then((dogs) => {
-        res.locals.dogs = dogs;
+    dogModel.newDog(data)
+      .then((dog) => {
+        res.locals.dog = dog;
         next();
       })
       .catch(next);
