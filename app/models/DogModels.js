@@ -9,4 +9,11 @@ module.exports = {
         `);
   },
 
+  getOne(id) {
+    return db.one(`
+      SELECT *
+      FROM dogs
+      WHERE id = $1`, id);
+  },
+
 };
