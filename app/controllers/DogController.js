@@ -26,25 +26,47 @@ module.exports = {
 
 
   // create a new entry to the db
-  // createOne(req, res, next) {
-  //   const data = {
-  //     owner: req.body.owner,
-  //     name: req.body.name,
-  //     breed: req.body.breed,
-  //   }
+  createOne(req, res, next) {
+    const data = {
+      owner: req.body.owner,
+      name: req.body.name,
+      breed: req.body.breed,
+      size: req.body.size,
+      age: req.body.age,
+      picture: req.body.picture,
+    };
 
-  // }
-
-
-  //update the new entry to the db 
-  // updateDog( req, res, next) {
-  //   const data {
-  
-  //   }
-  // }
-
-  //delete an entry to the db
+    dogModel.createOne(data)
+      .then((dogs) => {
+        res.locals.dogs = dogs;
+      })
+      .catch(next);
+  },
 
 
+  // update the new entry to the db
+  updateDog(req, res, next) {
+    const data = {
+      owner: req.body.owner,
+      name: req.body.breed,
+      size: req.body.size,
+      age: req.body.age,
+      picture: req.body.picture,
+    };
+    dogModel.updateDog(data)
+      .then((dog) => {
+        res.locals.dog = dog;
+      })
+      .catch(next);  
+  },
 
+  // delete an entry to the db
+  deleteDog(req, res, next) {
+    dogModel.deleteDog(req.params.id)
+      .then(() => {
+        res.json({ message: 'This entry has been deleted' });
+      })
+
+      .catch(next);
+  },
 };
