@@ -1,7 +1,7 @@
 const pgp = require('pg-promise')();
 
 const opts = {
-  database: 'fetch_db'
+  database: 'fetch_db',
 };
 
 const db = pgp(opts);
