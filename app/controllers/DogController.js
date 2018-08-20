@@ -17,8 +17,8 @@ module.exports = {
   getOneDog(req, res, next) {
     debugger;
     dogModel.getOneDog(req.params.id)
-      .then((dogs) => {
-        res.locals.dogs = dogs;
+      .then((dog) => {
+        res.locals.dog = dog;
         next();
       })
       .catch(next);
@@ -35,9 +35,9 @@ module.exports = {
       picture: req.body.picture,
     };
     
-    dogModel.createOne(data)
-      .then((dogs) => {
-        res.locals.dogs = dogs;
+    dogModel.newDog(data)
+      .then((dog) => {
+        res.locals.dog = dog;
         next();
       })
       .catch(next);

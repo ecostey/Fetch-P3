@@ -22,13 +22,13 @@ module.exports = {
     db.one(`
       UPDATE gradebook
       SET
-      potty_traning = $/potty_training/
+      potty_training = $/potty_training/
       stay = $/stay/
       leash_training = $/leash_training/
       sit = $/sit/
       quiet = $/quiet/
       leave_it = $/leave_it/
       comments = $/comments/
-      WHERE dog_id = $/dog_id/`, data)
+      WHERE dogs_id = $/dogs_id/`, data)
   },
 };

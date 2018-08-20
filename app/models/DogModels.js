@@ -58,9 +58,9 @@ module.exports = {
   // Accessed through puppyProfile page
   deleteDog(id) {
     return db.none(`
-      DELETE FROM dogs
-      WHERE id = $/id/
-      `, id);
+    DELETE FROM dogs
+    WHERE id = $1
+    `, id);
   },
 
 };
