@@ -8,5 +8,5 @@ const db = pgp(opts);
 
 module.exports = {
   pgp,
-  db
+  db,
 };
