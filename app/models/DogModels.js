@@ -2,6 +2,8 @@ const { db, pgp } = require('../config/conn');
 
 module.exports = {
 
+  //Query for ALL dogs.
+  //Will be displayed on the Landing page.
   index() {
     return db.many(`
         SELECT *
@@ -9,14 +11,35 @@ module.exports = {
         `);
   },
 
+  //Query for ONE dog & dog's grades by dog's ID.
+  //Will be displayed on the puppyProfile page.
   getOneDog(id) {
     return db.one(`
       SELECT *
       FROM dogs
       JOIN gradebook
       ON gradebook.dogs_id = dogs.id
-      WHERE gradebook.dogs_id = $1
+      WHERE dogs.id = $1
     `, id)
-  }
+  },
+
+  //Query creates & adds one new dog to dogs Table
+  //Will be used in the 'Create New Dog Form', accessable through the landing pg.
+  newDog() {
+
+  },
+
+  //Query to update a dog's data in the dog's table
+  //Update form will be accessed through puppyProfile page
+  updateDog() {
+
+  },
+
+  //Query to Delete a dog from dog's table and gradebook table
+  //Accessed through puppyProfile page
+  deleteDog()
+ {
+
+ },
 
 };

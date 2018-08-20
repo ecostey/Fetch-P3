@@ -5,7 +5,6 @@ DROP TABLE IF EXISTS dogs, gradebook;
 CREATE TABLE dogs (
     id SERIAL PRIMARY KEY NOT NULL,
     owner VARCHAR(40) NOT NULL,
-
     name VARCHAR(40) NOT NULL,
     breed VARCHAR(40) NOT NULL,
     size VARCHAR(40) NOT NULL,
