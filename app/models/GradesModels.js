@@ -29,6 +29,6 @@ module.exports = {
       quiet = $/quiet/
       leave_it = $/leave_it/
       comments = $/comments/
-      WHERE dogs_id = $/dogs_id/`, data)
+      WHERE dogs_id = $/dogs_id/`, data);
   },
 };

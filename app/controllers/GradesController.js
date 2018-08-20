@@ -2,7 +2,7 @@ const gradesModel = require('../models/GradesModels');
 
 module.exports = {
 
-  //Call getAll function from Models and store returned data in res.locals.
+  // Call getAll function from Models and store returned data in res.locals.
   getAll(req, res, next) {
     gradesModel.getAll()
       .then((grades) => {
@@ -11,7 +11,7 @@ module.exports = {
       .catch(next);
   },
 
-  //Call getOne function from Models and store returned data in res.locals.
+  // Call getOne function from Models and store returned data in res.locals.
   getOneGrade(req, res, next) {
     gradesModel.getOne()
       .then((grade) => {
@@ -20,9 +20,9 @@ module.exports = {
       .catch(next);
   },
 
-  //Set user input in object 'gradeData' & pass as a parameter to
-  //the updateOne function from Models. 
-  //Store returned data in res.locals.
+  // Set user input in object 'gradeData' & pass as a parameter to
+  // the updateOne function from Models
+  // Store returned data in res.locals.
   updateGrade(req, res, next) {
     const gradeData = {
       potty_training: req.body.potty_training,
@@ -32,13 +32,13 @@ module.exports = {
       quiet: req.body.quiet,
       leave_it: req.body.leave_it,
       comment: req.body.comment,
-    }
+    };
 
     gradesModel.updateOne(gradeData)
-      .then(grade => {
+      .then((grade) => {
         res.locals.grade = grade;
         next();
       });
-  }
+  },
 
 };
