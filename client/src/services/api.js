@@ -17,7 +17,7 @@ export function fetchOneDog(id) {
 }
 
 export function updateDoggy(dogs) {
-    return fetch(`${BASE_URL}/${id}`)
+    return fetch(`${BASE_URL}/${dog.id}`)
     .then(resp => resp.json())
     .catch((e) => {
         throw Error(e);
