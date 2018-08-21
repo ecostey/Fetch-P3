@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import DogsIndex from './components/DogsIndex';
 import UpdateDog from './components/UpdateDog';
 import PupProfile from './components/PupProfile';
+import CreateForm from './components/CreateForm';
 
 import {
   fetchDogs, 
@@ -44,7 +45,7 @@ class App extends Component {
     .then(data => {
       this.setState({
         currentView: 'Dog Index',
-        dogs: data.dogs
+        dog: data.dog
       });
     });
   };
@@ -87,13 +88,12 @@ class App extends Component {
     switch(currentView) {
       case 'All Dogs':
       return <DogsIndex dogs={this.state.dogs} oneDog = {this.fetchOne}/>
-      break;
       case 'Pup Profile':
       return <PupProfile selectedDog={this.selectedDog} />;
-      break;
+      case 'Create Pup':
+      return <CreateForm dogs={this.state.dogs}/>
       // case 'Gradebook':
       // return <Gradebook />
-      // break;
     }
   }
 

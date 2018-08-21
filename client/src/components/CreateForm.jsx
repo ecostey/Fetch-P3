@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class CreateForm extends Component {
     constructor(props) {
-        super(props); {
+        super(props); 
             this.state = {
                 owner: '',
                 name: '',
@@ -10,8 +10,7 @@ class CreateForm extends Component {
                 size: '',
                 age: '',
                 picture: ''
-            }
-        };
+            };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
