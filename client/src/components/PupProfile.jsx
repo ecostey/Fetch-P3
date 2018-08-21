@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 // maybe needs a change
-import { fetchOneDog, updateDoggy } from '../services/api';
+import { fetchOneDog, updateDoggy, deleteDog } from '../services/api';
+import EditPupGrade from './EditPupGrades';
+import DeleteButton from './Deletebutton';
 import UpdateDog from './UpdateDog';
+
 
 
 class PupProfile extends Component {
@@ -39,6 +42,9 @@ class PupProfile extends Component {
   render() {
     return(
       <div>
+        <h2>{this.props.dog.name}</h2>
+        <EditPupGrade />
+        <DeleteButton dogs={this.state.dogs} handleDeleteClick={this.handleDeleteClick} />
         <h2>{this.state.name}</h2>
         <p>Owner: {this.state.owner}</p>
         <p>Breed: {this.state.breed}</p>
