@@ -6,12 +6,12 @@ class UpdateDog extends Component {
 
         const { dogs, dog } = props;
         this.state = {
-            owner: dog.owner,
-            name: dog.names,
-            breed: dog.breed,
-            size: dog.size,
-            age: dog.age,
-            picture: dog.picture,
+            owner:   this.props.owner,
+            name:    this.props.names,
+            breed:   this.props.breed,
+            size:    this.props.size,
+            age:     this.props.age,
+            picture: this.props.picture,
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -23,11 +23,11 @@ class UpdateDog extends Component {
     handleSubmit(e) {
         e.preventDefault();
         const data = {
-            owner: this.state.owner,
-            name: this.state.names,
-            breed: this.state.breed,
-            size: this.state.breed,
-            age: this.state.age,
+            owner:   this.state.owner,
+            name:    this.state.names,
+            breed:   this.state.breed,
+            size:    this.state.breed,
+            age:     this.state.age,
             picture: this.state.picture,
         }
         this.props.onSubmit(data);

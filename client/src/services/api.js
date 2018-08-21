@@ -32,7 +32,7 @@ export function updateDoggy(dogs) {
     });
 }
 
-export function editDogGrade(dog) {
+export function updateGrades(dog) {
     const opts = {
         method: 'PUT',
         body: JSON.stringify(dog),
