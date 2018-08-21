@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import DogsIndex from './components/DogsIndex';
 import UpdateDog from './components/UpdateDog';
 import PupProfile from './components/PupProfile';
-import UpdateGrades from './components/UpdateGrades';
-
+import CreateForm from './components/CreateForm';
+import Header from './components/Header';
 
 import {
   fetchDogs, 
@@ -20,7 +20,8 @@ class App extends Component {
       selectedDog: '',
       currentView: 'All Dogs',
     }
-
+    this.updateDoggy = this.updateDoggy.bind(this)
+    this.fetchOne = this.fetchOne.bind(this)
 
   }
 
@@ -45,18 +46,19 @@ class App extends Component {
     .then(data => {
       this.setState({
         currentView: 'Dog Index',
-        dogs: data.dogs
+        selectedDog: data.dog
       });
     });
-
-  }
-  // edit dog function
+  };
+  
+ // edit dog function
   updateDoggy(dog) {
     updateDoggy(dog)
-    .then(data => fetchOneDog())
+    .then(data => fetchOneDog(dog.id))
     .then(data => {
       this.setState({
-        dog : data.dog
+        currentView: 'Update Dog',
+        selectedDog : data.dog
       });
     })
   };
@@ -83,7 +85,7 @@ class App extends Component {
   // SWITCH statement for which page to view
   determineWhichToRender() {
     const { currentView } = this.state;
-    // const { dogs, selectedDog } = this.state;
+    const { dogs, selectedDog } = this.state;
 
     switch(currentView) {
       case 'All Dogs':
@@ -91,7 +93,11 @@ class App extends Component {
       break;
       case 'Pup Profile':
       return <PupProfile selectedDog={this.selectedDog} />;
-      break;
+      case 'Create Pup':
+      return <CreateForm dogs={this.state.dogs}/>
+      case 'Update Dog':
+      const dog = dogs.find(dog => dog.id === selectedDog.id)
+      return <UpdateDog dogs={this.state.dogs} dog={dog} onSubmit={this.updateDoggy} />
       // case 'Gradebook':
       // return <Gradebook />
       // break;
@@ -103,12 +109,17 @@ class App extends Component {
   }
 
   render() {
-    // const links = [
-    //   'All Dogs',
-    //   'Pup Profile'
-    // ]
+    const links = [
+      'All Dogs',
+      'Pup Profile',
+      'Create Pup',
+      'Update Dog'
+    ]
     return (
       <div className="App">
+        <Header
+          onClick={this.handleLinkClick.bind(this)}
+          links={links} />
         {this.determineWhichToRender()}
       </div>
     );
