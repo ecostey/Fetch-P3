@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // maybe needs a change
-import { fetchOneDog, updateDoggy, deleteDog } from '../services/api';
-import EditPupGrade from './EditPupGrades';
+import { fetchOneDog, updateDoggy, deleteDog, updateGrades } from '../services/api';
+import UpdateGrades from './UpdateGrades';
 import DeleteButton from './Deletebutton';
 import UpdateDog from './UpdateDog';
 
@@ -43,7 +43,7 @@ class PupProfile extends Component {
     return(
       <div>
         <h2>{this.props.dog.name}</h2>
-        <EditPupGrade />
+        <UpdateGrades />
         <DeleteButton dogs={this.state.dogs} handleDeleteClick={this.handleDeleteClick} />
         <h2>{this.state.name}</h2>
         <p>Owner: {this.state.owner}</p>
