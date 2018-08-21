@@ -48,18 +48,18 @@ class App extends Component {
         dog: data.dog
       });
     });
-
-  }
-  // edit dog function
-  updateDoggy(dog) {
-    updateDoggy(dog)
-    .then(data => fetchOneDog())
-    .then(data => {
-      this.setState({
-        dog : data.dog
-      });
-    })
   };
+  
+  // edit dog function
+  // updateDoggy(dog) {
+  //   updateDoggy(dog)
+  //   .then(data => fetchOneDog())
+  //   .then(data => {
+  //     this.setState({
+  //       dog : data.dog
+  //     });
+  //   })
+  // };
 
   // delete dog function
 
