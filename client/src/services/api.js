@@ -10,10 +10,10 @@ export function fetchDogs() {
 
 export function fetchAllGrades() {
     return fetch(`${BASE_URL}/grades`)
-    .then(resp => resp.json())
-    .catch(e => {
-        throw Error(e);
-    });
+        .then(resp => resp.json())
+        .catch(e => {
+            throw Error(e);
+        });
 }
 
 export function fetchOneDog(id) {
@@ -56,15 +56,26 @@ export function updateGrades(dog) {
 
 export function saveNewDog(dog) {
     const opts = {
-      method: 'POST',
-      body: JSON.stringify(dog),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
-    return fetch(`${BASE_URL}/dogs/${dog.id}`, opts)
+        method: 'POST',
+        body: JSON.stringify(dog),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+    return fetch(`${BASE_URL}/dogs`, opts)
         .then(resp => resp.json())
-        .catch((e) => {
-            throw Error(e);
+        .catch(err => {
+            throw Error(err);
         });
+}
+
+export function deleteDog(dog) {
+    const opts = {
+        method: 'Delete',
+    }
+
+    return fetch(`${BASE_URL}/dogs/${dog.id}`, opts)
+    .catch ((e) => {
+        throw Error(e);
+    });
 }

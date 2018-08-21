@@ -15,7 +15,7 @@ router.get('/:id',
 // create a new dog student
 router.post('/',
   DogController.createOne,
-  (req, res) => res.json(res.locals.dogs));
+  (req, res) => res.json(res.locals.dog));
 
 // update dog by id
 router.put('/:id',
