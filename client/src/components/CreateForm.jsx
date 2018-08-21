@@ -17,7 +17,7 @@ class CreateForm extends Component {
 
 handleSubmit(ev) {
     ev.preventDefault();
-    this.props.createDog(this.state);
+    this.props.newDog(this.state);
     // .then(createDog())
 };
 handleChange(ev) {
@@ -67,16 +67,15 @@ render() {
                     name="age"
                     value={this.state.age}
                     onChange={this.handleChange} >
-                    <option value="6mo">6mo</option>
-                    <option value="1yr">1yr</option>
-                    <option value="2yrs">2yrs</option>
-                    <option value="3yrs">3yrs</option>
-                    <option value="4yrs">4yrs</option>
-                    <option value="5yrs">5yrs</option>
-                    <option value="6yrs">6yrs</option>
-                    <option value="7yrs">7yrs</option>
-                    <option value="8yrs">8yrs</option>
-                    <option value="9+yrs">9+yrs</option>
+                    <option value="1">1yr</option>
+                    <option value="2">2yrs</option>
+                    <option value="3">3yrs</option>
+                    <option value="4">4yrs</option>
+                    <option value="5">5yrs</option>
+                    <option value="6">6yrs</option>
+                    <option value="7">7yrs</option>
+                    <option value="8">8yrs</option>
+                    <option value="9">9yrs</option>
                 </select>
                 <h4>Add a Picture url:</h4>
                 <input

@@ -56,10 +56,10 @@ class App extends Component {
     .then(data => fetchDogs())
     .then(data => {
       this.setState({
-        currentView: 'Dog Index',
-        dogs: data.dog
+        currentView: 'All Dogs',
+        dogs: data.dogs
       });
-    });
+    })
   };
 
   
@@ -69,8 +69,8 @@ class App extends Component {
     .then(data => fetchOneDog(dog.id))
     .then(data => {
       this.setState({
-        currentView: 'Update Dog',
-        dogs : data.dog
+        currentView: 'Pup Profile',
+        selectedDog : data.dog
       });
     })
   };
@@ -114,7 +114,7 @@ class App extends Component {
       dog={dog}
        />;
       case 'Create Pup':
-      return <CreateForm dogs={dogs}/>
+      return <CreateForm  newDog={this.createDog} />
       case 'Update Dog':
       return <UpdateDog dogs={dogs} dog={dog} onSubmit={this.updateDoggy} />
       // case 'Gradebook':
