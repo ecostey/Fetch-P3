@@ -16,6 +16,14 @@ export function fetchOneDog(id) {
         });
 }
 
+export function updateDoggy(dogs) {
+    return fetch(`${BASE_URL}/${id}`)
+    .then(resp => resp.json())
+    .catch((e) => {
+        throw Error(e);
+    });
+}
+
 export function editDogGrade(dog) {
     const opts = {
         method: 'PUT',
@@ -31,7 +39,6 @@ export function editDogGrade(dog) {
         });
 }
 
-
 export function saveNewDog(dog) {
     const opts = {
       method: 'POST',
@@ -41,4 +48,3 @@ export function saveNewDog(dog) {
       }
     };
 }
-

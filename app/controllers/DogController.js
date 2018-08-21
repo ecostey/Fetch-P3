@@ -2,7 +2,7 @@ const dogModel = require('../models/DogModels');
 
 module.exports = {
 
-  // get all of the dogs in the db & save to res.locals
+  // get all of the dogs in the db
   getAll(req, res, next) {
     dogModel.index()
       .then((dogs) => {
@@ -12,17 +12,19 @@ module.exports = {
       .catch(next);
   },
 
-  // get one dog in the data base by id & save returned data to res.locals
+  // get one dog in the data base by id
+
   getOneDog(req, res, next) {
     dogModel.getOneDog(req.params.id)
-      .then((dog) => {
-        res.locals.dog = dog;
+      .then((dogs) => {
+        res.locals.dogs = dogs;
         next();
       })
       .catch(next);
   },
 
-  // create a new entry to the dogs table & store data in res.locals
+
+  // create a new entry to the db
   createOne(req, res, next) {
 
     const data = {
@@ -33,7 +35,6 @@ module.exports = {
       age: req.body.age,
       picture: req.body.picture,
     };
-
     dogModel.newDog(data)
       .then((dog) => {
         res.locals.dog = dog;
@@ -41,13 +42,11 @@ module.exports = {
       .catch(next);
   },
 
-  // update one dog's data and store data in res.locals.
+  // update the new entry to the db
   updateDog(req, res, next) {
     const data = {
-      id: req.params.id,
       owner: req.body.owner,
       name: req.body.breed,
-      breed: req.body.breed,
       size: req.body.size,
       age: req.body.age,
       picture: req.body.picture,
@@ -60,7 +59,7 @@ module.exports = {
       .catch(next);
   },
 
-  // delete one dog from the db
+  // delete an entry to the db
   deleteDog(req, res, next) {
     dogModel.deleteDog(req.params.id)
       .then(() => {
