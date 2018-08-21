@@ -74,11 +74,11 @@ class App extends Component {
  // edit dog function
   updateDoggy(dog) {
     updateDoggy(dog)
-    .then(data => fetchOneDog(dog.id))
+    .then(data => fetchDogs())
     .then(data => {
       this.setState({
-        currentView: 'Update Dog',
-        dogs : data.dog
+        currentView: 'All Dogs',
+        dogs : data.dogs
       });
     })
   };

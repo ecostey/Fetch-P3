@@ -4,10 +4,11 @@ class UpdateDog extends Component {
     constructor(props) {
         super(props);
 
-        const { dogs, dog, selectedDog} = props;
+        const { selectedDog } = props;
         this.state = {
+            id:      selectedDog.id,
             owner:   selectedDog.owner,
-            name:    selectedDog.names,
+            name:    selectedDog.name,
             breed:   selectedDog.breed,
             size:    selectedDog.size,
             age:     selectedDog.age,
@@ -23,10 +24,11 @@ class UpdateDog extends Component {
     handleSubmit(e) {
         e.preventDefault();
         const data = {
+            id:      this.state.id,
             owner:   this.state.owner,
-            name:    this.state.names,
+            name:    this.state.name,
             breed:   this.state.breed,
-            size:    this.state.breed,
+            size:    this.state.size,
             age:     this.state.age,
             picture: this.state.picture,
         }
