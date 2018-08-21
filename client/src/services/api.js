@@ -8,6 +8,14 @@ export function fetchDogs() {
         });
 }
 
+export function fetchAllGrades() {
+    return fetch(`${BASE_URL}/grades`)
+    .then(resp => resp.json())
+    .catch(e => {
+        throw Error(e);
+    });
+}
+
 export function fetchOneDog(id) {
     return fetch(`${BASE_URL}/${id}`)
         .then(resp => resp.json())

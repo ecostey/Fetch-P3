@@ -10,6 +10,7 @@ import {
   fetchOneDog,
   updateDoggy,
   editDogGrade,
+  saveNewDog,
 } from './services/api';
 
 class App extends Component {
@@ -20,8 +21,10 @@ class App extends Component {
       selectedDog: '',
       currentView: 'All Dogs',
     }
-    this.updateDoggy = this.updateDoggy.bind(this)
-    this.fetchOne = this.fetchOne.bind(this)
+    this.fetchOne = this.fetchOne.bind(this);
+    this.createDog = this.createDog.bind(this);
+    this.updateDoggy = this.updateDoggy.bind(this);
+    this.editDogGrades = this.editDogGrades.bind(this);
 
   }
 
@@ -40,7 +43,7 @@ class App extends Component {
   };
 
   // create dog function
-  createDog() {
+  createDog(dog) {
     saveNewDog(dog)
     .then(data => fetchDogs())
     .then(data => {
@@ -50,6 +53,7 @@ class App extends Component {
       });
     });
   };
+
   
  // edit dog function
   updateDoggy(dog) {
@@ -89,8 +93,7 @@ class App extends Component {
 
     switch(currentView) {
       case 'All Dogs':
-      return <DogsIndex dogs={this.state.dogs} oneDog = {this.fetchOne}/>
-      break;
+      return <DogsIndex dogs={this.state.dogs} oneDog={this.fetchOne} newDog={this.createDog} />
       case 'Pup Profile':
       return <PupProfile selectedDog={this.selectedDog} />;
       case 'Create Pup':
@@ -100,7 +103,6 @@ class App extends Component {
       return <UpdateDog dogs={this.state.dogs} dog={dog} onSubmit={this.updateDoggy} />
       // case 'Gradebook':
       // return <Gradebook />
-      // break;
     }
   }
 
