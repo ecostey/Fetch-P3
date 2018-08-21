@@ -8,6 +8,7 @@ import {
   fetchOneDog,
   updateDoggy,
   editDogGrade,
+  saveNewDog,
 } from './services/api';
 
 class App extends Component {
@@ -37,7 +38,7 @@ class App extends Component {
   };
 
   // create dog function
-  createDog() {
+  createDog(dog) {
     saveNewDog(dog)
     .then(data => fetchDogs())
     .then(data => {
