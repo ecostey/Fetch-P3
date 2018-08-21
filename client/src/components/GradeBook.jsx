@@ -1,7 +1,6 @@
 import React from 'react';
 
-
-function Gradebook(props) {
+function GradeBook(props) {
         return (
             <div>
                 <h1>Fetch</h1>
@@ -35,8 +34,8 @@ function Gradebook(props) {
                     }
                 </div>
             </div>
-        );
+        )
 }
 
+export default GradeBook;
 
-export default Gradebook;
