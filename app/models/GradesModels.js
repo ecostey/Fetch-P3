@@ -4,8 +4,11 @@ module.exports = {
   // get all grades for gradebook page
   getAll() {
     return db.many(`
-      SELECT *
-      FROM gradebook`);
+      SELECT dogs.name, gradebook.potty_training, gradebook.leash_training, gradebook.stay, gradebook.sit, gradebook.quiet, gradebook.leave_it
+      FROM gradebook
+      JOIN dogs
+      ON dogs.id = gradebook.dogs_id
+      `);
   },
 
   // get grades for one dog
