@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 function GradeBook(props) {
         return (
             <div>
@@ -38,5 +37,5 @@ function GradeBook(props) {
         )
 }
 
-
 export default GradeBook;
+
