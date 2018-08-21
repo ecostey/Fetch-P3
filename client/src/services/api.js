@@ -33,10 +33,7 @@ export function updateDoggy(dogs) {
         }
       };
     return fetch(`${BASE_URL}/dogs/${dogs.id}`, opts)
-    .then(resp => resp.json())
-    .catch((e) => {
-        throw Error(e);
-    });
+    .then(resp => resp.json());
 }
 
 export function updateGrades(dog) {

@@ -4,18 +4,11 @@ function DogsIndex(props) {
     return (
         <div>
         <h1>Fetch</h1>
-        <span>
-            <button onClick={(e) => {
-                e.preventDefault();
-                props.createDogView();
-            }}>Add New Pup</button>
-            <button onClick="">Gradebook</button>
-        </span>
         <div>
             {
                 props.dogs.map(dog => (
                     <div key={dog.id}>
-                    <img src={dog.url} alt={dog.name}/>
+                    <img src={dog.picture} alt={dog.name}/>
                     <p>{dog.name}</p>
                     <p>{dog.breed}, {dog.age}yrs</p>
                     <button 
