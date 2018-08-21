@@ -124,7 +124,7 @@ class App extends Component {
       return <PupProfile 
       dogs={dogs} 
       editDog={this.editDog}
-      dog={dog}
+      dog={selectedDog}
        />;
       case 'Create Pup':
       return <CreateForm  newDog={this.createDog} />
