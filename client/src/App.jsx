@@ -50,15 +50,15 @@ class App extends Component {
   };
   
   // edit dog function
-  updateDoggy(dog) {
-    updateDoggy(dog)
-    .then(data => fetchOneDog())
-    .then(data => {
-      this.setState({
-        dog : data.dog
-      });
-    })
-  };
+  // updateDoggy(dog) {
+  //   updateDoggy(dog)
+  //   .then(data => fetchOneDog())
+  //   .then(data => {
+  //     this.setState({
+  //       dog : data.dog
+  //     });
+  //   })
+  // };
 
   // delete dog function
 
