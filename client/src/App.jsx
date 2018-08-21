@@ -3,7 +3,7 @@ import DogsIndex from './components/DogsIndex';
 import UpdateDog from './components/UpdateDog';
 import PupProfile from './components/PupProfile';
 import CreateForm from './components/CreateForm';
-import Gradebook from './components/Gradebook'
+import GradeBook from './components/GradeBook'
 import Header from './components/Header';
 
 import {
@@ -133,8 +133,8 @@ class App extends Component {
       dog={dog} 
       selectedDog={this.state.selectedDog}
       onSubmit={this.updateDoggy} />
-      // case 'Gradebook':
-      // return <Gradebook />
+      case 'Gradebook':
+      return <GradeBook />
     }
   }
 
@@ -147,7 +147,8 @@ class App extends Component {
       'All Dogs',
       'Pup Profile',
       'Create Pup',
-      'Update Dog'
+      'Update Dog',
+      'GradeBook'
     ]
     return (
       <div className="App">

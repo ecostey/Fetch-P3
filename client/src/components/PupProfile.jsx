@@ -33,12 +33,12 @@ class PupProfile extends Component {
   // handle submit
 
   // handle delete 
-  // handleDeleteClick(id) {
-  //   deleteDog(id)
-  //     .then(res => {
-  //       this.fetchOneDog();
-  //     })
-  // }
+  handleDeleteClick(id) {
+    deleteDog(id)
+      .then(res => {
+        this.fetchOneDog();
+      })
+  }
 
   render() {
     return(
