@@ -15,11 +15,11 @@ CREATE TABLE dogs (
 CREATE TABLE gradebook (
     id SERIAL PRIMARY KEY,
     dogs_id INT REFERENCES dogs(id) ON DELETE CASCADE,
-    potty_training BOOLEAN,
-    stay BOOLEAN, 
-    leash_training BOOLEAN,
-    sit BOOLEAN,
-    quiet BOOLEAN, 
-    leave_it BOOLEAN, 
+    potty_training BOOLEAN DEFAULT false,
+    stay BOOLEAN DEFAULT false, 
+    leash_training BOOLEAN DEFAULT false,
+    sit BOOLEAN DEFAULT false,
+    quiet BOOLEAN DEFAULT false, 
+    leave_it BOOLEAN DEFAULT false, 
     comments TEXT
 );

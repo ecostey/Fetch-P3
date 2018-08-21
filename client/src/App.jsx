@@ -18,7 +18,7 @@ class App extends Component {
     .then(data => this.setState({dogs: data.dogs}));
   };
 
-  // select dog function
+  // select one dog & set state
   fetchOne() {
     fetchOneDog(this.state.dog.id)
     .then(data => this.setState({dog: data.dog}))
@@ -26,6 +26,14 @@ class App extends Component {
 
   // create dog function
   createDog() {
+    saveNewDog(dog)
+    .then(data => fetchDogs())
+    .then(data => {
+      this.setState({
+        currentView: 'Dog Index',
+        dogs: data.dogs
+      });
+    });
 
   }
   // edit dog function
