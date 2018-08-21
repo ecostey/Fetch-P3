@@ -9,7 +9,7 @@ class UpdateBook extends Component {
             owner: dog.owner,
             name: dog.names,
             breed: dog.breed,
-            size: dog.breed,
+            size: dog.size,
             age: dog.age,
             picture: dog.picture,
         };
@@ -51,40 +51,40 @@ class UpdateBook extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <input
                         name="Owner"
-                        value={this.state.owner}
+                        value={owner}
                         onChange={this.handleChange} />
 
                     <input
                         name="Name"
-                        value={this.state.name}
+                        value={name}
                         onChange={this.handleChange} />
 
                     <input
                         name="Breed"
-                        value={this.state.bree}
+                        value={breed}
                         onChange={this.handleChange} />
 
                     <input
                         name="Size"
-                        value={this.state.size}
+                        value={size}
                         onChange={this.handleChange} />
 
                     <input
                         name="Age"
-                        value={this.state.age}
+                        value={age}
                         onChange={this.handleChange} />
 
                     <input
                         name="Picture"
-                        value={this.state.picture}
+                        value={picture}
                         onChange={this.handleChange} />
 
                     )}
                     
-                    <input type="submit" value="Update Profile" />
-                    </form>
-                    </div>
-        )};
-}
+//                     <input type="submit" value="Update Profile" />
+//                     </form>
+//                     </div>
+//         )};
+// }
 
-export default UpdateBook;
+// export default UpdateBook;
