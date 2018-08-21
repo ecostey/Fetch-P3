@@ -3,7 +3,7 @@ import DogsIndex from './components/DogsIndex';
 import UpdateDog from './components/UpdateDog';
 import PupProfile from './components/PupProfile';
 import CreateForm from './components/CreateForm';
-import GradeBook from './components/GradeBook'
+import Gradebook from './components/Gradebook'
 
 import {
   fetchDogs, 

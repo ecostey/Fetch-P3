@@ -5,4 +5,4 @@ function(){
 }
 
 
-export default GradeBook;
+export default Gradebook;
