@@ -147,7 +147,8 @@ class App extends Component {
       'All Dogs',
       'Pup Profile',
       'Create Pup',
-      'Update Dog'
+      'Update Dog',
+      'Gradebook'
     ]
     return (
       <div className="App">
