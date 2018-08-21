@@ -46,8 +46,8 @@ class App extends Component {
         dogs: data.dogs
       });
     });
-
-  }
+  };
+  
   // edit dog function
   updateDoggy(dog) {
     updateDoggy(dog)
