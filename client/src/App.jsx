@@ -3,7 +3,6 @@ import DogsIndex from './components/DogsIndex';
 import UpdateDog from './components/UpdateDog';
 import PupProfile from './components/PupProfile';
 import CreateForm from './components/CreateForm';
-import GradeBook from './components/GradeBook'
 import Header from './components/Header';
 
 import {
@@ -11,6 +10,7 @@ import {
   fetchOneDog,
   updateDoggy,
   editDogGrade,
+  saveNewDog,
 } from './services/api';
 
 class App extends Component {
@@ -43,7 +43,7 @@ class App extends Component {
   };
 
   // create dog function
-  createDog() {
+  createDog(dog) {
     saveNewDog(dog)
     .then(data => fetchDogs())
     .then(data => {
@@ -103,7 +103,6 @@ class App extends Component {
       return <UpdateDog dogs={this.state.dogs} dog={dog} onSubmit={this.updateDoggy} />
       // case 'Gradebook':
       // return <Gradebook />
-      // break;
     }
   }
 
