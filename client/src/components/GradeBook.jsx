@@ -9,7 +9,7 @@ function gradeList(props) {
                 {
                     <table style="width:100%">
                         <tr>
-                            <th>Pup's Name</th>
+                            <th>Name</th>
                             <th>Potty Training</th>
                             <th>Leash Training</th>
                             <th>Stay</th>
