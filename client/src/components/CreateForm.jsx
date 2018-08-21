@@ -17,7 +17,8 @@ class CreateForm extends Component {
 
 handleSubmit(ev) {
     ev.preventDefault();
-    this.props.createDog(this.state);
+    this.props.newDog(this.state);
+    debugger;
     // .then(createDog())
 };
 handleChange(ev) {

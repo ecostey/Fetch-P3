@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // maybe needs a change
 import { fetchOneDog, updateDoggy } from '../services/api';
-import EditPupGrade from './EditPupGrades';
+// import EditPupGrade from './EditPupGrades';
 
 
 class PupProfile extends Component {
@@ -27,7 +27,7 @@ class PupProfile extends Component {
     return (
       <div>
         <h2>{this.props.dog.name}</h2>
-        <EditPupGrade />
+        {/* <EditPupGrade /> */}
       </div>
     )
     // render pup profile

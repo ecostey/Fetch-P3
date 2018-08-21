@@ -9,7 +9,7 @@ import {
   fetchDogs, 
   fetchOneDog,
   updateDoggy,
-  editDogGrade,
+  // editDogGrade,
   saveNewDog,
 } from './services/api';
 
@@ -24,7 +24,7 @@ class App extends Component {
     this.fetchOne = this.fetchOne.bind(this);
     this.createDog = this.createDog.bind(this);
     this.updateDoggy = this.updateDoggy.bind(this);
-    this.editDogGrades = this.editDogGrades.bind(this);
+    // this.editDogGrades = this.editDogGrades.bind(this);
 
   }
 
@@ -49,7 +49,7 @@ class App extends Component {
     .then(data => {
       this.setState({
         currentView: 'Dog Index',
-        selectedDog: data.dog
+        selectedDog: data
       });
     });
   };
@@ -61,7 +61,7 @@ class App extends Component {
     .then(data => fetchOneDog(dog.id))
     .then(data => {
       this.setState({
-        currentView: 'Update Dog',
+        currentView: 'Pup Profile',
         selectedDog : data.dog
       });
     })
@@ -70,16 +70,16 @@ class App extends Component {
   // delete dog function
 
   // edit dog grade function
-  editDogGrades(id) {
-    editDogGrade(id)
-    .then(data => this.fetchOne(id))
-    .then(data => {
-      this.setState({
-        currentView: 'Pup Profile',
-        selectedDog: data.dog
-      })
-    })
-  }
+  // editDogGrades(id) {
+  //   editDogGrade(id)
+  //   .then(data => this.fetchOne(id))
+  //   .then(data => {
+  //     this.setState({
+  //       currentView: 'Pup Profile',
+  //       selectedDog: data.dog
+  //     })
+  //   })
+  // }
 
   // select grade function
   // create grade function? tbd
@@ -93,11 +93,11 @@ class App extends Component {
 
     switch(currentView) {
       case 'All Dogs':
-      return <DogsIndex dogs={this.state.dogs} oneDog={this.fetchOne} newDog={this.createDog} />
+      return <DogsIndex dogs={this.state.dogs} oneDog={this.fetchOne} />
       case 'Pup Profile':
       return <PupProfile selectedDog={this.selectedDog} />;
       case 'Create Pup':
-      return <CreateForm dogs={this.state.dogs}/>
+      return <CreateForm  newDog={this.createDog} dogs={this.state.dogs} />
       case 'Update Dog':
       const dog = dogs.find(dog => dog.id === selectedDog.id)
       return <UpdateDog dogs={this.state.dogs} dog={dog} onSubmit={this.updateDoggy} />

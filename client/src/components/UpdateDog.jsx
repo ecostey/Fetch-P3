@@ -79,7 +79,7 @@ class UpdateDog extends Component {
 
                     )}
                     
-                   <input type="submit" value="Update Profile" />
+                   <input type="submit" value="Pup Profile" />
                    </form>
                    </div>
         )};
