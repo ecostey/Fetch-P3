@@ -3,19 +3,21 @@ import React, { Component } from 'react';
 import { fetchOneDog, updateDoggy, deleteDog } from '../services/api';
 import EditPupGrade from './EditPupGrades';
 import DeleteButton from './Deletebutton';
+import UpdateDog from './UpdateDog';
 
 
 
 class PupProfile extends Component {
   constructor(props) {
     super(props);
+    const { dogs, dog } = props;
     this.state = {
-      owner: '',
-      name: '',
-      breed: '',
-      size: '',
-      age: '',
-      picture: '',
+      owner: dog.owner,
+      name: dog.name,
+      breed: dog.breed,
+      size: dog.size,
+      age: dog.age,
+      picture: dog.picture,
     }
 
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
@@ -43,6 +45,11 @@ class PupProfile extends Component {
         <h2>{this.props.dog.name}</h2>
         <EditPupGrade />
         <DeleteButton dogs={this.state.dogs} handleDeleteClick={this.handleDeleteClick} />
+        <h2>{this.state.name}</h2>
+        <p>Owner: {this.state.owner}</p>
+        <p>Breed: {this.state.breed}</p>
+        <p>Size: {this.state.size}</p>
+        <p>Age: {this.state.age}</p>
       </div>
      
     // render pup profile
