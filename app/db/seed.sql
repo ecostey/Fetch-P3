@@ -1,10 +1,10 @@
 \c fetch_db
 
-INSERT INTO dogs (owner, name, breed, size, age)
+INSERT INTO dogs (owner, name, breed, size, age, picture)
 VALUES
-('Liz Costey', 'Rocky', 'Pekingnese Mix', 'small', 8),
-('Roland Munich', 'Frank', 'Bulldog', 'medium', 1),
-('Carol Wang', 'Link', 'Lab Pitbull Mix', 'large', 3)
+('Liz Costey', 'Rocky', 'Pekingnese Mix', 'small', 8, 'https://imgur.com/lVrddVK'),
+('Roland Munich', 'Frank', 'Bulldog', 'medium', 1, 'https://imgur.com/1KqLMM0'),
+('Carol Wang', 'Link', 'Lab Pitbull Mix', 'large', 3, 'https://imgur.com/45jd3Eu')
 ;
 
 INSERT INTO gradebook (dogs_id, potty_training, stay, leash_training, sit, quiet, leave_it)
