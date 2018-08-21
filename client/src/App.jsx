@@ -23,7 +23,7 @@ class App extends Component {
     }
     this.updateDoggy = this.updateDoggy.bind(this)
     this.fetchOne = this.fetchOne.bind(this)
-
+    this.selectDog = this.selectDog.bind(this)
   }
 
   componentDidMount() {
@@ -39,6 +39,13 @@ class App extends Component {
       currentView: 'Pup Profile'
     }))
   };
+
+  selectDog(dog) {
+    this.setState({
+      selectedDog: dog,
+      currentView: 'Pup Profile'
+    })
+  }
 
   // create dog function
   createDog(dog) {
@@ -90,14 +97,14 @@ class App extends Component {
 
     switch(currentView) {
       case 'All Dogs':
-      return <DogsIndex dogs={this.state.dogs} oneDog = {this.fetchOne}/>
+      return <DogsIndex dogs={dogs} oneDog = {this.fetchOne} selectDog={this.selectDog}/>
       case 'Pup Profile':
-      return <PupProfile selectedDog={this.selectedDog} />;
+      return <PupProfile dogs={dogs} selectedDog={this.selectedDog} />;
       case 'Create Pup':
-      return <CreateForm dogs={this.state.dogs}/>
+      return <CreateForm dogs={dogs}/>
       case 'Update Dog':
       const dog = dogs.find(dog => dog.id === selectedDog.id)
-      return <UpdateDog dogs={this.state.dogs} dog={dog} onSubmit={this.updateDoggy} />
+      return <UpdateDog dogs={dogs} dog={dog} onSubmit={this.updateDoggy} />
       // case 'Gradebook':
       // return <Gradebook />
     }
