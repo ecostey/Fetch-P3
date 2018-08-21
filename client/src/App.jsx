@@ -4,6 +4,7 @@ import UpdateDog from './components/UpdateDog';
 import PupProfile from './components/PupProfile';
 import CreateForm from './components/CreateForm';
 import Gradebook from './components/Gradebook'
+import Header from './components/Header';
 
 import {
   fetchDogs, 
@@ -21,7 +22,10 @@ class App extends Component {
       selectedDog: '',
       currentView: 'All Dogs',
     }
-
+    this.fetchOne = this.fetchOne.bind(this);
+    this.createDog = this.createDog.bind(this);
+    this.updateDoggy = this.updateDoggy.bind(this);
+    this.editDogGrades = this.editDogGrades.bind(this);
 
   }
 
@@ -46,21 +50,23 @@ class App extends Component {
     .then(data => {
       this.setState({
         currentView: 'Dog Index',
-        dog: data.dog
+        selectedDog: data.dog
       });
     });
   };
+
   
-  // edit dog function
-  // updateDoggy(dog) {
-  //   updateDoggy(dog)
-  //   .then(data => fetchOneDog())
-  //   .then(data => {
-  //     this.setState({
-  //       dog : data.dog
-  //     });
-  //   })
-  // };
+ // edit dog function
+  updateDoggy(dog) {
+    updateDoggy(dog)
+    .then(data => fetchOneDog(dog.id))
+    .then(data => {
+      this.setState({
+        currentView: 'Update Dog',
+        selectedDog : data.dog
+      });
+    })
+  };
 
   // delete dog function
 
@@ -84,15 +90,18 @@ class App extends Component {
   // SWITCH statement for which page to view
   determineWhichToRender() {
     const { currentView } = this.state;
-    // const { dogs, selectedDog } = this.state;
+    const { dogs, selectedDog } = this.state;
 
     switch(currentView) {
       case 'All Dogs':
-      return <DogsIndex dogs={this.state.dogs} oneDog = {this.fetchOne}/>
+      return <DogsIndex dogs={this.state.dogs} oneDog={this.fetchOne} newDog={this.createDog} />
       case 'Pup Profile':
       return <PupProfile selectedDog={this.selectedDog} />;
       case 'Create Pup':
       return <CreateForm dogs={this.state.dogs}/>
+      case 'Update Dog':
+      const dog = dogs.find(dog => dog.id === selectedDog.id)
+      return <UpdateDog dogs={this.state.dogs} dog={dog} onSubmit={this.updateDoggy} />
       // case 'Gradebook':
       // return <Gradebook />
     }
@@ -103,12 +112,17 @@ class App extends Component {
   }
 
   render() {
-    // const links = [
-    //   'All Dogs',
-    //   'Pup Profile'
-    // ]
+    const links = [
+      'All Dogs',
+      'Pup Profile',
+      'Create Pup',
+      'Update Dog'
+    ]
     return (
       <div className="App">
+        <Header
+          onClick={this.handleLinkClick.bind(this)}
+          links={links} />
         {this.determineWhichToRender()}
       </div>
     );
