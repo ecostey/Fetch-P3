@@ -2,7 +2,7 @@ import React from 'react';
 
 function DeleteButton(props) {
     return (
-        props.dogs.map(dog => {
+        props.dogs(dog => {
             return (
                 <div key={dog.id}>
                     <p>{dog.id}</p>

@@ -134,7 +134,7 @@ class App extends Component {
       selectedDog={this.state.selectedDog}
       onSubmit={this.updateDoggy} />
       // case 'Gradebook':
-      // return <Gradebook />
+      return <Gradebook />
     }
   }
 
