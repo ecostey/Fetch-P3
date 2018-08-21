@@ -61,3 +61,14 @@ export function saveNewDog(dog) {
             throw Error(e);
         });
 }
+
+export function deleteDog(dog) {
+    const opts = {
+        method: 'Delete',
+    }
+
+    return fetch(`${BASE_URL}/dogs/${dog.id}`, opts)
+    .catch ((e) => {
+        throw Error(e);
+    });
+}

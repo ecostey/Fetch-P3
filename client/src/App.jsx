@@ -9,7 +9,7 @@ import {
   fetchDogs, 
   fetchOneDog,
   updateDoggy,
-  editDogGrade,
+  updateGrades,
   saveNewDog,
 } from './services/api';
 
@@ -71,7 +71,7 @@ class App extends Component {
 
   // edit dog grade function
   editDogGrades(id) {
-    editDogGrade(id)
+    updateGrades(id)
     .then(data => this.fetchOne(id))
     .then(data => {
       this.setState({
