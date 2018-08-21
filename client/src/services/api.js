@@ -15,3 +15,14 @@ export function fetchOneDog(id) {
         throw Error(e);
     });
 }
+
+
+export function saveNewDog(dog) {
+    const opts = {
+      method: 'POST',
+      body: JSON.stringify(dog),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+}
