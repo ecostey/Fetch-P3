@@ -45,8 +45,10 @@ module.exports = {
   // update the new entry to the db
   updateDog(req, res, next) {
     const data = {
+      id: req.body.id,
+      breed: req.body.breed,
       owner: req.body.owner,
-      name: req.body.breed,
+      name: req.body.name,
       size: req.body.size,
       age: req.body.age,
       picture: req.body.picture,

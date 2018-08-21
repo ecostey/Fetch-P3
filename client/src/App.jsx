@@ -78,6 +78,7 @@ class App extends Component {
   
  // edit dog function
   updateDoggy(dog) {
+    console.log(dog)
     updateDoggy(dog)
     .then(data => fetchDogs())
     .then(data => {

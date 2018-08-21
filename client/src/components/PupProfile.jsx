@@ -44,8 +44,8 @@ class PupProfile extends Component {
     return(
       <div>
         <h2>{this.props.dog.name}</h2>
-        <UpdateGrades />
-        <DeleteButton dogs={this.state.dogs} handleDeleteClick={this.handleDeleteClick} />
+        {/* <UpdateGrades />
+        <DeleteButton dogs={this.state.dogs} handleDeleteClick={this.handleDeleteClick} /> */}
         <h2>{this.state.name}</h2>
         <p>Owner: {this.state.owner}</p>
         <p>Breed: {this.state.breed}</p>
