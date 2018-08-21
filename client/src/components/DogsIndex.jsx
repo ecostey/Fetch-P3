@@ -5,7 +5,10 @@ function DogsIndex(props) {
         <div>
         <h1>Fetch</h1>
         <span>
-            <button onclick="">Add New Pup</button>
+            <button onclick={(e) => {
+                e.preventDefault();
+                props.createDogView();
+            }}>Add New Pup</button>
             <button onclick="">Gradebook</button>
         </span>
         <div>

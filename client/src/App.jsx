@@ -20,7 +20,11 @@ class App extends Component {
       selectedDog: '',
       currentView: 'All Dogs',
     }
-
+    this.fetchOne = this.fetchOne.bind(this);
+    this.createDog = this.createDog.bind(this);
+    this.updateDoggy = this.updateDoggy.bind(this);
+    this.editDogGrades = this.editDogGrades.bind(this);
+    this.createDogView = this.createDogView.bind(this);
 
   }
 
@@ -49,17 +53,25 @@ class App extends Component {
       });
     });
   };
+
+  // change view to createDog
+
+  createDogView() {
+    this.setState({
+      currentView: 'Create Pup'
+    });
+  }
   
   // edit dog function
-  // updateDoggy(dog) {
-  //   updateDoggy(dog)
-  //   .then(data => fetchOneDog())
-  //   .then(data => {
-  //     this.setState({
-  //       dog : data.dog
-  //     });
-  //   })
-  // };
+  updateDoggy(dog) {
+    updateDoggy(dog)
+    .then(data => fetchOneDog())
+    .then(data => {
+      this.setState({
+        dog : data.dog
+      });
+    })
+  };
 
   // delete dog function
 
@@ -87,7 +99,7 @@ class App extends Component {
 
     switch(currentView) {
       case 'All Dogs':
-      return <DogsIndex dogs={this.state.dogs} oneDog = {this.fetchOne}/>
+      return <DogsIndex dogs={this.state.dogs} oneDog={this.fetchOne} newDog={this.createDog} createDogView={this.createDogView}/>
       case 'Pup Profile':
       return <PupProfile selectedDog={this.selectedDog} />;
       case 'Create Pup':

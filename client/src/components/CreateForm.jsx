@@ -17,8 +17,8 @@ class CreateForm extends Component {
 
     handleSubmit(ev) {
         ev.preventDefault();
-        this.props.onSubmit(this.state);
-        .then(createDog())
+        this.props.createDog(this.state);
+        // .then(createDog())
     }
 
     handleChange(ev) {
@@ -31,7 +31,7 @@ class CreateForm extends Component {
 
     render() {
         return (
-            <div className="NewDogForm">
+            <div>
             <button><a href="">Back</a></button>
                 <h2>Add a Dog to Your Class:</h2>
                 <form onSubmit={this.handleSubmit} >
@@ -86,7 +86,7 @@ class CreateForm extends Component {
                         onChange={this.handleChange} />
                     <input
                         type="submit"
-                        value="Add Dog" />
+                        value="Create Pup" />
                 </form>
             </div>
         )
