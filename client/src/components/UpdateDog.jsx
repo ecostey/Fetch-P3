@@ -9,7 +9,7 @@ class UpdateBook extends Component {
             owner: dog.owner,
             name: dog.names,
             breed: dog.breed,
-            size: dog.breed,
+            size: dog.size,
             age: dog.age,
             picture: dog.picture,
         };
@@ -81,10 +81,10 @@ class UpdateBook extends Component {
 
                     )}
                     
-                    <input type="submit" value="Update Profile" />
-                    </form>
-                    </div>
-        )};
-}
+//                     <input type="submit" value="Update Profile" />
+//                     </form>
+//                     </div>
+//         )};
+// }
 
-export default UpdateBook;
+// export default UpdateBook;

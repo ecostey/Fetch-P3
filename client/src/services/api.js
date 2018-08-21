@@ -3,7 +3,7 @@ const BASE_URL = 'http://localhost:3001';
 export function fetchDogs() {
     return fetch(`${BASE_URL}/dogs`)
         .then(resp => resp.json())
-        .catch((e) => {
+        .catch(e => {
             throw Error(e);
         });
 }
@@ -17,7 +17,7 @@ export function fetchOneDog(id) {
 }
 
 export function updateDoggy(dogs) {
-    return fetch(`${BASE_URL}/${dog.id}`)
+    return fetch(`${BASE_URL}/${dogs.id}`)
     .then(resp => resp.json())
     .catch((e) => {
         throw Error(e);
@@ -45,6 +45,11 @@ export function saveNewDog(dog) {
       body: JSON.stringify(dog),
       headers: {
         'Content-Type': 'application/json'
-      }
-    };
+      },
+    }
+    return fetch(`${BASE_URL}/dogs`, opts)
+        .then(resp => resp.json())
+        .catch((e) => {
+            throw Error(e);
+        });
 }

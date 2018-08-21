@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-class CreateDog extends Component {
+class CreateForm extends Component {
     constructor(props) {
-        super(props); {
+        super(props); 
             this.state = {
                 owner: '',
                 name: '',
@@ -10,8 +10,7 @@ class CreateDog extends Component {
                 size: '',
                 age: '',
                 picture: ''
-            }
-        };
+            };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -19,6 +18,7 @@ class CreateDog extends Component {
     handleSubmit(ev) {
         ev.preventDefault();
         this.props.onSubmit(this.state);
+        .then(createDog())
     }
 
     handleChange(ev) {
@@ -63,11 +63,21 @@ class CreateDog extends Component {
                         <option value="large">large</option>
                     </select>
                     <h4>Age:</h4>
-                    <input
-                        type="text"
+                    <select
                         name="age"
                         value={this.state.age}
-                        onChange={this.handleChange} />
+                        onChange={this.handleChange} >
+                        <option value="6mo">6mo</option>
+                        <option value="1yr">1yr</option>
+                        <option value="2yrs">2yrs</option>
+                        <option value="3yrs">3yrs</option>
+                        <option value="4yrs">4yrs</option>
+                        <option value="5yrs">5yrs</option>
+                        <option value="6yrs">6yrs</option>
+                        <option value="7yrs">7yrs</option>
+                        <option value="8yrs">8yrs</option>
+                        <option value="9+yrs">9+yrs</option>
+                    </select>
                     <h4>Add a Picture url:</h4>
                     <input
                         type="text"
@@ -83,4 +93,4 @@ class CreateDog extends Component {
     }
 }
 
-export default CreateAuthor;
+export default CreateForm;
