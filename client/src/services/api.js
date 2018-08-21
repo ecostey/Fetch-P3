@@ -57,4 +57,7 @@ export function saveNewDog(dog) {
     };
     return fetch(`${BASE_URL}/dogs`, opts)
         .then(resp => resp.json())
+        .catch(err => {
+            throw Error(err);
+        });
 }

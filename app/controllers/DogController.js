@@ -26,7 +26,6 @@ module.exports = {
 
   // create a new entry to the db
   createOne(req, res, next) {
-
     const data = {
       owner: req.body.owner,
       name: req.body.name,
@@ -38,6 +37,7 @@ module.exports = {
     dogModel.newDog(data)
       .then((dog) => {
         res.locals.dog = dog;
+        next();
       })
       .catch(next);
   },

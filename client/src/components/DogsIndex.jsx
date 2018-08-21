@@ -5,11 +5,11 @@ function DogsIndex(props) {
         <div>
         <h1>Fetch</h1>
         <span>
-            <button onclick={(e) => {
+            <button onClick={(e) => {
                 e.preventDefault();
                 props.createDogView();
             }}>Add New Pup</button>
-            <button onclick="">Gradebook</button>
+            <button onClick="">Gradebook</button>
         </span>
         <div>
             {
