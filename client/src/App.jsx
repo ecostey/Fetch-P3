@@ -21,9 +21,17 @@ class App extends Component {
       selectedDog: '',
       currentView: 'All Dogs',
     }
+<<<<<<< HEAD
     this.updateDoggy = this.updateDoggy.bind(this)
     this.fetchOne = this.fetchOne.bind(this)
     this.selectDog = this.selectDog.bind(this)
+=======
+    this.fetchOne = this.fetchOne.bind(this);
+    this.createDog = this.createDog.bind(this);
+    this.updateDoggy = this.updateDoggy.bind(this);
+    this.editDogGrades = this.editDogGrades.bind(this);
+
+>>>>>>> 961a78de41aa608225d5e487c5bf69633dca01b7
   }
 
   componentDidMount() {
@@ -58,6 +66,7 @@ class App extends Component {
       });
     });
   };
+
   
  // edit dog function
   updateDoggy(dog) {
@@ -97,7 +106,11 @@ class App extends Component {
 
     switch(currentView) {
       case 'All Dogs':
+<<<<<<< HEAD
       return <DogsIndex dogs={dogs} oneDog = {this.fetchOne} selectDog={this.selectDog}/>
+=======
+      return <DogsIndex dogs={this.state.dogs} oneDog={this.fetchOne} newDog={this.createDog} />
+>>>>>>> 961a78de41aa608225d5e487c5bf69633dca01b7
       case 'Pup Profile':
       return <PupProfile dogs={dogs} selectedDog={this.selectedDog} />;
       case 'Create Pup':

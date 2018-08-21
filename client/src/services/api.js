@@ -8,6 +8,14 @@ export function fetchDogs() {
         });
 }
 
+export function fetchAllGrades() {
+    return fetch(`${BASE_URL}/grades`)
+    .then(resp => resp.json())
+    .catch(e => {
+        throw Error(e);
+    });
+}
+
 export function fetchOneDog(id) {
     return fetch(`${BASE_URL}/${id}`)
         .then(resp => resp.json())
@@ -24,7 +32,7 @@ export function updateDoggy(dogs) {
     });
 }
 
-export function editDogGrade(dog) {
+export function updateGrades(dog) {
     const opts = {
         method: 'PUT',
         body: JSON.stringify(dog),
@@ -45,9 +53,9 @@ export function saveNewDog(dog) {
       body: JSON.stringify(dog),
       headers: {
         'Content-Type': 'application/json'
-      },
+      }
     }
-    return fetch(`${BASE_URL}/dogs`, opts)
+    return fetch(`${BASE_URL}/dogs/${dog.id}`, opts)
         .then(resp => resp.json())
         .catch((e) => {
             throw Error(e);

@@ -4,6 +4,7 @@
 //     constructor(props) {
 //         super(props);
 
+<<<<<<< HEAD
 //         const { dogs, dog } = props;
 //         this.state = {
 //             owner: dog.owner,
@@ -13,6 +14,17 @@
 //             age: dog.age,
 //             picture: dog.picture,
 //         };
+=======
+        const { dogs, dog } = props;
+        this.state = {
+            owner:   this.props.owner,
+            name:    this.props.names,
+            breed:   this.props.breed,
+            size:    this.props.size,
+            age:     this.props.age,
+            picture: this.props.picture,
+        };
+>>>>>>> 961a78de41aa608225d5e487c5bf69633dca01b7
 
 //         this.handleChange = this.handleChange.bind(this);
 //         this.handleSubmit = this.handleSubmit.bind(this);
@@ -20,6 +32,7 @@
 
 //     // create a handle submit for the form
 
+<<<<<<< HEAD
 //     handleSubmit(e) {
 //         e.preventDefault();
 //         const data = {
@@ -32,6 +45,20 @@
 //         }
 //         this.props.onSubmit(data);
 //     }
+=======
+    handleSubmit(e) {
+        e.preventDefault();
+        const data = {
+            owner:   this.state.owner,
+            name:    this.state.names,
+            breed:   this.state.breed,
+            size:    this.state.breed,
+            age:     this.state.age,
+            picture: this.state.picture,
+        }
+        this.props.onSubmit(data);
+    }
+>>>>>>> 961a78de41aa608225d5e487c5bf69633dca01b7
 
 //     handleChange(e) {
 //         e.preventDefault();
@@ -85,4 +112,8 @@
 //         )};
 // }
 
+<<<<<<< HEAD
 // export default UpdateDog;
+=======
+export default UpdateDog;
+>>>>>>> 961a78de41aa608225d5e487c5bf69633dca01b7
