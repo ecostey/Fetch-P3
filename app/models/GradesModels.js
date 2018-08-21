@@ -32,4 +32,15 @@ module.exports = {
       WHERE dogs_id = $/dogs_id/
       RETURNING *`, data);
   },
+
+  newGrade(data) {
+    return db.one(`
+    INSERT INTO gradebook
+    (dogs_id, potty_training, stay, leash_training, sit, quiet, leave_it)
+    VALUES
+    ($/dogs_id/, $/potty_training/, $/stay/, $/leash_training/, $/sit/, $/quiet/, $/leave_it/)
+    RETURNING *
+    `, data);
+  },
+
 };
