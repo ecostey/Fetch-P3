@@ -46,5 +46,10 @@ export function saveNewDog(dog) {
       headers: {
         'Content-Type': 'application/json'
       }
-    };
+    }
+    return fetch(`${BASE_URL}/dogs/${dog.id}`, opts)
+        .then(resp => resp.json())
+        .catch((e) => {
+            throw Error(e);
+        });
 }
