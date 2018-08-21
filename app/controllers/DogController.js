@@ -4,7 +4,6 @@ module.exports = {
 
   // get all of the dogs in the db & save to res.locals
   getAll(req, res, next) {
-    debugger;
     dogModel.index()
       .then((dogs) => {
         res.locals.dogs = dogs;
@@ -15,7 +14,6 @@ module.exports = {
 
   // get one dog in the data base by id & save returned data to res.locals
   getOneDog(req, res, next) {
-    debugger;
     dogModel.getOneDog(req.params.id)
       .then((dog) => {
         res.locals.dog = dog;
@@ -26,6 +24,7 @@ module.exports = {
 
   // create a new entry to the dogs table & store data in res.locals
   createOne(req, res, next) {
+
     const data = {
       owner: req.body.owner,
       name: req.body.name,
@@ -34,11 +33,10 @@ module.exports = {
       age: req.body.age,
       picture: req.body.picture,
     };
-    
+
     dogModel.newDog(data)
       .then((dog) => {
         res.locals.dog = dog;
-        next();
       })
       .catch(next);
   },
@@ -54,7 +52,7 @@ module.exports = {
       age: req.body.age,
       picture: req.body.picture,
     };
-    dogModel.updateDog(dogData)
+    dogModel.updateDog(data)
       .then((dog) => {
         res.locals.dog = dog;
         next();

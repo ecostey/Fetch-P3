@@ -31,3 +31,14 @@ export function editDogGrade(dog) {
         });
 }
 
+
+export function saveNewDog(dog) {
+    const opts = {
+      method: 'POST',
+      body: JSON.stringify(dog),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+}
+
