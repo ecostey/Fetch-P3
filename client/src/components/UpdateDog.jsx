@@ -6,12 +6,12 @@ class UpdateBook extends Component {
 
         const { owner, name, breed, size, age, picture } = props;
         this.state = {
-            owner: dog.owner,
-            name: dog.names,
-            breed: dog.breed,
-            size: dog.size,
-            age: dog.age,
-            picture: dog.picture,
+            owner: this.props.owner,
+            name: this.props.names,
+            breed: this.props.breed,
+            size: this.props.size,
+            age: this.props.age,
+            picture: this.props.picture,
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -81,10 +81,10 @@ class UpdateBook extends Component {
 
                     )}
                     
-//                     <input type="submit" value="Update Profile" />
-//                     </form>
-//                     </div>
-//         )};
-// }
+                    <input type="submit" value="Update Profile" />
+                    </form>
+                    </div>
+        )};
+}
 
-// export default UpdateBook;
+export default Updatedog;

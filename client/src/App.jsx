@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import DogsIndex from './components/DogsIndex';
 import UpdateDog from './components/UpdateDog';
 import PupProfile from './components/PupProfile';
-import CreateForm from './components/CreateForm';
+import UpdateGrades from './components/UpdateGrades';
+
 
 import {
   fetchDogs, 
   fetchOneDog,
   updateDoggy,
   editDogGrade,
-  saveNewDog,
 } from './services/api';
 
 class App extends Component {
@@ -39,27 +39,27 @@ class App extends Component {
   };
 
   // create dog function
-  createDog(dog) {
+  createDog() {
     saveNewDog(dog)
     .then(data => fetchDogs())
     .then(data => {
       this.setState({
         currentView: 'Dog Index',
-        dog: data.dog
+        dogs: data.dogs
       });
     });
-  };
-  
+
+  }
   // edit dog function
-  // updateDoggy(dog) {
-  //   updateDoggy(dog)
-  //   .then(data => fetchOneDog())
-  //   .then(data => {
-  //     this.setState({
-  //       dog : data.dog
-  //     });
-  //   })
-  // };
+  updateDoggy(dog) {
+    updateDoggy(dog)
+    .then(data => fetchOneDog())
+    .then(data => {
+      this.setState({
+        dog : data.dog
+      });
+    })
+  };
 
   // delete dog function
 
@@ -88,12 +88,13 @@ class App extends Component {
     switch(currentView) {
       case 'All Dogs':
       return <DogsIndex dogs={this.state.dogs} oneDog = {this.fetchOne}/>
+      break;
       case 'Pup Profile':
       return <PupProfile selectedDog={this.selectedDog} />;
-      case 'Create Pup':
-      return <CreateForm dogs={this.state.dogs}/>
+      break;
       // case 'Gradebook':
       // return <Gradebook />
+      // break;
     }
   }
 
