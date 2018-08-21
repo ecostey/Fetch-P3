@@ -1,90 +1,88 @@
-// import React, { Component } from 'react';
+import React, { Component } from 'react';
 
-// class UpdateBook extends Component {
-//     constructor(props) {
-//         super(props);
+class UpdateDog extends Component {
+    constructor(props) {
+        super(props);
 
-//         const { owner, name, breed, size, age, picture } = props;
-//         this.state = {
-//             owner: dog.owner,
-//             name: dog.names,
-//             breed: dog.breed,
-//             size: dog.breed,
-//             age: dog.age,
-//             picture: dog.picture,
-//         };
+        const { dogs, dog } = props;
+        this.state = {
+            owner: dog.owner,
+            name: dog.names,
+            breed: dog.breed,
+            size: dog.size,
+            age: dog.age,
+            picture: dog.picture,
+        };
 
-//         this.handleChange = this.handleChange.bind(this);
-//         this.handleSubmit = this.handleSubmit.bing(this);
-//     }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
-//     // create a handle submit for the form
+    // create a handle submit for the form
 
-//     handleSubmit(e) {
-//         e.preventDefault();
-//         const data = {
-//             owner: this.state.owner,
-//             name: this.state.names,
-//             breed: this.state.breed,
-//             size: this.state.breed,
-//             age: this.state.age,
-//             picture: this.state.picture,
-//         }
-//         this.props.onSubmit(data);
-//     }
+    handleSubmit(e) {
+        e.preventDefault();
+        const data = {
+            owner: this.state.owner,
+            name: this.state.names,
+            breed: this.state.breed,
+            size: this.state.breed,
+            age: this.state.age,
+            picture: this.state.picture,
+        }
+        this.props.onSubmit(data);
+    }
 
-//     handleChange(e) {
-//         e.preventDefault();
-//         const { name, value } = e.target;
+    handleChange(e) {
+        e.preventDefault();
+        const { name, value } = e.target;
+        this.setState({
+            [name]: value
+        });
+    }
 
-//         this.setState({
-//             [name]: value
-//         });
-//     }
+    render() {
 
-//     render() {
-//         const { owner, name, breed, size, age, picture } = this.state;
+        return (
+            <div>
+                <h2> Update Dog </h2>
+                <form onSubmit={this.handleSubmit}>
+                    <input
+                        name="owner"
+                        value={this.state.owner}
+                        onChange={this.handleChange} />
 
-//         return (
-//             <div>
-//                 <h2> Update Dog </h2>
-//                 <form onSubmit={this.handleSubmit}>
-//                     <input
-//                         name="Owner"
-//                         value={this.state.owner}
-//                         onChange={this.handleChange} />
+                    <input
+                        name="name"
+                        value={this.state.name}
+                        onChange={this.handleChange} />
 
-//                     <input
-//                         name="Name"
-//                         value={this.state.name}
-//                         onChange={this.handleChange} />
+                    <input
+                        name="breed"
+                        value={this.state.breed}
+                        onChange={this.handleChange} />
 
-//                     <input
-//                         name="Breed"
-//                         value={this.state.bree}
-//                         onChange={this.handleChange} />
+                    <input
+                        name="size"
+                        value={this.state.size}
+                        onChange={this.handleChange} />
 
-//                     <input
-//                         name="Size"
-//                         value={this.state.size}
-//                         onChange={this.handleChange} />
+                    <input
+                        name="age"
+                        value={this.state.age}
+                        onChange={this.handleChange} />
 
-//                     <input
-//                         name="Age"
-//                         value={this.state.age}
-//                         onChange={this.handleChange} />
+                    <input
+                        name="picture"
+                        value={this.state.picture}
+                        onChange={this.handleChange} />
 
-//                     <input
-//                         name="Picture"
-//                         value={this.state.picture}
-//                         onChange={this.handleChange} />
-
-//                     )}
+                    )}
                     
-//                     <input type="submit" value="Update Profile" />
-//                     </form>
-//                     </div>
-//         )};
-// }
+                   <input type="submit" value="Update Profile" />
+                   </form>
+                   </div>
+        )};
+}
 
-// export default UpdateBook;
+export default UpdateDog;
