@@ -12,6 +12,7 @@ class PupProfile extends Component {
     super(props);
     const { dogs, dog } = props;
     this.state = {
+      id: dog.id,
       owner: dog.owner,
       name: dog.name,
       breed: dog.breed,
@@ -50,6 +51,13 @@ class PupProfile extends Component {
         <p>Breed: {this.state.breed}</p>
         <p>Size: {this.state.size}</p>
         <p>Age: {this.state.age}</p>
+        <button 
+            onClick={(ev) => {
+              ev.preventDefault();
+              const dogState = this.state;
+              this.props.editDog(dogState)}} >
+              Edit Dog
+            </button>
       </div>
      
     // render pup profile

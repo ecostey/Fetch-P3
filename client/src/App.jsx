@@ -26,6 +26,7 @@ class App extends Component {
     this.updateDoggy = this.updateDoggy.bind(this);
     this.editDogGrades = this.editDogGrades.bind(this);
     this.selectDog = this.selectDog.bind(this);
+    this.editDog = this.editDog.bind(this);
 
   }
 
@@ -48,6 +49,13 @@ class App extends Component {
       selectedDog: dog,
       currentView: 'Pup Profile'
     })
+  };
+
+  editDog(dog) {
+    this.setState({
+      selectedDog: dog,
+      currentView: 'Update Dog'
+    })
   }
 
   // create dog function
@@ -66,11 +74,11 @@ class App extends Component {
  // edit dog function
   updateDoggy(dog) {
     updateDoggy(dog)
-    .then(data => fetchOneDog(dog.id))
+    .then(data => fetchDogs())
     .then(data => {
       this.setState({
-        currentView: 'Pup Profile',
-        selectedDog : data.dog
+        currentView: 'All Dogs',
+        dogs : data.dogs
       });
     })
   };
@@ -110,13 +118,17 @@ class App extends Component {
       const dog = dogs.find(dog => dog.id === selectedDog.id)
       return <PupProfile 
       dogs={dogs} 
-      selectDog={this.selectDog}
+      editDog={this.editDog}
       dog={dog}
        />;
       case 'Create Pup':
       return <CreateForm  newDog={this.createDog} />
       case 'Update Dog':
-      return <UpdateDog dogs={dogs} dog={dog} onSubmit={this.updateDoggy} />
+      return <UpdateDog 
+      dogs={dogs} 
+      dog={dog} 
+      selectedDog={this.state.selectedDog}
+      onSubmit={this.updateDoggy} />
       // case 'Gradebook':
       // return <Gradebook />
     }

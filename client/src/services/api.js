@@ -25,11 +25,18 @@ export function fetchOneDog(id) {
 }
 
 export function updateDoggy(dogs) {
-    return fetch(`${BASE_URL}/${dogs.id}`)
-        .then(resp => resp.json())
-        .catch((e) => {
-            throw Error(e);
-        });
+    const opts = {
+        method: 'PUT',
+        body: JSON.stringify(dogs),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      };
+    return fetch(`${BASE_URL}/dogs/${dogs.id}`, opts)
+    .then(resp => resp.json())
+    .catch((e) => {
+        throw Error(e);
+    });
 }
 
 export function updateGrades(dog) {
