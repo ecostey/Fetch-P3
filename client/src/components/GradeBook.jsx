@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 function gradeList(props) {
     return (
         <div>
@@ -18,15 +19,15 @@ function gradeList(props) {
                             <th>Leave It</th>
                         </tr>
                         props.grades.map(grades => (
-                        <div key={gradebook.dogs_id}>
+                        <div key={this.props.gradebook.dogs_id}>
                             <tr>
-                                <td>{dogs.name}</td>
-                                <td>{gradebook.potty_training}</td>
-                                <td>{gradebook.leash_training}</td>
-                                <td>{gradebook.stay}</td>
-                                <td>{gradebook.sit}</td>
-                                <td>{gradebook.quiet}</td>
-                                <td>{gradebook.leave_it}</td>
+                                <td>{this.props.dogs.name}</td>
+                                <td>{this.props.gradebook.leash_training}</td>
+                                <td>{this.props.gradebook.potty_training}</td>
+                                <td>{this.props.gradebook.stay}</td>
+                                <td>{this.props.gradebook.sit}</td>
+                                <td>{this.props.gradebook.quiet}</td>
+                                <td>{this.props.gradebook.leave_it}</td>
                             </tr>
                             </div> 
                         ))
@@ -38,4 +39,4 @@ function gradeList(props) {
 }
 
 
-export default Gradebook;
+export default gradeList;

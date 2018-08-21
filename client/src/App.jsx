@@ -12,12 +12,14 @@ import {
   updateDoggy,
   updateGrades,
   saveNewDog,
+  fetchAllGrades,
 } from './services/api';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      grades: [],
       dogs: [],
       selectedDog: '',
       currentView: 'All Dogs',
@@ -33,6 +35,8 @@ class App extends Component {
   componentDidMount() {
     fetchDogs()
     .then(data => this.setState({dogs: data.dogs}));
+    fetchAllGrades()
+    .then(data => this.setState({grades: data.grades}));
   };
 
   // select one dog & set state
@@ -93,7 +97,6 @@ class App extends Component {
   // select grade function
   // create grade function? tbd
 
-  // delete dog function
 
   // SWITCH statement for which page to view
   determineWhichToRender() {
@@ -118,8 +121,8 @@ class App extends Component {
       return <CreateForm dogs={dogs}/>
       case 'Update Dog':
       return <UpdateDog dogs={dogs} dog={dog} onSubmit={this.updateDoggy} />
-      // case 'Gradebook':
-      // return <Gradebook />
+      case 'Gradebook':
+      return <Gradebook grades={this.state.grades}/>
     }
   }
 
