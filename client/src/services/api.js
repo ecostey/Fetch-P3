@@ -16,7 +16,7 @@ export function fetchOneDog(id) {
         });
 }
 
-export function updateDoggy(dogs) {
+export function updateDoggy(id) {
     return fetch(`${BASE_URL}/${id}`)
     .then(resp => resp.json())
     .catch((e) => {
@@ -45,6 +45,11 @@ export function saveNewDog(dog) {
       body: JSON.stringify(dog),
       headers: {
         'Content-Type': 'application/json'
-      }
-    };
+      },
+    }
+    return fetch(`${BASE_URL}/dogs`, opts)
+        .then(resp => resp.json())
+        .catch((e) => {
+            throw Error(e);
+        });
 }

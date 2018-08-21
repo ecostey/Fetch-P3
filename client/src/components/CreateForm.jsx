@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-class CreateDog extends Component {
+class CreateForm extends Component {
     constructor(props) {
-        super(props); {
+        super(props); 
             this.state = {
                 owner: '',
                 name: '',
@@ -10,8 +10,7 @@ class CreateDog extends Component {
                 size: '',
                 age: '',
                 picture: ''
-            }
-        };
+            };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -83,4 +82,4 @@ class CreateDog extends Component {
     }
 }
 
-export default CreateAuthor;
+export default CreateForm;
