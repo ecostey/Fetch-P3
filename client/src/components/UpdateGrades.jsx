@@ -5,12 +5,12 @@ class UpdateGrades extends Component {
         super(props);
 
         this.state = {
-            potty_training: grades.potty_training,
-            stay:           grades.stay,
-            leash_training: grades.leash_training,
-            sit:            grades.sit,
-            quiet:          grades.quiet,
-            leave_it:       grades.leave_it,
+            potty_training: "",
+            stay:           "",
+            leash_training: "",
+            sit:            "",
+            quiet:          "",
+            leave_it:       "",
         };
 
         this.handleChange = this.handleChange.bind(this);

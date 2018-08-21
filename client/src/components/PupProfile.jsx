@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // maybe needs a change
-import { fetchOneDog, updateDoggy, deleteDog } from '../services/api';
-import EditPupGrade from './EditPupGrades';
+import { fetchOneDog, updateDoggy, deleteDog, updateGrades } from '../services/api';
+import UpdateGrades from './UpdateGrades';
 import DeleteButton from './Deletebutton';
 import UpdateDog from './UpdateDog';
 
@@ -33,18 +33,18 @@ class PupProfile extends Component {
   // handle submit
 
   // handle delete 
-  handleDeleteClick(id) {
-    deleteDog(id)
-      .then(res => {
-        this.fetchOneDog();
-      })
-  }
+  // handleDeleteClick(id) {
+  //   deleteDog(id)
+  //     .then(res => {
+  //       this.fetchOneDog();
+  //     })
+  // }
 
   render() {
     return(
       <div>
         <h2>{this.props.dog.name}</h2>
-        <EditPupGrade />
+        <UpdateGrades />
         <DeleteButton dogs={this.state.dogs} handleDeleteClick={this.handleDeleteClick} />
         <h2>{this.state.name}</h2>
         <p>Owner: {this.state.owner}</p>
