@@ -29,14 +29,13 @@ module.exports = {
   // Store returned data in res.locals.
   updateGrade(req, res, next) {
     const gradeData = {
-      dogs_id: req.params.id,
+      dogs_id: req.body.dogs_id,
       potty_training: req.body.potty_training,
       stay: req.body.stay,
       leash_training: req.body.leash_training,
       sit: req.body.sit,
       quiet: req.body.quiet,
       leave_it: req.body.leave_it,
-      comments: req.body.comment,
     };
 
     gradesModel.updateOne(gradeData)

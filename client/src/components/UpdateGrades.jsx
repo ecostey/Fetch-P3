@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class UpdateGrades extends Component {
     constructor(props) {
         super(props);
 
+        const { grades } = props;
         this.state = {
-            dogs_id: '',
-            potty_training: '',
-            stay: '',
-            leash_training: '',
-            sit: '',
-            quiet: '',
-            leave_it: '',
+            dogs_id: grades.dogs_id,
+            potty_training: grades.potty_training,
+            stay: grades.stay,
+            leash_training: grades.leash_training,
+            sit: grades.sit,
+            quiet: grades.stay,
+            leave_it: grades.leave_it,
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -33,16 +35,26 @@ class UpdateGrades extends Component {
         this.props.onSubmit(data);
     }
 
-    handleChange(e) {
-        const { name, value } = e.target;
-        this.setState({
-            [name]: value
-        });
-    }
+    // handleChange(e) {
+    //     const { name, value } = e.target;
+    //     this.setState({
+    //         [name]: !this.state.,
+    //     });
+    // }
 
+    handleChange(e) {
+        this.setState({
+            potty_training: !this.state.potty_training,
+            dogs_id: !this.state.dogs_id,
+            stay: !this.state.stay,
+            leash_training: !this.state.leash_training,
+            sit: !this.state.sit,
+            quiet: !this.state.quiet,
+            leave_it: !this.state.leave_it
+        })
+    }
     render() {
         const { potty_training, stay, leash_training, sit, quiet, leave_it } = this.state;
-
         return (
             <div>
                 <h2> Update Grades </h2>
@@ -50,74 +62,80 @@ class UpdateGrades extends Component {
                     <label>Potty Training:</label>
                     <input
                         type="checkbox"
-                        name="Potty Training"
+                        name="potty_training"
+                        defaultChecked={potty_training}
                         value={potty_training}
                         onChange={this.handleChange} />
-                    <input
+                    {/* <input
                         type="checkbox"
-                        name="Potty Training"
-                        value={potty_training}
-                        onChange={this.handleChange} />
+                        name="potty_training"
+                        value={potty_training ? false : true}
+                        onChange={this.handleChange} /> */}
                     <br />
                     <label>Stay:</label>
                     <input
                         type="checkbox"
-                        name="Stay"
+                        name="stay"
+                        defaultChecked={stay}
                         value={stay}
                         onChange={this.handleChange} />
-                    <input
+                    {/* <input
                         type="checkbox"
-                        name="Stay"
-                        value={!stay}
-                        onChange={this.handleChange} />
+                        name="stay"
+                        value={stay ? true : false}
+                        onChange={this.handleChange} /> */}
                     <br />
                     <label>Leash Training:</label>
                     <input
                         type="checkbox"
-                        name="Leash Training"
+                        name="leash_training"
+                        defaultChecked={leash_training}
                         value={leash_training}
                         onChange={this.handleChange} />
-                    <input
+                    {/* <input
                         type="checkbox"
-                        name="Leash Training"
-                        value={!leash_training}
-                        onChange={this.handleChange} />
+                        name="leash_training"
+                        value={leash_training ? true : false}
+                        onChange={this.handleChange} /> */}
                     <br />
                     <label>Sit:</label>
                     <input
                         type="checkbox"
-                        name="Sit"
+                        name="sit"
+                        defaultChecked={sit}
                         value={sit}
                         onChange={this.handleChange} />
-                    <input
+                    {/* <input
                         type="checkbox"
-                        name="Sit"
-                        value={!sit}
-                        onChange={this.handleChange} />
+                        name="sit"
+                        value={sit ? true : false}
+                        onChange={this.handleChange} /> */}
                     <br />
                     <label>Quiet:</label>
                     <input
                         type="checkbox"
-                        name="Quiet"
+                        name="quiet"
+                        defaultChecked={quiet}
                         value={quiet}
                         onChange={this.handleChange} />
-                    <input
+                    {/* <input
                         type="checkbox"
-                        name="Quiet"
-                        value={!quiet}
-                        onChange={this.handleChange} />
+                        name="quiet"
+                        value={quiet ? true : false}
+                        onChange={this.handleChange} /> */}
                     <br />
                     <label>Leave it:</label>
                     <input
                         type="checkbox"
-                        name="Leave It"
+                        name="leave_it"
+                        defaultChecked={leave_it}
                         value={leave_it}
                         onChange={this.handleChange} />
-                   <input
+                    {/* <input
                         type="checkbox"
-                        name="Leave It"
-                        value={!leave_it}
-                        onChange={this.handleChange} />
+                        name="leave_it"
+                        value={leave_it ? true : false}
+                        onChange={this.handleChange} /> */}
                     <br />
                     <input type="submit" value="Update Grades" />
                 </form>

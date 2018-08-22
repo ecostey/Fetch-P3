@@ -35,7 +35,7 @@ class App extends Component {
     this.editDogGrades = this.editDogGrades.bind(this);
     this.selectDog = this.selectDog.bind(this);
     this.editDog = this.editDog.bind(this);
-
+    this.editGrade = this.editGrade.bind(this);
   }
 
   componentDidMount() {
@@ -70,7 +70,10 @@ class App extends Component {
   }
 
   editGrade(grades) {
-
+    this.setState({
+      dogGrade: grades,
+      currentView: 'Update Dog'
+    })
   }
 
   // create dog function
@@ -88,7 +91,6 @@ class App extends Component {
 
   // edit dog function
   updateDoggy(dog) {
-    console.log(dog)
     updateDoggy(dog)
       .then(data => fetchDogs())
       .then(data => {
@@ -104,11 +106,11 @@ class App extends Component {
   // edit dog grade function
   editDogGrades(dog) {
     updateGrades(dog)
-      .then(data => this.fetchOne(dog))
+      .then(data => fetchDogs())
       .then(data => {
         this.setState({
-          currentView: 'All Dogs',
-          dogs: data.dog
+          currentView: 'Pup Profile',
+          grades: data.grades
         })
       })
   }
@@ -120,7 +122,7 @@ class App extends Component {
   // SWITCH statement for which page to view
   determineWhichToRender() {
     const { currentView } = this.state;
-    const { dogs, selectedDog } = this.state;
+    const { dogs, selectedDog, dogGrade } = this.state;
 
     switch (currentView) {
       case 'All Dogs':
@@ -132,10 +134,11 @@ class App extends Component {
           selectDog={this.selectDog}
         />
       case 'Pup Profile':
-        const dog = dogs.find(dog => dog.id === selectedDog.id)
+        // const dog = dogs.find(dog => dog.id === selectedDog.id)
         return <PupProfile
           dogs={dogs}
           editDog={this.editDog}
+          grades={dogGrade}
           dog={selectedDog}
         />;
       case 'Create Pup':
@@ -151,6 +154,7 @@ class App extends Component {
             />
             <UpdateGrades
             selectedDog={this.state.selectedDog}
+            grades={dogGrade}
             onSubmit={this.editDogGrades}/>
           </div>
         )
