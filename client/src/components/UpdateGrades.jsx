@@ -66,11 +66,6 @@ class UpdateGrades extends Component {
                         defaultChecked={potty_training}
                         value={potty_training}
                         onChange={this.handleChange} />
-                    {/* <input
-                        type="checkbox"
-                        name="potty_training"
-                        value={potty_training ? false : true}
-                        onChange={this.handleChange} /> */}
                     <br />
                     <label>Stay:</label>
                     <input
@@ -79,11 +74,6 @@ class UpdateGrades extends Component {
                         defaultChecked={stay}
                         value={stay}
                         onChange={this.handleChange} />
-                    {/* <input
-                        type="checkbox"
-                        name="stay"
-                        value={stay ? true : false}
-                        onChange={this.handleChange} /> */}
                     <br />
                     <label>Leash Training:</label>
                     <input
@@ -92,11 +82,6 @@ class UpdateGrades extends Component {
                         defaultChecked={leash_training}
                         value={leash_training}
                         onChange={this.handleChange} />
-                    {/* <input
-                        type="checkbox"
-                        name="leash_training"
-                        value={leash_training ? true : false}
-                        onChange={this.handleChange} /> */}
                     <br />
                     <label>Sit:</label>
                     <input
@@ -105,11 +90,6 @@ class UpdateGrades extends Component {
                         defaultChecked={sit}
                         value={sit}
                         onChange={this.handleChange} />
-                    {/* <input
-                        type="checkbox"
-                        name="sit"
-                        value={sit ? true : false}
-                        onChange={this.handleChange} /> */}
                     <br />
                     <label>Quiet:</label>
                     <input
@@ -118,11 +98,6 @@ class UpdateGrades extends Component {
                         defaultChecked={quiet}
                         value={quiet}
                         onChange={this.handleChange} />
-                    {/* <input
-                        type="checkbox"
-                        name="quiet"
-                        value={quiet ? true : false}
-                        onChange={this.handleChange} /> */}
                     <br />
                     <label>Leave it:</label>
                     <input
@@ -131,11 +106,6 @@ class UpdateGrades extends Component {
                         defaultChecked={leave_it}
                         value={leave_it}
                         onChange={this.handleChange} />
-                    {/* <input
-                        type="checkbox"
-                        name="leave_it"
-                        value={leave_it ? true : false}
-                        onChange={this.handleChange} /> */}
                     <br />
                     <input type="submit" value="Update Grades" />
                 </form>
