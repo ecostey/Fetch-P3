@@ -7,12 +7,13 @@ import GradeBook from './components/GradeBook'
 import Header from './components/Header';
 
 import {
-  fetchDogs, 
+  fetchDogs,
   fetchOneDog,
   updateDoggy,
   updateGrades,
   saveNewDog,
   fetchAllGrades,
+  deleteDog,
 } from './services/api';
 
 class App extends Component {
@@ -30,23 +31,24 @@ class App extends Component {
     this.editDogGrades = this.editDogGrades.bind(this);
     this.selectDog = this.selectDog.bind(this);
     this.editDog = this.editDog.bind(this);
+    this.handleDeleteDog = this.handleDeleteDog.bind(this);
 
   }
 
   componentDidMount() {
     fetchDogs()
-    .then(data => this.setState({dogs: data.dogs}));
+      .then(data => this.setState({ dogs: data.dogs }));
     fetchAllGrades()
-    .then(data => this.setState({grades: data.grades}));
+      .then(data => this.setState({ grades: data.grades }));
   };
 
   // select one dog & set state
   fetchOne(id) {
     fetchOneDog(id)
-    .then(data => this.setState({
-      dogs: data.dog,
-      currentView: 'Pup Profile'
-    }))
+      .then(data => this.setState({
+        dogs: data.dog,
+        currentView: 'Pup Profile'
+      }))
   };
 
   selectDog(dog) {
@@ -66,41 +68,49 @@ class App extends Component {
   // create dog function
   createDog(dog) {
     saveNewDog(dog)
-    .then(data => fetchDogs())
-    .then(data => {
-      this.setState({
-        currentView: 'All Dogs',
-        dogs: data.dogs
-      });
-    })
+      .then(data => fetchDogs())
+      .then(data => {
+        this.setState({
+          currentView: 'All Dogs',
+          dogs: data.dogs
+        });
+      })
   };
 
-  
- // edit dog function
+
+  // edit dog function
   updateDoggy(dog) {
     console.log(dog)
     updateDoggy(dog)
-    .then(data => fetchDogs())
-    .then(data => {
-      this.setState({
-        currentView: 'All Dogs',
-        dogs : data.dogs
-      });
-    })
+      .then(data => fetchDogs())
+      .then(data => {
+        this.setState({
+          currentView: 'All Dogs',
+          dogs: data.dogs
+        });
+      })
   };
 
   // delete dog function
 
+  handleDeleteDog(dog) {
+    deleteDog(dog)
+    this.setState({
+      selectedDog: dog,
+      currentView: 'Delete Dog'
+    })
+  }
+
   // edit dog grade function
   editDogGrades(id) {
     updateGrades(id)
-    .then(data => this.fetchOne(id))
-    .then(data => {
-      this.setState({
-        currentView: 'Pup Profile',
-        dogs: data.dog
+      .then(data => this.fetchOne(id))
+      .then(data => {
+        this.setState({
+          currentView: 'Pup Profile',
+          dogs: data.dog
+        })
       })
-    })
   }
 
   // select grade function
@@ -112,33 +122,34 @@ class App extends Component {
     const { currentView } = this.state;
     const { dogs, selectedDog } = this.state;
 
-    switch(currentView) {
+    switch (currentView) {
       case 'All Dogs':
-        return <DogsIndex 
-          dogs={this.state.dogs} 
-          oneDog={this.fetchOne} 
+        return <DogsIndex
+          dogs={this.state.dogs}
+          oneDog={this.fetchOne}
           newDog={this.createDog}
-          selectDog={this.selectDog} 
+          selectDog={this.selectDog}
         />
       case 'Pup Profile':
         const dog = dogs.find(dog => dog.id === selectedDog.id)
-        return <PupProfile 
-          dogs={dogs} 
+        return <PupProfile
+          dogs={dogs}
           editDog={this.editDog}
+          handleDeleteDog={this.handleDeleteDog}
           dog={selectedDog}
         />;
       case 'Create Pup':
-        return <CreateForm  newDog={this.createDog} 
+        return <CreateForm newDog={this.createDog}
         />
       case 'Update Dog':
-        return <UpdateDog 
-          dogs={dogs} 
-          dog={dog} 
+        return <UpdateDog
+          dogs={dogs}
+          dog={dog}
           selectedDog={this.state.selectedDog}
-          onSubmit={this.updateDoggy} 
+          onSubmit={this.updateDoggy}
         />
       case 'Gradebook':
-        return <GradeBook grades={this.state.grades}/>
+        return <GradeBook grades={this.state.grades} />
     }
   }
 
