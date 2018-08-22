@@ -10,7 +10,8 @@ export function fetchDogs() {
 
 export function fetchAllGrades() {
     return fetch(`${BASE_URL}/grades`)
-        .then(resp => resp.json())
+        .then(resp => { debugger;
+           return resp.json()})
         .catch(e => {
             throw Error(e);
         });

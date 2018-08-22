@@ -114,28 +114,31 @@ class App extends Component {
 
     switch(currentView) {
       case 'All Dogs':
-      return <DogsIndex 
-        dogs={this.state.dogs} 
-        oneDog={this.fetchOne} 
-        newDog={this.createDog}
-        selectDog={this.selectDog} />
+        return <DogsIndex 
+          dogs={this.state.dogs} 
+          oneDog={this.fetchOne} 
+          newDog={this.createDog}
+          selectDog={this.selectDog} 
+        />
       case 'Pup Profile':
-      const dog = dogs.find(dog => dog.id === selectedDog.id)
-      return <PupProfile 
-      dogs={dogs} 
-      editDog={this.editDog}
-      dog={selectedDog}
-       />;
+        const dog = dogs.find(dog => dog.id === selectedDog.id)
+        return <PupProfile 
+          dogs={dogs} 
+          editDog={this.editDog}
+          dog={selectedDog}
+        />;
       case 'Create Pup':
-      return <CreateForm  newDog={this.createDog} />
+        return <CreateForm  newDog={this.createDog} 
+        />
       case 'Update Dog':
-      return <UpdateDog 
-      dogs={dogs} 
-      dog={dog} 
-      selectedDog={this.state.selectedDog}
-      onSubmit={this.updateDoggy} />
+        return <UpdateDog 
+          dogs={dogs} 
+          dog={dog} 
+          selectedDog={this.state.selectedDog}
+          onSubmit={this.updateDoggy} 
+        />
       case 'Gradebook':
-      return <GradeBook />
+        return <GradeBook grades={this.fetchAllGrades}/>
     }
   }
 
@@ -149,7 +152,7 @@ class App extends Component {
       'Pup Profile',
       'Create Pup',
       'Update Dog',
-      'GradeBook'
+      'Gradebook'
     ]
     return (
       <div className="App">

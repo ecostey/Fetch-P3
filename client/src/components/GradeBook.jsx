@@ -17,19 +17,19 @@ function GradeBook(props) {
                                 <th>Quiet</th>
                                 <th>Leave It</th>
                             </tr>
-                            props.grades.map(grades => (
-                        <div key={this.props.gradebook.dogs_id}>
+                            props.grades.map(grades => {
+                            <div key={props.gradebook.dogs_id}>
                                 <tr>
-                                    <td>{this.props.dogs.name}</td>
-                                    <td>{this.props.gradebook.leash_training}</td>
-                                    <td>{this.props.gradebook.potty_training}</td>
-                                    <td>{this.props.gradebook.stay}</td>
-                                    <td>{this.props.gradebook.sit}</td>
-                                    <td>{this.props.gradebook.quiet}</td>
-                                    <td>{this.props.gradebook.leave_it}</td>
+                                    <td>{props.dogs.name}</td>
+                                    <td>{props.gradebook.stay}</td>
+                                    <td>{props.gradebook.potty_training}</td>
+                                    <td>{props.gradebook.leash_training}</td>
+                                    <td>{props.gradebook.sit}</td>
+                                    <td>{props.gradebook.quiet}</td>
+                                    <td>{props.gradebook.leave_it}</td>
                                 </tr>
                             </div>
-                            ))
+                            })
                     </table>
                     }
                 </div>
