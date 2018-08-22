@@ -78,6 +78,7 @@ class App extends Component {
   
  // edit dog function
   updateDoggy(dog) {
+    console.log(dog)
     updateDoggy(dog)
     .then(data => fetchDogs())
     .then(data => {
@@ -123,7 +124,7 @@ class App extends Component {
       return <PupProfile 
       dogs={dogs} 
       editDog={this.editDog}
-      dog={dog}
+      dog={selectedDog}
        />;
       case 'Create Pup':
       return <CreateForm  newDog={this.createDog} />

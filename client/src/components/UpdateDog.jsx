@@ -6,12 +6,12 @@ class UpdateDog extends Component {
 
         const { selectedDog } = props;
         this.state = {
-            id:      selectedDog.id,
-            owner:   selectedDog.owner,
-            name:    selectedDog.name,
-            breed:   selectedDog.breed,
-            size:    selectedDog.size,
-            age:     selectedDog.age,
+            id: selectedDog.id,
+            owner: selectedDog.owner,
+            name: selectedDog.name,
+            breed: selectedDog.breed,
+            size: selectedDog.size,
+            age: selectedDog.age,
             picture: selectedDog.picture,
         };
 
@@ -24,12 +24,12 @@ class UpdateDog extends Component {
     handleSubmit(e) {
         e.preventDefault();
         const data = {
-            id:      this.state.id,
-            owner:   this.state.owner,
-            name:    this.state.name,
-            breed:   this.state.breed,
-            size:    this.state.size,
-            age:     this.state.age,
+            id: this.state.id,
+            owner: this.state.owner,
+            name: this.state.name,
+            breed: this.state.breed,
+            size: this.state.size,
+            age: this.state.age,
             picture: this.state.picture,
         }
         this.props.onSubmit(data);
@@ -49,7 +49,7 @@ class UpdateDog extends Component {
             <div>
                 <h2> Update Dog </h2>
                 <form onSubmit={this.handleSubmit}>
-                <label>Owner</label>
+                    <label>Owner</label>
                     <input
                         name="owner"
                         value={this.state.owner}
@@ -65,25 +65,40 @@ class UpdateDog extends Component {
                         value={this.state.breed}
                         onChange={this.handleChange} />
                     <label>Size</label>
-                    <input
+                    <select
                         name="size"
                         value={this.state.size}
-                        onChange={this.handleChange} />
+                        onChange={this.handleChange} >
+                        <option value="small">small</option>
+                        <option value="medium">medium</option>
+                        <option value="large">large</option>
+                    </select>
                     <label>Age</label>
-                    <input
+                    <select
                         name="age"
                         value={this.state.age}
-                        onChange={this.handleChange} />
+                        onChange={this.handleChange} >
+                        <option value="1">1yr</option>
+                        <option value="2">2yrs</option>
+                        <option value="3">3yrs</option>
+                        <option value="4">4yrs</option>
+                        <option value="5">5yrs</option>
+                        <option value="6">6yrs</option>
+                        <option value="7">7yrs</option>
+                        <option value="8">8yrs</option>
+                        <option value="9">9yrs</option>
+                    </select>
                     <label>Picture</label>
                     <input
                         name="picture"
                         value={this.state.picture}
                         onChange={this.handleChange} />
 
-                   <input type="submit" value="Update Profile" />
-                   </form>
-                   </div>
-        )};
+                    <input type="submit" value="Update Profile" />
+                </form>
+            </div>
+        )
+    };
 }
 
 export default UpdateDog;
