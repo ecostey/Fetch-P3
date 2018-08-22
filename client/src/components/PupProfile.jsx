@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // maybe needs a change
-import { fetchOneDog, updateDoggy, deleteDog, updateGrades } from '../services/api';
+import { fetchOneGrade, updateDoggy, deleteDog, updateGrades } from '../services/api';
 import UpdateGrades from './UpdateGrades';
 import DeleteButton from './Deletebutton';
 import UpdateDog from './UpdateDog';
@@ -26,6 +26,7 @@ class PupProfile extends Component {
   }
 
 
+
   // handle change
   handleChange(e) {
 
@@ -43,10 +44,10 @@ class PupProfile extends Component {
   render() {
     return(
       <div>
-        <h2>{this.props.dog.name}</h2>
+        <h2>{this.state.name}</h2>
         {/* <UpdateGrades />
         <DeleteButton dogs={this.state.dogs} handleDeleteClick={this.handleDeleteClick} /> */}
-        <h2>{this.state.name}</h2>
+        <img src={this.state.picture} alt="🐾 sorry no image 🐾" height="100" width="100"/>
         <p>Owner: {this.state.owner}</p>
         <p>Breed: {this.state.breed}</p>
         <p>Size: {this.state.size}</p>

@@ -8,19 +8,22 @@ function DogsIndex(props) {
             {
                 props.dogs.map(dog => (
                     <div key={dog.id}>
-                    <img src={dog.picture} alt={dog.name} height="100" width="100"/>
+                    <img src={dog.picture} alt="🐾 sorry no image 🐾" height="100" width="100"/>
                     <p>{dog.name}</p>
                     <p>{dog.breed}, {dog.age}yrs</p>
                     <button 
                         onClick={(ev) => {
                             ev.preventDefault();
-                            props.selectDog(dog)}} >
+                            const grades = props.grades.filter(grades => {
+                                return grades.dogs_id === dog.id
+                            })
+                            props.selectDog(dog, grades)}
+                            } >
                         View Dog Detail
                     </button>
                     <br />
                     </div>
-                ))
-            }
+            ))}
         </div>
         </div>
     )
