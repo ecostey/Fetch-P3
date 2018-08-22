@@ -40,8 +40,8 @@ class App extends Component {
     this.selectDog = this.selectDog.bind(this);
     // this.selectGrade = this.selectGrade.bind(this);
     this.editDog = this.editDog.bind(this);
+    this.editGrade = this.editGrade.bind(this);
     this.handleDeleteDog = this.handleDeleteDog.bind(this);
-
   }
 
   componentDidMount() {
@@ -82,7 +82,10 @@ class App extends Component {
   }
 
   editGrade(grades) {
-
+    this.setState({
+      dogGrade: grades,
+      currentView: 'Update Dog'
+    })
   }
 
   // create dog function
@@ -110,7 +113,6 @@ class App extends Component {
   
  // edit dog function
   updateDoggy(dog) {
-    console.log(dog)
     updateDoggy(dog)
       .then(data => fetchDogs())
       .then(data => {
@@ -137,11 +139,11 @@ class App extends Component {
   // edit dog grade function
   editDogGrades(dog) {
     updateGrades(dog)
-      .then(data => this.fetchOne(dog))
+      .then(data => fetchDogs())
       .then(data => {
         this.setState({
-          currentView: 'All Dogs',
-          dogs: data.dog
+          currentView: 'Pup Profile',
+          grades: data.grades
         })
       })
   }
@@ -165,10 +167,12 @@ class App extends Component {
           selectDog={this.selectDog}
         />
       case 'Pup Profile':
-        const dog = dogs.find(dog => dog.id === selectedDog.id)
+        // const dog = dogs.find(dog => dog.id === selectedDog.id)
         return <PupProfile
+                 // need to look through these names and fix!!
           dogs={dogs}
           editDog={this.editDog}
+          grades={dogGrade}
           handleDeleteDog={this.handleDeleteDog}
           dog={selectedDog}
           grade={selectedDog}
@@ -188,8 +192,9 @@ class App extends Component {
               onSubmit={this.updateDoggy}
             />
             <UpdateGrades
-              selectedDog={this.state.selectedDog}
-              onSubmit={this.editDogGrades} />
+            selectedDog={this.state.selectedDog}
+            grades={dogGrade}
+            onSubmit={this.editDogGrades}/>
           </div>
         )
       case 'Gradebook':

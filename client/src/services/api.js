@@ -53,11 +53,8 @@ export function updateGrades(dog) {
             'Content-Type': 'application/json'
         },
     }
-    return fetch(`${BASE_URL}/grades/${dog.id}`, opts)
-        .then(resp => resp.json())
-        .catch((e) => {
-            throw Error(e);
-        });
+    return fetch(`${BASE_URL}/grades/${dog.dogs_id}`, opts)
+        .then(resp => console.log(resp.json()));
 }
 
 export function saveNewDog(dog) {
