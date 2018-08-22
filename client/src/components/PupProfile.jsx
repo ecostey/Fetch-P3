@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // maybe needs a change
 import { fetchOneGrade, updateDoggy, deleteDog, updateGrades } from '../services/api';
 import UpdateGrades from './UpdateGrades';
-import DeleteButton from './Deletebutton';
+// import DeleteButton from './Deletebutton';
 import UpdateDog from './UpdateDog';
 
 
@@ -21,7 +21,7 @@ class PupProfile extends Component {
       picture: dog.picture,
     }
 
-    this.handleDeleteClick = this.handleDeleteClick.bind(this);
+    // this.handleDeleteClick = this.handleDeleteClick.bind(this);
 
   }
 
@@ -34,12 +34,12 @@ class PupProfile extends Component {
   // handle submit
 
   // handle delete 
-  handleDeleteClick(id) {
-    deleteDog(id)
-      .then(res => {
-        this.fetchOneDog();
-      })
-  }
+  // handleDeleteClick() {
+  //   deleteDog()
+  //     .then(res => {
+  //       this.fetchOneDog();
+  //     })
+  // }
 
   render() {
     return(
@@ -60,6 +60,13 @@ class PupProfile extends Component {
               this.props.editDog(dogState)}} >
               Edit Dog
             </button>
+
+            
+        <button onClick={(ev) => {
+          ev.preventDefault();
+          const dog = this.state;
+          this.props.handleDeleteDog(dog)}} >
+          Delete</button>
       </div>
      
     // render pup profile

@@ -17,6 +17,7 @@ import {
   updateGrades,
   saveNewDog,
   fetchAllGrades,
+  deleteDog,
 } from './services/api';
 
 class App extends Component {
@@ -24,7 +25,7 @@ class App extends Component {
     super(props);
     this.state = {
       grades: [],
-      dogGrade:[],
+      dogGrade: [],
       dogs: [],
       selectedDog: '',
       currentView: 'All Dogs',
@@ -35,6 +36,7 @@ class App extends Component {
     this.editDogGrades = this.editDogGrades.bind(this);
     this.selectDog = this.selectDog.bind(this);
     this.editDog = this.editDog.bind(this);
+    this.handleDeleteDog = this.handleDeleteDog.bind(this);
 
   }
 
@@ -54,7 +56,7 @@ class App extends Component {
   //     }))
   // };
 
-  selectDog(dog,grades) {
+  selectDog(dog, grades) {
     this.setState({
       selectedDog: dog,
       dogGrade: grades[0],
@@ -101,6 +103,17 @@ class App extends Component {
 
   // delete dog function
 
+  handleDeleteDog(dog) {
+    deleteDog(dog)
+      .then(data => fetchDogs(dog))
+      .then(data => {
+        this.setState({
+          currentView: 'All Dogs',
+          dogs: data.dogs,
+        });
+      })
+  }
+
   // edit dog grade function
   editDogGrades(dog) {
     updateGrades(dog)
@@ -136,6 +149,7 @@ class App extends Component {
         return <PupProfile
           dogs={dogs}
           editDog={this.editDog}
+          handleDeleteDog={this.handleDeleteDog}
           dog={selectedDog}
         />;
       case 'Create Pup':
@@ -150,8 +164,8 @@ class App extends Component {
               onSubmit={this.updateDoggy}
             />
             <UpdateGrades
-            selectedDog={this.state.selectedDog}
-            onSubmit={this.editDogGrades}/>
+              selectedDog={this.state.selectedDog}
+              onSubmit={this.editDogGrades} />
           </div>
         )
       case 'Gradebook':
