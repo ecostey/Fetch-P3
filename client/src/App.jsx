@@ -28,7 +28,7 @@ class App extends Component {
       dogGrade:[],
       dogs: [],
       selectedDog: '',
-      selectedGrade: '',
+      // selectedGrade: '',
       currentView: 'All Dogs',
     }
     // this.fetchOne = this.fetchOne.bind(this);
@@ -37,7 +37,7 @@ class App extends Component {
     this.updateDoggy = this.updateDoggy.bind(this);
     this.editDogGrades = this.editDogGrades.bind(this);
     this.selectDog = this.selectDog.bind(this);
-    this.selectGrade = this.selectGrade.bind(this);
+    // this.selectGrade = this.selectGrade.bind(this);
     this.editDog = this.editDog.bind(this);
 
   }
@@ -66,11 +66,11 @@ class App extends Component {
     })
   };
 
-  selectGrade(grade) {
-    this.setState({
-      selectedGrade: grade,
-    })
-  }
+  // selectGrade(grade) {
+  //   this.setState({
+  //     selectedGrade: grade,
+  //   })
+  // }
 
   editDog(dog) {
     this.setState({
@@ -100,7 +100,6 @@ class App extends Component {
     .then(data => fetchAllGrades())
     .then(data => {
       this.setState({
-        currentView: 'Gradebook',
         grades: data.grades
       });
     })

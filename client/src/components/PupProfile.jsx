@@ -19,13 +19,13 @@ class PupProfile extends Component {
       size: dog.size,
       age: dog.age,
       picture: dog.picture,
-      dogs_id: dogGrade.dogs_id,
-      leash_training: dogGrade.leash_training,
-      leave_it: dogGrade.leave_it,
-      potty_training: dogGrade.potty_training,
-      quiet: dogGrade.quiet,
-      sit: dogGrade.sit,
-      stay: dogGrade.stay,
+      dogs_id: dog.id,
+      leash_training: false,
+      leave_it: false,
+      potty_training: false,
+      quiet: false,
+      sit: false,
+      stay: false,
     }
 
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
