@@ -44,27 +44,29 @@ class UpdateDog extends Component {
     }
 
     render() {
-
         return (
             <div>
                 <h2> Update Dog </h2>
                 <form onSubmit={this.handleSubmit}>
-                    <label>Owner</label>
+                    <label>Owner:  </label>
                     <input
                         name="owner"
                         value={this.state.owner}
                         onChange={this.handleChange} />
-                    <label>Name</label>
+                    <br />
+                    <label>Name:  </label>
                     <input
                         name="name"
                         value={this.state.name}
                         onChange={this.handleChange} />
-                    <label>Breed</label>
+                    <br />
+                    <label>Breed:  </label>
                     <input
                         name="breed"
                         value={this.state.breed}
                         onChange={this.handleChange} />
-                    <label>Size</label>
+                    <br />
+                    <label>Size:  </label>
                     <select
                         name="size"
                         value={this.state.size}
@@ -73,7 +75,8 @@ class UpdateDog extends Component {
                         <option value="medium">medium</option>
                         <option value="large">large</option>
                     </select>
-                    <label>Age</label>
+                    <br />
+                    <label>Age:  </label>
                     <select
                         name="age"
                         value={this.state.age}
@@ -88,7 +91,8 @@ class UpdateDog extends Component {
                         <option value="8">8yrs</option>
                         <option value="9">9yrs</option>
                     </select>
-                    <label>Picture</label>
+                    <br />
+                    <label>Picture:  </label>
                     <input
                         name="picture"
                         value={this.state.picture}

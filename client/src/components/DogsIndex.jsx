@@ -8,7 +8,7 @@ function DogsIndex(props) {
             {
                 props.dogs.map(dog => (
                     <div key={dog.id}>
-                    <img src={dog.picture} alt={dog.name}/>
+                    <img src={dog.picture} alt={dog.name} height="100" width="100"/>
                     <p>{dog.name}</p>
                     <p>{dog.breed}, {dog.age}yrs</p>
                     <button 
@@ -17,6 +17,7 @@ function DogsIndex(props) {
                             props.selectDog(dog)}} >
                         View Dog Detail
                     </button>
+                    <br />
                     </div>
                 ))
             }
