@@ -3,8 +3,7 @@ import React from 'react';
 function GradeBook(props) {
     return (
         <div>
-            <h1>Fetch</h1>
-            <h2>Gradebook</h2>
+            <h2 className="pageHeader">Gradebook</h2>
             <div>
                 <table style={{ width: '75%', textAlign: 'center' }}>
                     <tbody>
