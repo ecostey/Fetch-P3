@@ -138,7 +138,7 @@ class App extends Component {
           onSubmit={this.updateDoggy} 
         />
       case 'Gradebook':
-        return <GradeBook grades={this.fetchAllGrades}/>
+        return <GradeBook grades={this.state.grades}/>
     }
   }
 
