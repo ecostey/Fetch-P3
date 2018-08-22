@@ -46,7 +46,7 @@ class UpdateDog extends Component {
     render() {
         return (
             <div>
-                <h2> Update Dog </h2>
+                <h2> Update {this.state.name}'s Profile </h2>
                 <form onSubmit={this.handleSubmit}>
                     <label>Owner:  </label>
                     <input

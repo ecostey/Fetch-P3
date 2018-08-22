@@ -17,6 +17,14 @@ export function fetchAllGrades() {
         });
 }
 
+export function fetchOneGrade(id) {
+    return fetch(`${BASE_URL}/grades/${id}`)
+    .then(resp => resp.json())
+    .catch((e) => {
+        throw Error(e)
+    })
+}
+
 export function fetchOneDog(id) {
     return fetch(`${BASE_URL}/${id}`)
         .then(resp => resp.json())

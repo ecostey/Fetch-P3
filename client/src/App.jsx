@@ -5,11 +5,15 @@ import PupProfile from './components/PupProfile';
 import CreateForm from './components/CreateForm';
 import GradeBook from './components/GradeBook'
 import Header from './components/Header';
+import './index.css';
+import UpdateGrades from './components/UpdateGrades';
+
 
 import {
   fetchDogs,
   fetchOneDog,
   updateDoggy,
+  fetchOneGrade,
   updateGrades,
   saveNewDog,
   fetchAllGrades,
@@ -21,11 +25,12 @@ class App extends Component {
     super(props);
     this.state = {
       grades: [],
+      dogGrade:[],
       dogs: [],
       selectedDog: '',
       currentView: 'All Dogs',
     }
-    this.fetchOne = this.fetchOne.bind(this);
+    // this.fetchOne = this.fetchOne.bind(this);
     this.createDog = this.createDog.bind(this);
     this.updateDoggy = this.updateDoggy.bind(this);
     this.editDogGrades = this.editDogGrades.bind(this);
@@ -43,6 +48,7 @@ class App extends Component {
   };
 
   // select one dog & set state
+<<<<<<< HEAD
   fetchOne(id) {
     fetchOneDog(id)
       .then(data => this.setState({
@@ -52,8 +58,20 @@ class App extends Component {
   };
 
   selectDog(dog) {
+=======
+  // fetchOne(id) {
+  //   fetchOneDog(id)
+  //     .then(data => this.setState({
+  //       dogs: data.dog,
+  //       currentView: 'Pup Profile'
+  //     }))
+  // };
+
+  selectDog(dog,grades) {
+>>>>>>> 70582e31a290971e5a42e644a6736967378e3fa4
     this.setState({
       selectedDog: dog,
+      dogGrade: grades[0],
       currentView: 'Pup Profile'
     })
   };
@@ -63,6 +81,10 @@ class App extends Component {
       selectedDog: dog,
       currentView: 'Update Dog'
     })
+  }
+
+  editGrade(grades) {
+
   }
 
   // create dog function
@@ -102,12 +124,21 @@ class App extends Component {
   }
 
   // edit dog grade function
+<<<<<<< HEAD
   editDogGrades(id) {
     updateGrades(id)
       .then(data => this.fetchOne(id))
       .then(data => {
         this.setState({
           currentView: 'Pup Profile',
+=======
+  editDogGrades(dog) {
+    updateGrades(dog)
+      .then(data => this.fetchOne(dog))
+      .then(data => {
+        this.setState({
+          currentView: 'All Dogs',
+>>>>>>> 70582e31a290971e5a42e644a6736967378e3fa4
           dogs: data.dog
         })
       })
@@ -125,6 +156,10 @@ class App extends Component {
     switch (currentView) {
       case 'All Dogs':
         return <DogsIndex
+<<<<<<< HEAD
+=======
+          grades={this.state.grades}
+>>>>>>> 70582e31a290971e5a42e644a6736967378e3fa4
           dogs={this.state.dogs}
           oneDog={this.fetchOne}
           newDog={this.createDog}
@@ -142,12 +177,27 @@ class App extends Component {
         return <CreateForm newDog={this.createDog}
         />
       case 'Update Dog':
+<<<<<<< HEAD
         return <UpdateDog
           dogs={dogs}
           dog={dog}
           selectedDog={this.state.selectedDog}
           onSubmit={this.updateDoggy}
         />
+=======
+        return (
+          <div>
+            <UpdateDog
+              dogs={dogs}
+              selectedDog={this.state.selectedDog}
+              onSubmit={this.updateDoggy}
+            />
+            <UpdateGrades
+            selectedDog={this.state.selectedDog}
+            onSubmit={this.editDogGrades}/>
+          </div>
+        )
+>>>>>>> 70582e31a290971e5a42e644a6736967378e3fa4
       case 'Gradebook':
         return <GradeBook grades={this.state.grades} />
     }
