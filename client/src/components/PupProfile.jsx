@@ -44,16 +44,10 @@ class PupProfile extends Component {
   render() {
     return(
       <div>
-<<<<<<< HEAD
-        <h2>{this.props.dog.name}</h2>
-        {/* {/* <UpdateGrades /> */}
-     
-=======
         <h2>{this.state.name}</h2>
         {/* <UpdateGrades />
         <DeleteButton dogs={this.state.dogs} handleDeleteClick={this.handleDeleteClick} /> */}
         <img src={this.state.picture} alt={'🐾 Sorry, No Image 🐾'} height="200" width="200" className="pupperPic"/>
->>>>>>> 70582e31a290971e5a42e644a6736967378e3fa4
         <h2>{this.state.name}</h2>
         <p>Owner: {this.state.owner}</p>
         <p>Breed: {this.state.breed}</p>
