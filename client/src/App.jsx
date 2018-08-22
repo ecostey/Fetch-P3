@@ -5,6 +5,7 @@ import PupProfile from './components/PupProfile';
 import CreateForm from './components/CreateForm';
 import GradeBook from './components/GradeBook'
 import Header from './components/Header';
+import './index.css';
 
 import {
   fetchDogs, 

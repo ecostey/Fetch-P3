@@ -46,6 +46,7 @@ class PupProfile extends Component {
         <h2>{this.props.dog.name}</h2>
         {/* <UpdateGrades />
         <DeleteButton dogs={this.state.dogs} handleDeleteClick={this.handleDeleteClick} /> */}
+        <img src={this.state.picture} alt={'🐾 Sorry, No Image 🐾'} height="200" width="200" className="pupperPic"/>
         <h2>{this.state.name}</h2>
         <p>Owner: {this.state.owner}</p>
         <p>Breed: {this.state.breed}</p>
