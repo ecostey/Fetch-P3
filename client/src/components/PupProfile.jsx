@@ -10,9 +10,8 @@ import UpdateDog from './UpdateDog';
 class PupProfile extends Component {
   constructor(props) {
     super(props);
-    const { dogs, dog, grade } = props;
+    const { dogs, dog, dogGrade } = props;
     this.state = {
-      dog_id: dog.id,
       id: dog.id,
       owner: dog.owner,
       name: dog.name,
@@ -20,7 +19,13 @@ class PupProfile extends Component {
       size: dog.size,
       age: dog.age,
       picture: dog.picture,
-      stay: grade.stay,
+      dogs_id: dogGrade.dogs_id,
+      leash_training: dogGrade.leash_training,
+      leave_it: dogGrade.leave_it,
+      potty_training: dogGrade.potty_training,
+      quiet: dogGrade.quiet,
+      sit: dogGrade.sit,
+      stay: dogGrade.stay,
     }
 
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
@@ -55,7 +60,13 @@ class PupProfile extends Component {
         <p>Breed: {this.state.breed}</p>
         <p>Size: {this.state.size}</p>
         <p>Age: {this.state.age}</p>
-        <p>Stay: {this.state.stay}</p>
+        <p>Id: {this.state.dogs_id}</p>
+        <p>Leash Training: {this.state.leash_training?"True":"False"}</p>
+        <p>Leave It: {this.state.leave_it?"True":"False"}</p>
+        <p>Potty Training: {this.state.potty_training?"True":"False"}</p>
+        <p>Quiet: {this.state.quiet?"True":"False"}</p>
+        <p>Sit: {this.state.sit?"True":"False"}</p>
+        <p>Stay: {this.state.stay?"True":"False"}</p>
         <button 
             onClick={(ev) => {
               ev.preventDefault();

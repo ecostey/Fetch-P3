@@ -95,7 +95,6 @@ class App extends Component {
       })
   };
 
-<<<<<<< HEAD
   createGrade(grade) {
     saveNewGrade(grade)
     .then(data => fetchAllGrades())
@@ -109,10 +108,6 @@ class App extends Component {
 
   
  // edit dog function
-=======
-
-  // edit dog function
->>>>>>> 70582e31a290971e5a42e644a6736967378e3fa4
   updateDoggy(dog) {
     console.log(dog)
     updateDoggy(dog)
@@ -146,7 +141,7 @@ class App extends Component {
   // SWITCH statement for which page to view
   determineWhichToRender() {
     const { currentView } = this.state;
-    const { dogs, selectedDog, grades } = this.state;
+    const { dogs, selectedDog, grades, dogGrade } = this.state;
 
     switch (currentView) {
       case 'All Dogs':
@@ -155,35 +150,21 @@ class App extends Component {
           dogs={this.state.dogs}
           oneDog={this.fetchOne}
           newDog={this.createDog}
-<<<<<<< HEAD
-          selectDog={this.selectDog} 
-          grades={this.state.grades}
-        />
-      case 'Pup Profile':
-        const dog = dogs.find(dog => dog.id === selectedDog.id)
-        const grade = grades.find(grade => grade.dogs_id === selectedDog.id)
-        return <PupProfile 
-          dogs={dogs} 
-=======
           selectDog={this.selectDog}
         />
       case 'Pup Profile':
         const dog = dogs.find(dog => dog.id === selectedDog.id)
         return <PupProfile
           dogs={dogs}
->>>>>>> 70582e31a290971e5a42e644a6736967378e3fa4
           editDog={this.editDog}
           dog={selectedDog}
           grade={selectedDog}
+          dogGrade={dogGrade}
           newGrade={this.createGrade}
         />;
       case 'Create Pup':
-<<<<<<< HEAD
         return <CreateForm  
         newDog={this.createDog} 
-=======
-        return <CreateForm newDog={this.createDog}
->>>>>>> 70582e31a290971e5a42e644a6736967378e3fa4
         />
       case 'Update Dog':
         return (

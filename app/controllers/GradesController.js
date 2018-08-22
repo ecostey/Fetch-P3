@@ -50,12 +50,12 @@ module.exports = {
   createOne(req, res, next) {
     const data = {
       dogs_id: req.params.id,
-      potty_training: 'false',
-      stay: 'false',
-      leash_training: 'false',
-      sit: 'false',
-      quiet: 'false',
-      leave_it: 'false',
+      potty_training: req.body.potty_training,
+      stay: req.body.stay,
+      leash_training: req.body.leash_training,
+      sit: req.body.sit,
+      quiet: req.body.quiet,
+      leave_it: req.body.leave_it,
     };
 
     gradesModel.newGrade(data)
