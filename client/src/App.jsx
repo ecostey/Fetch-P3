@@ -12,6 +12,7 @@ import {
   updateDoggy,
   updateGrades,
   saveNewDog,
+  saveNewGrade,
   fetchAllGrades,
 } from './services/api';
 
@@ -22,13 +23,16 @@ class App extends Component {
       grades: [],
       dogs: [],
       selectedDog: '',
+      selectedGrade: '',
       currentView: 'All Dogs',
     }
     this.fetchOne = this.fetchOne.bind(this);
     this.createDog = this.createDog.bind(this);
+    this.createGrade = this.createGrade.bind(this);
     this.updateDoggy = this.updateDoggy.bind(this);
     this.editDogGrades = this.editDogGrades.bind(this);
     this.selectDog = this.selectDog.bind(this);
+    this.selectGrade = this.selectGrade.bind(this);
     this.editDog = this.editDog.bind(this);
 
   }
@@ -56,6 +60,12 @@ class App extends Component {
     })
   };
 
+  selectGrade(grade) {
+    this.setState({
+      selectedGrade: grade,
+    })
+  }
+
   editDog(dog) {
     this.setState({
       selectedDog: dog,
@@ -71,6 +81,17 @@ class App extends Component {
       this.setState({
         currentView: 'All Dogs',
         dogs: data.dogs
+      });
+    })
+  };
+
+  createGrade(grade) {
+    saveNewGrade(grade)
+    .then(data => fetchAllGrades())
+    .then(data => {
+      this.setState({
+        currentView: 'Gradebook',
+        grades: data.grades
       });
     })
   };
@@ -110,7 +131,7 @@ class App extends Component {
   // SWITCH statement for which page to view
   determineWhichToRender() {
     const { currentView } = this.state;
-    const { dogs, selectedDog } = this.state;
+    const { dogs, selectedDog, grades } = this.state;
 
     switch(currentView) {
       case 'All Dogs':
@@ -119,16 +140,21 @@ class App extends Component {
           oneDog={this.fetchOne} 
           newDog={this.createDog}
           selectDog={this.selectDog} 
+          grades={this.state.grades}
         />
       case 'Pup Profile':
         const dog = dogs.find(dog => dog.id === selectedDog.id)
+        const grade = grades.find(grade => grade.dogs_id === selectedDog.id)
         return <PupProfile 
           dogs={dogs} 
           editDog={this.editDog}
           dog={selectedDog}
+          grade={selectedDog}
+          newGrade={this.createGrade}
         />;
       case 'Create Pup':
-        return <CreateForm  newDog={this.createDog} 
+        return <CreateForm  
+        newDog={this.createDog} 
         />
       case 'Update Dog':
         return <UpdateDog 

@@ -10,8 +10,9 @@ import UpdateDog from './UpdateDog';
 class PupProfile extends Component {
   constructor(props) {
     super(props);
-    const { dogs, dog } = props;
+    const { dogs, dog, grade } = props;
     this.state = {
+      dog_id: dog.id,
       id: dog.id,
       owner: dog.owner,
       name: dog.name,
@@ -19,6 +20,7 @@ class PupProfile extends Component {
       size: dog.size,
       age: dog.age,
       picture: dog.picture,
+      stay: grade.stay,
     }
 
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
@@ -51,6 +53,7 @@ class PupProfile extends Component {
         <p>Breed: {this.state.breed}</p>
         <p>Size: {this.state.size}</p>
         <p>Age: {this.state.age}</p>
+        <p>Stay: {this.state.stay}</p>
         <button 
             onClick={(ev) => {
               ev.preventDefault();
@@ -58,6 +61,13 @@ class PupProfile extends Component {
               this.props.editDog(dogState)}} >
               Edit Dog
             </button>
+        <button 
+            onClick={(ev) => {
+              ev.preventDefault();
+              const dogState = this.state;
+              this.props.newGrade(dogState)}} >
+              New Gradebook
+          </button>
       </div>
      
     // render pup profile
