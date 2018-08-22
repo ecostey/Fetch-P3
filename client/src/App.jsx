@@ -16,6 +16,7 @@ import {
   fetchOneGrade,
   updateGrades,
   saveNewDog,
+  saveNewGrade,
   fetchAllGrades,
   deleteDog,
 } from './services/api';
@@ -28,13 +29,16 @@ class App extends Component {
       dogGrade: [],
       dogs: [],
       selectedDog: '',
+      // selectedGrade: '',
       currentView: 'All Dogs',
     }
     // this.fetchOne = this.fetchOne.bind(this);
     this.createDog = this.createDog.bind(this);
+    this.createGrade = this.createGrade.bind(this);
     this.updateDoggy = this.updateDoggy.bind(this);
     this.editDogGrades = this.editDogGrades.bind(this);
     this.selectDog = this.selectDog.bind(this);
+    // this.selectGrade = this.selectGrade.bind(this);
     this.editDog = this.editDog.bind(this);
     this.handleDeleteDog = this.handleDeleteDog.bind(this);
 
@@ -64,6 +68,12 @@ class App extends Component {
     })
   };
 
+  // selectGrade(grade) {
+  //   this.setState({
+  //     selectedGrade: grade,
+  //   })
+  // }
+
   editDog(dog) {
     this.setState({
       selectedDog: dog,
@@ -87,8 +97,18 @@ class App extends Component {
       })
   };
 
+  createGrade(grade) {
+    saveNewGrade(grade)
+    .then(data => fetchAllGrades())
+    .then(data => {
+      this.setState({
+        grades: data.grades
+      });
+    })
+  };
 
-  // edit dog function
+  
+ // edit dog function
   updateDoggy(dog) {
     console.log(dog)
     updateDoggy(dog)
@@ -133,7 +153,7 @@ class App extends Component {
   // SWITCH statement for which page to view
   determineWhichToRender() {
     const { currentView } = this.state;
-    const { dogs, selectedDog } = this.state;
+    const { dogs, selectedDog, grades, dogGrade } = this.state;
 
     switch (currentView) {
       case 'All Dogs':
@@ -151,9 +171,13 @@ class App extends Component {
           editDog={this.editDog}
           handleDeleteDog={this.handleDeleteDog}
           dog={selectedDog}
+          grade={selectedDog}
+          dogGrade={dogGrade}
+          newGrade={this.createGrade}
         />;
       case 'Create Pup':
-        return <CreateForm newDog={this.createDog}
+        return <CreateForm  
+        newDog={this.createDog} 
         />
       case 'Update Dog':
         return (
