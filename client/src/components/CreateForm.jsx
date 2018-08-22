@@ -31,7 +31,7 @@ handleChange(ev) {
 
 render() {
     return (
-        <div>
+        <div className="createForm">
             <button><a href="">Back</a></button>
             <h2>Add a Dog to Your Class:</h2>
             <form onSubmit={this.handleSubmit} >
