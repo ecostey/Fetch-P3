@@ -48,7 +48,6 @@ module.exports = {
   },
 
   createOne(req, res, next) {
-    console.log('This is req.body', req.body);
     const data = {
       dogs_id: req.body.id,
       potty_training: req.body.potty_training,
