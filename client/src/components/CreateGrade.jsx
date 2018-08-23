@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+// CreateGrade class component pulling id from the newly created dog(props)
+// set training states to default as false
 class CreateGrade extends Component {
     constructor(props) {
         const {selectedDog}= props
@@ -13,14 +15,21 @@ class CreateGrade extends Component {
             sit: false,
             stay: false,
         };
+        // bind handle change and handle submit
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    // handle submit passing the current state up
+    // to app.jsx (createGrade) with new grades
     handleSubmit(ev) {
         ev.preventDefault();
         this.props.newGrade(this.state);
     };
+
+    // handle change
+    // sets state when checked to true
+    // sets state when not checked to false
     handleChange(e) {
         const { name } = e.target;
         if (e.target.checked) {
@@ -30,6 +39,8 @@ class CreateGrade extends Component {
         }
       }
 
+    // renders the create grade card form
+    // checkboxes for each training topic
     render() {
         return (
             <div>
