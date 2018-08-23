@@ -40,24 +40,29 @@
   .nav {
     cursor: pointer;
     justify-items: center;
-    display: grid;
+    /* display: grid;
     grid-template-columns: auto auto;
     grid-row-gap: 50px;
-    grid-column-gap: 24px;
+    grid-column-gap: 24px; */
     align-self: center;
     margin-bottom: 20px;
+    
   }
 
   .link {
-    background-color: white;
-    width: 200px;
+    /* text-align: center;
+    align-self: center;
+    align-content: justify; */
+    width: 110px;
     height: 30px;
-    text-align: center;
-    color: black;
-    font-family: 'Love Ya Like A Sister', regular;
-    font-size: 20px;
-    box-shadow: rgb(167, 108, 0) 3px 3px 3px;
-    cursor: pointer;
+    font-size: 18px;
+    color: white;
+    background-color: orange;
+    border-radius: 6%;
+    box-shadow: #dddddd 2px 4px 2px;
+    margin-left: 10px;
+    margin-right: 10px;
+    /* cursor: pointer; */
   }
 
   .title {
@@ -279,7 +284,6 @@
   .middle-cell {
     max-width: 300px;
   }
-
 
   .updateDogTitle {
     font-family: 'Love Ya Like A Sister', regular;
