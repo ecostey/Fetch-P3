@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+// Update Grades class component
+// passing props to state
 class UpdateGrades extends Component {
     constructor(props) {
         super(props);
@@ -15,11 +17,13 @@ class UpdateGrades extends Component {
             leave_it: grades.leave_it,
         };
 
+        // bind handleChange and handleSubmit
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
 
     }
 
+    // handle submit, sending state back to App.jsx
     handleSubmit(e) {
         e.preventDefault();
         const data = {
@@ -34,6 +38,9 @@ class UpdateGrades extends Component {
         this.props.onSubmit(data);
     }
 
+    // handle change function
+    // sets state to true if target is checked
+    // sets state to false if target is not clicked
     handleChange(e) {
         const { name } = e.target;
         if (e.target.checked) {
@@ -43,6 +50,7 @@ class UpdateGrades extends Component {
         }
       }
 
+    // render update grades form with pre-set values
     render() {
         const { potty_training, stay, leash_training, sit, quiet, leave_it } = this.state;
         return (

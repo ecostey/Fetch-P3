@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+// class component for the create form
+// empty state to set state on change
 class CreateForm extends Component {
     constructor(props) {
         super(props);
@@ -15,11 +17,18 @@ class CreateForm extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    // handle submit function
+    // prevent default-reload
+    // calling props newDog function and pass state
+
     handleSubmit(ev) {
         ev.preventDefault();
         this.props.newDog(this.state)
-        // .then(createDog(this.state))
     };
+
+    // handle change function
+    // on event target {name and value}
+
     handleChange(ev) {
         ev.preventDefault();
         const { name, value } = ev.target;
@@ -28,7 +37,7 @@ class CreateForm extends Component {
         });
     };
 
-
+    // renders a create form
     render() {
         return (
             <div>

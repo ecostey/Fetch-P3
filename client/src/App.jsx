@@ -1,14 +1,17 @@
+// import react and component class
 import React, { Component } from 'react';
+// import components
 import DogsIndex from './components/DogsIndex';
 import UpdateDog from './components/UpdateDog';
 import PupProfile from './components/PupProfile';
 import CreateForm from './components/CreateForm';
 import GradeBook from './components/GradeBook'
 import Header from './components/Header';
-import './index.css';
 import UpdateGrades from './components/UpdateGrades';
+// import styling
+import './index.css';
 
-
+// import functions from api.js
 import {
   fetchDogs,
   fetchOneDog,
@@ -21,6 +24,7 @@ import {
   deleteDog,
 } from './services/api';
 
+// app component
 class App extends Component {
   constructor(props) {
     super(props);
@@ -29,21 +33,22 @@ class App extends Component {
       dogGrade: [],
       dogs: [],
       selectedDog: '',
-      // selectedGrade: '',
       currentView: 'All Dogs',
     }
-    // this.fetchOne = this.fetchOne.bind(this);
+
+    // bind functions to use this in callback
     this.createDog = this.createDog.bind(this);
     this.createGrade = this.createGrade.bind(this);
     this.updateDoggy = this.updateDoggy.bind(this);
     this.editDogGrades = this.editDogGrades.bind(this);
     this.selectDog = this.selectDog.bind(this);
-    // this.selectGrade = this.selectGrade.bind(this);
+    this.fetchOne = this.fetchOne.bind(this);
     this.editDog = this.editDog.bind(this);
     this.editGrade = this.editGrade.bind(this);
     this.handleDeleteDog = this.handleDeleteDog.bind(this);
   }
 
+  // when page loads, fetch all dogs and all grades
   componentDidMount() {
     fetchDogs()
       .then(data => this.setState({ dogs: data.dogs }));
@@ -52,14 +57,15 @@ class App extends Component {
   };
 
   // select one dog & set state
-  // fetchOne(id) {
-  //   fetchOneDog(id)
-  //     .then(data => this.setState({
-  //       dogs: data.dog,
-  //       currentView: 'Pup Profile'
-  //     }))
-  // };
+  fetchOne(id) {
+    fetchOneDog(id)
+      .then(data => this.setState({
+        dogs: data.dog,
+        currentView: 'Pup Profile'
+      }))
+  };
 
+  // select dog function
   selectDog(dog, grades) {
     this.setState({
       selectedDog: dog,
@@ -68,12 +74,7 @@ class App extends Component {
     })
   };
 
-  // selectGrade(grade) {
-  //   this.setState({
-  //     selectedGrade: grade,
-  //   })
-  // }
-
+  // edit dog function
   editDog(dog) {
     this.setState({
       selectedDog: dog,
@@ -81,6 +82,7 @@ class App extends Component {
     })
   }
 
+  // edit grade function
   editGrade(grades) {
     this.setState({
       dogGrade: grades,
@@ -100,6 +102,7 @@ class App extends Component {
       })
   };
 
+  // create grade function
   createGrade(grade) {
     saveNewGrade(grade)
     .then(data => fetchAllGrades())
@@ -114,20 +117,19 @@ class App extends Component {
  // edit dog function
   updateDoggy(dog) {
     updateDoggy(dog)
-      .then(data => fetchDogs())
+      .then(data => fetchOneDog(dog.id))
       .then(data => {
         this.setState({
-          currentView: 'All Dogs',
-          dogs: data.dogs
+          currentView: 'Pup Profile',
+          selectedDog: data
         });
       })
   };
 
   // delete dog function
-
   handleDeleteDog(dog) {
     deleteDog(dog)
-      .then(data => fetchDogs(dog))
+      .then(data => fetchDogs())
       .then(data => {
         this.setState({
           currentView: 'All Dogs',
@@ -164,15 +166,10 @@ class App extends Component {
           selectDog={this.selectDog}
         />
       case 'Pup Profile':
-        // const dog = dogs.find(dog => dog.id === selectedDog.id)
         return <PupProfile
-                 // need to look through these names and fix!!
-          dogs={dogs}
           editDog={this.editDog}
-          grades={dogGrade}
           handleDeleteDog={this.handleDeleteDog}
           dog={selectedDog}
-          grade={selectedDog}
           dogGrade={dogGrade}
           newGrade={this.createGrade}
         />;

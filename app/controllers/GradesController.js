@@ -1,3 +1,4 @@
+// require grades model
 const gradesModel = require('../models/GradesModels');
 
 module.exports = {
@@ -22,10 +23,6 @@ module.exports = {
       .catch(next);
   },
 
-  // Set user input in object 'gradeData' & pass as a parameter to
-
-  // the updateOne function from Models.
-
   // Store returned data in res.locals.
   updateGrade(req, res, next) {
     const gradeData = {
@@ -45,6 +42,7 @@ module.exports = {
       .catch(next);
   },
 
+  // create one gradebook for new dog
   createOne(req, res, next) {
     const data = {
       dogs_id: req.body.id,

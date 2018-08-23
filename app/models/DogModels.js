@@ -1,7 +1,5 @@
-const {
-  db,
-  pgp
-} = require('../config/conn');
+// require db from config
+const { db } = require('../config/conn');
 
 module.exports = {
 
