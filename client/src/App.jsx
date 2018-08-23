@@ -7,6 +7,8 @@ import PupProfile from './components/PupProfile';
 import CreateForm from './components/CreateForm';
 import GradeBook from './components/GradeBook'
 import Header from './components/Header';
+import CreateGrade from './components/CreateGrade';
+import './index.css';
 import UpdateGrades from './components/UpdateGrades';
 // import styling
 import './index.css';
@@ -79,6 +81,7 @@ class App extends Component {
       currentView: 'Pup Profile'
     })
   };
+  
 
   // edit dog function
   editDog(dog) {
@@ -99,24 +102,26 @@ class App extends Component {
   // create dog function
   createDog(dog) {
     saveNewDog(dog)
-      .then(data => fetchDogs())
       .then(data => {
         this.setState({
-          currentView: 'All Dogs',
-          dogs: data.dogs
+          currentView: 'Create Grade',
+          selectedDog: data,
         });
       })
   };
 
   // create grade function
   createGrade(grade) {
+    console.log(grade)
     saveNewGrade(grade)
-      .then(data => fetchAllGrades())
-      .then(data => {
-        this.setState({
-          grades: data.grades
-        });
-      })
+    .then(data => fetchAllGrades())
+    .then(data => {
+      console.log(data)
+      this.setState({
+        grades: data.grades,
+        currentView: 'Gradebook',
+      });
+    })
   };
 
 
@@ -169,6 +174,7 @@ class App extends Component {
           oneDog={this.fetchOne}
           newDog={this.createDog}
           selectDog={this.selectDog}
+          newGrade={this.createGrade}
         />
       case 'Pup Profile':
         return <PupProfile
@@ -176,7 +182,6 @@ class App extends Component {
           handleDeleteDog={this.handleDeleteDog}
           dog={selectedDog}
           dogGrade={dogGrade}
-          newGrade={this.createGrade}
         />;
       case 'Create Pup':
         return <CreateForm
@@ -208,6 +213,11 @@ class App extends Component {
         )
       case 'Gradebook':
         return <GradeBook grades={this.state.grades} />
+      case 'Create Grade':
+        return <CreateGrade 
+        selectedDog={this.state.selectedDog}
+        newGrade={this.createGrade}
+        />
     }
   }
 
@@ -218,9 +228,7 @@ class App extends Component {
   render() {
     const links = [
       'All Dogs',
-      'Pup Profile',
       'Create Pup',
-      'Update Dog',
       'Gradebook'
     ]
     return (

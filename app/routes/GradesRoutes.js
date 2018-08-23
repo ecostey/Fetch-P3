@@ -17,7 +17,7 @@ router.get('/:id',
 // create one grade
 router.post('/',
   GradesController.createOne,
-  (req, res) => res.json({ grade: res.locals.grade }));
+  (req, res) => res.json(res.locals.grade));
 
 // update one grade
 router.put('/:id',

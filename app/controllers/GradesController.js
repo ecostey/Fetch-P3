@@ -45,7 +45,7 @@ module.exports = {
   // create one gradebook for new dog
   createOne(req, res, next) {
     const data = {
-      dogs_id: req.body.id,
+      dogs_id: req.body.dogs_id,
       potty_training: req.body.potty_training,
       stay: req.body.stay,
       leash_training: req.body.leash_training,

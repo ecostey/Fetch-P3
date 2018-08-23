@@ -49,14 +49,6 @@ class PupProfile extends Component {
                 }} >
                 Edit Pup Info
               </button>
-              <button
-                onClick={(ev) => {
-                  ev.preventDefault();
-                  const dogState = this.state;
-                  this.props.newGrade(dogState)
-                }} >
-                Update Grades
-              </button>
               <button onClick={(ev) => {
                 ev.preventDefault();
                 const dog = this.state;
