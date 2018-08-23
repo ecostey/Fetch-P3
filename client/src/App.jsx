@@ -112,9 +112,11 @@ class App extends Component {
 
   // create grade function
   createGrade(grade) {
+    console.log(grade)
     saveNewGrade(grade)
     .then(data => fetchAllGrades())
     .then(data => {
+      console.log(data)
       this.setState({
         grades: data.grades,
         currentView: 'Gradebook',
