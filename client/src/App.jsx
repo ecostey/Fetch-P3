@@ -5,6 +5,7 @@ import PupProfile from './components/PupProfile';
 import CreateForm from './components/CreateForm';
 import GradeBook from './components/GradeBook'
 import Header from './components/Header';
+import CreateGrade from './components/CreateGrade';
 import './index.css';
 import UpdateGrades from './components/UpdateGrades';
 
@@ -29,7 +30,6 @@ class App extends Component {
       dogGrade: [],
       dogs: [],
       selectedDog: '',
-      // selectedGrade: '',
       currentView: 'All Dogs',
     }
     // this.fetchOne = this.fetchOne.bind(this);
@@ -38,7 +38,6 @@ class App extends Component {
     this.updateDoggy = this.updateDoggy.bind(this);
     this.editDogGrades = this.editDogGrades.bind(this);
     this.selectDog = this.selectDog.bind(this);
-    // this.selectGrade = this.selectGrade.bind(this);
     this.editDog = this.editDog.bind(this);
     this.editGrade = this.editGrade.bind(this);
     this.handleDeleteDog = this.handleDeleteDog.bind(this);
@@ -92,11 +91,10 @@ class App extends Component {
   // create dog function
   createDog(dog) {
     saveNewDog(dog)
-      .then(data => fetchDogs())
       .then(data => {
         this.setState({
-          currentView: 'All Dogs',
-          dogs: data.dogs
+          currentView: 'Create Grade',
+          selectedDog: data,
         });
       })
   };
@@ -198,6 +196,11 @@ class App extends Component {
         )
       case 'Gradebook':
         return <GradeBook grades={this.state.grades} />
+      case 'Create Grade':
+        return <CreateGrade 
+        selectedDog={this.state.selectedDog}
+        newGrade={this.createGrade}
+        />
     }
   }
 
