@@ -8,7 +8,6 @@ import CreateForm from './components/CreateForm';
 import GradeBook from './components/GradeBook'
 import Header from './components/Header';
 import CreateGrade from './components/CreateGrade';
-import './index.css';
 import UpdateGrades from './components/UpdateGrades';
 // import styling
 import './index.css';
@@ -169,10 +168,7 @@ class App extends Component {
         return <DogsIndex
           grades={this.state.grades}
           dogs={this.state.dogs}
-          oneDog={this.fetchOne}
-          newDog={this.createDog}
           selectDog={this.selectDog}
-          newGrade={this.createGrade}
         />
       case 'Pup Profile':
         return <PupProfile
