@@ -8,8 +8,8 @@ import CreateForm from './components/CreateForm';
 import GradeBook from './components/GradeBook'
 import Header from './components/Header';
 import CreateGrade from './components/CreateGrade';
-import './index.css';
 import UpdateGrades from './components/UpdateGrades';
+import Footer from './components/Footer';
 // import styling
 import './index.css';
 
@@ -58,10 +58,16 @@ class App extends Component {
       .then(data => this.setState({ grades: data.grades }));
   };
 
+  // fetch all dogs and sets state to all dogs 
+  // whenever top nav logo is clicked
   headerRenderToHome() {
-    this.setState({
-      currentView: 'All Dogs'
-    })
+    fetchDogs()
+      .then(data => {
+        this.setState({
+          dogs: data.dogs,
+          currentView: 'All Dogs'
+        })
+      })
   }
 
   // select one dog & set state
@@ -81,7 +87,7 @@ class App extends Component {
       currentView: 'Pup Profile'
     })
   };
-  
+
 
   // edit dog function
   editDog(dog) {
@@ -112,11 +118,9 @@ class App extends Component {
 
   // create grade function
   createGrade(grade) {
-    console.log(grade)
     saveNewGrade(grade)
     .then(data => fetchAllGrades())
     .then(data => {
-      console.log(data)
       this.setState({
         grades: data.grades,
         currentView: 'Gradebook',
@@ -152,6 +156,13 @@ class App extends Component {
   // edit dog grade function
   editDogGrades(dog) {
     updateGrades(dog)
+      .then(data => fetchAllGrades())
+      .then(data => {
+        this.setState({
+          dogs: data.grades,
+        })
+        console.log(data);
+      })
       .then(data => fetchOneGrade(dog.dogs_id))
       .then(data => {
         this.setState({
@@ -164,18 +175,19 @@ class App extends Component {
   // SWITCH statement for which page to view
   determineWhichToRender() {
     const { currentView } = this.state;
-    const { dogs, selectedDog, grades, dogGrade } = this.state;
+    const { dogs, selectedDog, grades, dogGrade, fetchOne } = this.state;
 
     switch (currentView) {
+      // All dogs view
       case 'All Dogs':
         return <DogsIndex
-          grades={this.state.grades}
-          dogs={this.state.dogs}
-          oneDog={this.fetchOne}
+          grades={grades}
+          dogs={dogs}
+          oneDog={fetchOne}
           newDog={this.createDog}
           selectDog={this.selectDog}
-          newGrade={this.createGrade}
         />
+      // One dog's profile page with all data
       case 'Pup Profile':
         return <PupProfile
           editDog={this.editDog}
@@ -183,19 +195,22 @@ class App extends Component {
           dog={selectedDog}
           dogGrade={dogGrade}
         />;
+      // view to create a dog (form)
       case 'Create Pup':
         return <CreateForm
           newDog={this.createDog}
         />
+      // view to update dog profile
+      // two class components on one page
       case 'Update Dog':
         return (
           <div>
-            
+            <p className="gradebooktitle">{selectedDog.name}</p>
             <div className="updates-grid-container">
               <div className="updates-grid-cell">
                 <UpdateDog
                   dogs={dogs}
-                  selectedDog={this.state.selectedDog}
+                  selectedDog={selectedDog}
                   onSubmit={this.updateDoggy}
                 />
               </div>
@@ -205,30 +220,44 @@ class App extends Component {
               </div>
               <div className="updates-grid-cell">
                 <UpdateGrades
-                  selectedDog={this.state.selectedDog}
+                  selectedDog={selectedDog}
                   grades={dogGrade}
                   onSubmit={this.editDogGrades} />
               </div>
             </div>
           </div>
         )
+      // gradebook view :: all grades for all dogs
       case 'Gradebook':
-        return <GradeBook grades={this.state.grades} />
+        return <GradeBook 
+        grades={grades}
+        selectDog={this.selectDog}
+        dogs={this.state.dogs} />
+
+      // create grades for new dog view
       case 'Create Grade':
-        return <CreateGrade 
-        selectedDog={this.state.selectedDog}
-        newGrade={this.createGrade}
+        return <CreateGrade
+          selectedDog={selectedDog}
+          newGrade={this.createGrade}
         />
     }
   }
 
+  // handles the click of the nav buttons 
+  // sets state to the current view and fetches most current grades
   handleLinkClick(link) {
-    this.setState({ currentView: link });
+    fetchAllGrades()
+      .then(data => {
+        this.setState({
+          currentView: link,
+          grades: data.grades
+        });
+      })
   }
 
+  // renders between each the switch statement with a header on all pages
   render() {
     const links = [
-      'All Dogs',
       'Create Pup',
       'Gradebook'
     ]
@@ -239,6 +268,7 @@ class App extends Component {
           onClick={this.handleLinkClick.bind(this)}
           links={links} />
         {this.determineWhichToRender()}
+        <Footer />
       </div>
     );
   }

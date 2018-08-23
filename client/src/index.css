@@ -262,10 +262,18 @@
     max-width: 300px;
   }
 
+
   .updateDogTitle {
-    
     font-family: 'Love Ya Like A Sister', regular;
     font-size: 40px;
     color: orange;
     text-align: center;
+
+  .planeteers {
+    height: 125px;
+    width: 200px;
+  }
+
+  .footer {
+    margin: auto;
   }
