@@ -4,7 +4,7 @@ VALUES
 ('Roland Munich', 'Frank', 'Bulldog', 'medium', 1, 'https://i.imgur.com/1KqLMM0.jpg'),
 ('Carol Wang', 'Link', 'Lab Pitbull Mix', 'large', 3, 'https://i.imgur.com/45jd3Eu.jpg'),
 ('Dorothy Gail', 'Toto', 'Cairn Terrier', 'small', 4, 'https://i.imgur.com/LmOmUWw.png'),
-('Al Salazer', 'Norbert', 'French Bulldog', 'small' 1, 'https://i.imgur.com/vz5S371.png'),
+('Al Salazer', 'Norbert', 'French Bulldog', 'small', 1, 'https://i.imgur.com/vz5S371.png'),
 ('Bo Lee', 'Milo', 'Golden Retriever', 'large', 1, 'https://i.imgur.com/TzVfo1G.png')
 ;
 
