@@ -23,14 +23,12 @@ function GradeBook(props) {
                                 <tr key={each.dogs_id}>
                                     <td className="name"
                                     onClick={(ev) => {
-                                        console.log(each)
                                         ev.preventDefault();
                                         const dogs = props.dogs.filter(dogs => {
                                             return dogs.id === each.dogs_id
                                         })
                                         props.selectDog(each, dogs)
-                                        console.log(dogs)
-                                    }}>>{each.name}</td>
+                                    }}>{each.name}</td>
                                     <td>{each.potty_training ? '✔️' : '-'}</td>
                                     <td>{each.leash_training ? '✔️' : '-'}</td>
                                     <td>{each.stay ? '✔️' : '-'}</td>
