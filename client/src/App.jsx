@@ -99,11 +99,12 @@ class App extends Component {
   // create dog function
   createDog(dog) {
     saveNewDog(dog)
-      .then(data => fetchDogs())
+      // .then(data => console.log(data))
+      // //   fetchDogs())
       .then(data => {
         this.setState({
           currentView: 'All Dogs',
-          dogs: data.dogs
+          selectedDog: data
         });
       })
   };
