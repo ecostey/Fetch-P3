@@ -253,3 +253,12 @@
   .middle-cell {
     max-width: 300px;
   }
+
+  .planeteers {
+    height: 125px;
+    width: 200px;
+  }
+
+  .footer {
+    margin: auto;
+  }
