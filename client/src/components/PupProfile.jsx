@@ -35,7 +35,6 @@ class PupProfile extends Component {
             <p>Breed: {this.state.breed}</p><br />
             <p>Size: {this.state.size}</p><br />
             <p>Age: {this.state.age}</p><br />
-            <p>Id: {this.state.dogs_id}</p>
           </div>
           <div className="grid-cell center-cell">
             <p className="profilename">{this.state.name}</p>
