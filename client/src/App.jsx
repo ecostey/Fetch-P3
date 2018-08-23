@@ -150,7 +150,6 @@ class App extends Component {
       })
   }
 
-// *****WE NEED TO CLEAN UP THE PROPS BEING PASSED THROUGH*******
   // SWITCH statement for which page to view
   determineWhichToRender() {
     const { currentView } = this.state;
