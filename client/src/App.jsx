@@ -148,10 +148,7 @@ class App extends Component {
       })
   }
 
-  // select grade function
-  // create grade function? tbd
-
-
+// *****WE NEED TO CLEAN UP THE PROPS BEING PASSED THROUGH*******
   // SWITCH statement for which page to view
   determineWhichToRender() {
     const { currentView } = this.state;

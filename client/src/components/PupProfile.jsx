@@ -61,12 +61,12 @@ class PupProfile extends Component {
         <p>Size: {this.state.size}</p>
         <p>Age: {this.state.age}</p>
         <p>Id: {this.state.dogs_id}</p>
-        <p>Leash Training: {this.state.leash_training?"Yes":"No"}</p>
-        <p>Leave It: {this.state.leave_it?"Yes":"No"}</p>
-        <p>Potty Training: {this.state.potty_training?"Yes":"No"}</p>
-        <p>Quiet: {this.state.quiet?"Yes":"No"}</p>
-        <p>Sit: {this.state.sit?"Yes":"No"}</p>
-        <p>Stay: {this.state.stay?"Yes":"No"}</p>
+        <p>Leash Training: {this.state.leash_training?"✔️":"-"}</p>
+        <p>Leave It: {this.state.leave_it?"✔️":"-"}</p>
+        <p>Potty Training: {this.state.potty_training?"✔️":"-"}</p>
+        <p>Quiet: {this.state.quiet?"✔️":"-"}</p>
+        <p>Sit: {this.state.sit?"✔️":"-"}</p>
+        <p>Stay: {this.state.stay?"✔️":"-"}</p>
         <button 
             onClick={(ev) => {
               ev.preventDefault();
