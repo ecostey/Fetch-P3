@@ -48,6 +48,8 @@ class PupProfile extends Component {
   //     })
   // }
 
+  //Render a dog's profile
+  //Display dog's information, picture, and dog's grades.
   render() {
     return (
       <div className="profilePage">
@@ -64,7 +66,7 @@ class PupProfile extends Component {
           </div>
           <div className="grid-cell center-cell">
             <p className="profilename">{this.state.name}</p>
-            <img src={this.state.picture} alt={'🐾 Sorry, No Image 🐾'} height="300" width="300" className="pupperPic" />
+            <img src={this.state.picture} alt={'Sorry, No Image 🐾'} height="300" width="300" className="pupperPic" />
             <div className="PPbuttons">
               <button
                 onClick={(ev) => {
@@ -91,12 +93,12 @@ class PupProfile extends Component {
             </div>
           </div>
           <div className="grid-cell">
-           <p>Leash Training: {this.state.leash_training?"✔️":"-"}</p>
-        <p>Leave It: {this.state.leave_it?"✔️":"-"}</p>
-        <p>Potty Training: {this.state.potty_training?"✔️":"-"}</p>
-        <p>Quiet: {this.state.quiet?"✔️":"-"}</p>
-        <p>Sit: {this.state.sit?"✔️":"-"}</p>
-        <p>Stay: {this.state.stay?"✔️":"-"}</p>
+           <p>Leash Training: {this.state.leash_training?"✔️":"💩"}</p>
+        <p>Leave It: {this.state.leave_it?"✔️":"💩"}</p>
+        <p>Potty Training: {this.state.potty_training?"✔️":"💩"}</p>
+        <p>Quiet: {this.state.quiet?"✔️":"💩"}</p>
+        <p>Sit: {this.state.sit?"✔️":"💩"}</p>
+        <p>Stay: {this.state.stay?"✔️":"💩"}</p>
           </div>
         </div>
       </div>
