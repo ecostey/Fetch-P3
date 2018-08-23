@@ -1,3 +1,4 @@
+\c fetch_db
 INSERT INTO dogs (owner, name, breed, size, age, picture)
 VALUES
 ('Liz Costey', 'Rocky', 'Pekingnese Mix', 'small', 8, 'https://i.imgur.com/lVrddVK.jpg'),
