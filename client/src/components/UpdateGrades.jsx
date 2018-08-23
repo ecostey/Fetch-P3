@@ -11,7 +11,7 @@ class UpdateGrades extends Component {
             stay: grades.stay,
             leash_training: grades.leash_training,
             sit: grades.sit,
-            quiet: grades.stay,
+            quiet: grades.quiet,
             leave_it: grades.leave_it,
         };
 
@@ -34,24 +34,15 @@ class UpdateGrades extends Component {
         this.props.onSubmit(data);
     }
 
-    // handleChange(e) {
-    //     const { name, value } = e.target;
-    //     this.setState({
-    //         [name]: !this.state.,
-    //     });
-    // }
-
     handleChange(e) {
-        this.setState({
-            potty_training: !this.state.potty_training,
-            dogs_id: !this.state.dogs_id,
-            stay: !this.state.stay,
-            leash_training: !this.state.leash_training,
-            sit: !this.state.sit,
-            quiet: !this.state.quiet,
-            leave_it: !this.state.leave_it
-        })
-    }
+        const { name } = e.target;
+        if (e.target.checked) {
+        this.setState({[name]: true}) 
+        } else {
+          this.setState({[name]: false})
+        }
+      }
+
     render() {
         const { potty_training, stay, leash_training, sit, quiet, leave_it } = this.state;
         return (
@@ -64,7 +55,7 @@ class UpdateGrades extends Component {
                         name="potty_training"
                         defaultChecked={potty_training}
                         value={potty_training}
-                        onChange={this.handleChange} />
+                        onClick={this.handleChange} />
                     <br />
                     <label>Stay:</label>
                     <input
