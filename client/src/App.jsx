@@ -8,7 +8,6 @@ import CreateForm from './components/CreateForm';
 import GradeBook from './components/GradeBook'
 import Header from './components/Header';
 import CreateGrade from './components/CreateGrade';
-import './index.css';
 import UpdateGrades from './components/UpdateGrades';
 // import styling
 import './index.css';
@@ -119,13 +118,13 @@ class App extends Component {
   // create grade function
   createGrade(grade) {
     saveNewGrade(grade)
-      .then(data => fetchAllGrades())
-      .then(data => {
-        this.setState({
-          grades: data.grades,
-          currentView: 'Gradebook',
-        });
-      })
+    .then(data => fetchAllGrades())
+    .then(data => {
+      this.setState({
+        grades: data.grades,
+        currentView: 'Gradebook',
+      });
+    })
   };
 
 
@@ -186,7 +185,6 @@ class App extends Component {
           oneDog={fetchOne}
           newDog={this.createDog}
           selectDog={this.selectDog}
-          newGrade={this.createGrade}
         />
       // One dog's profile page with all data
       case 'Pup Profile':
@@ -229,7 +227,11 @@ class App extends Component {
         )
       // gradebook view :: all grades for all dogs
       case 'Gradebook':
-        return <GradeBook grades={grades} />
+        return <GradeBook 
+        grades={grades}
+        selectDog={this.selectDog}
+        dogs={this.state.dogs} />
+
       // create grades for new dog view
       case 'Create Grade':
         return <CreateGrade

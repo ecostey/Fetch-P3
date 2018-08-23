@@ -41,7 +41,6 @@ class CreateForm extends Component {
     render() {
         return (
             <div>
-                <button className="submitNewPup"><a href="">Back</a></button>
                 <div className="createForm">
                     <h2 className="pageHeader createformtitle">Add a Dog to Your Class:</h2>
                     <form onSubmit={this.handleSubmit} className="form">
