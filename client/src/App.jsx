@@ -112,11 +112,9 @@ class App extends Component {
 
   // create grade function
   createGrade(grade) {
-    console.log(grade)
     saveNewGrade(grade)
     .then(data => fetchAllGrades())
     .then(data => {
-      console.log(data)
       this.setState({
         grades: data.grades,
         currentView: 'Gradebook',
@@ -212,7 +210,10 @@ class App extends Component {
           </div>
         )
       case 'Gradebook':
-        return <GradeBook grades={this.state.grades} />
+        return <GradeBook 
+        grades={grades}
+        selectDog={this.selectDog}
+        dogs={this.state.dogs} />
       case 'Create Grade':
         return <CreateGrade 
         selectedDog={this.state.selectedDog}
@@ -227,7 +228,6 @@ class App extends Component {
 
   render() {
     const links = [
-      'All Dogs',
       'Create Pup',
       'Gradebook'
     ]
