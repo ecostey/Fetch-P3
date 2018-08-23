@@ -56,6 +56,12 @@ class App extends Component {
       .then(data => this.setState({ grades: data.grades }));
   };
 
+  headerRenderToHome() {
+    this.setState({
+      currentView: 'All Dogs'
+    })
+  }
+
   // select one dog & set state
   fetchOne(id) {
     fetchOneDog(id)
@@ -210,6 +216,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header
+          homeView={this.headerRenderToHome.bind(this)}
           onClick={this.handleLinkClick.bind(this)}
           links={links} />
         {this.determineWhichToRender()}
