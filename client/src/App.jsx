@@ -9,6 +9,7 @@ import GradeBook from './components/GradeBook'
 import Header from './components/Header';
 import CreateGrade from './components/CreateGrade';
 import UpdateGrades from './components/UpdateGrades';
+import Footer from './components/Footer';
 // import styling
 import './index.css';
 
@@ -214,6 +215,7 @@ class App extends Component {
                 />
               </div>
               <div className="updates-grid-cell middle-cell">
+              <p className="updateDogTitle">{this.state.selectedDog.name}</p>
                 <img src='https://i.imgur.com/njer435.png' alt={'Sorry, No Image 🐾'} height="250" width="250" />
               </div>
               <div className="updates-grid-cell">
@@ -266,6 +268,7 @@ class App extends Component {
           onClick={this.handleLinkClick.bind(this)}
           links={links} />
         {this.determineWhichToRender()}
+        <Footer />
       </div>
     );
   }
