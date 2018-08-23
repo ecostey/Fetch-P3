@@ -2,6 +2,7 @@ const router = require('express')();
 
 const DogController = require('../controllers/DogController');
 
+
 // get all dogs
 router.get('/',
   DogController.getAll,

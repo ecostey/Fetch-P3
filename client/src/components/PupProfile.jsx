@@ -32,6 +32,17 @@ class PupProfile extends Component {
 
   }
 
+  
+  state(props) {
+    this.setState({
+      leash_training: props.dogGrade.leash_training,
+      leave_it: props.dogGrade.leave_it,
+      potty_training: props.dogGrade.potty_training,
+      quiet: props.dogGrade.quiet,
+      sit: props.dogGrade.sit,
+      stay: props.dogGrade.stay
+    })
+  }
 
 
   // handle change
@@ -73,14 +84,6 @@ class PupProfile extends Component {
                   this.props.editDog(dogState)
                 }} >
                 Edit Pup Info
-              </button>
-              <button
-                onClick={(ev) => {
-                  ev.preventDefault();
-                  const dogState = this.state;
-                  this.props.newGrade(dogState)
-                }} >
-                Update Grades
               </button>
               <button onClick={(ev) => {
                 ev.preventDefault();

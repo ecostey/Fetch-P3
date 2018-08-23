@@ -67,6 +67,7 @@ class App extends Component {
       currentView: 'Pup Profile'
     })
   };
+  
 
   // selectGrade(grade) {
   //   this.setState({
@@ -105,7 +106,8 @@ class App extends Component {
     .then(data => fetchAllGrades())
     .then(data => {
       this.setState({
-        grades: data.grades
+        grades: data.grades,
+        currentView: 'Gradebook',
       });
     })
   };
@@ -162,6 +164,7 @@ class App extends Component {
           oneDog={this.fetchOne}
           newDog={this.createDog}
           selectDog={this.selectDog}
+          newGrade={this.createGrade}
         />
       case 'Pup Profile':
         // const dog = dogs.find(dog => dog.id === selectedDog.id)
@@ -174,7 +177,6 @@ class App extends Component {
           dog={selectedDog}
           grade={selectedDog}
           dogGrade={dogGrade}
-          newGrade={this.createGrade}
         />;
       case 'Create Pup':
         return <CreateForm  
@@ -206,9 +208,7 @@ class App extends Component {
   render() {
     const links = [
       'All Dogs',
-      'Pup Profile',
       'Create Pup',
-      'Update Dog',
       'Gradebook'
     ]
     return (

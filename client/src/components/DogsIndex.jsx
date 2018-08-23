@@ -22,7 +22,13 @@ function DogsIndex(props) {
                                 } >
                                 View Dog Detail
                             </button>
-
+                            <button
+                                onClick={(ev) => {
+                                    ev.preventDefault();
+                                    props.newGrade(dog)
+                                } } >
+                                Add a Grade Card
+                            </button>
                         </div>
                     ))}
             </div>

@@ -56,6 +56,7 @@ module.exports = {
     dogModel.updateDog(data)
       .then((dog) => {
         res.locals.dog = dog;
+        res.json(res.locals.dog);
         next();
       })
       .catch(next);
