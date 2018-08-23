@@ -1,5 +1,8 @@
 import React from 'react';
 
+
+//List all dogs (include each dog's image, name, breed, and age).
+//Display in a grid.
 function DogsIndex(props) {
     return (
         <div className="AllDogsPg">

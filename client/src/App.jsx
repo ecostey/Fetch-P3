@@ -112,16 +112,16 @@ class App extends Component {
   // create grade function
   createGrade(grade) {
     saveNewGrade(grade)
-    .then(data => fetchAllGrades())
-    .then(data => {
-      this.setState({
-        grades: data.grades
-      });
-    })
+      .then(data => fetchAllGrades())
+      .then(data => {
+        this.setState({
+          grades: data.grades
+        });
+      })
   };
 
-  
- // edit dog function
+
+  // edit dog function
   updateDoggy(dog) {
     updateDoggy(dog)
       .then(data => fetchOneDog(dog.id))
@@ -180,21 +180,31 @@ class App extends Component {
           newGrade={this.createGrade}
         />;
       case 'Create Pup':
-        return <CreateForm  
-        newDog={this.createDog} 
+        return <CreateForm
+          newDog={this.createDog}
         />
       case 'Update Dog':
         return (
           <div>
-            <UpdateDog
-              dogs={dogs}
-              selectedDog={this.state.selectedDog}
-              onSubmit={this.updateDoggy}
-            />
-            <UpdateGrades
-            selectedDog={this.state.selectedDog}
-            grades={dogGrade}
-            onSubmit={this.editDogGrades}/>
+            <p className="gradebooktitle">{this.state.selectedDog.name}</p>
+            <div className="updates-grid-container">
+              <div className="updates-grid-cell">
+                <UpdateDog
+                  dogs={dogs}
+                  selectedDog={this.state.selectedDog}
+                  onSubmit={this.updateDoggy}
+                />
+              </div>
+              <div className="updates-grid-cell middle-cell">
+                <img src='https://i.imgur.com/njer435.png' alt={'Sorry, No Image 🐾'} height="250" width="250" />
+              </div>
+              <div className="updates-grid-cell">
+                <UpdateGrades
+                  selectedDog={this.state.selectedDog}
+                  grades={dogGrade}
+                  onSubmit={this.editDogGrades} />
+              </div>
+            </div>
           </div>
         )
       case 'Gradebook':
