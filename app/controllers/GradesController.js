@@ -37,7 +37,6 @@ module.exports = {
       quiet: req.body.quiet,
       leave_it: req.body.leave_it,
     };
-
     gradesModel.updateOne(gradeData)
       .then((grades) => {
         res.locals.grades = grades;

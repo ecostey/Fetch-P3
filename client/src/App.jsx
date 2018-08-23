@@ -139,11 +139,11 @@ class App extends Component {
   // edit dog grade function
   editDogGrades(dog) {
     updateGrades(dog)
-      .then(data => fetchDogs())
+      .then(data => fetchOneGrade(dog.dogs_id))
       .then(data => {
         this.setState({
           currentView: 'Pup Profile',
-          grades: data.grades
+          dogGrade: data
         })
       })
   }
