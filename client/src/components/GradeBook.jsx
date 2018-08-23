@@ -3,7 +3,7 @@ import React from 'react';
 function GradeBook(props) {
     return (
         <div>
-            <h2 className="pageHeader gradebooktitle">Gradebook</h2>
+            <h2 className="gradebooktitle">Gradebook</h2>
             <div>
                 <table className="gradeTable">
                     <tbody>

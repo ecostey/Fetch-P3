@@ -11,13 +11,23 @@
     margin: 0px;
   }
 
+  a{
+    text-decoration: none;
+    color: white;
+  }
+
+  button {
+    cursor: pointer;
+    align-self: center;
+  }
+
   .pageHeader{
     font-family: 'Love Ya Like A Sister', regular;
     font-size: 40px;
     text-align: center;
     padding: 0;
     margin-top: 10;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     color: white;
     text-shadow: rgb(167, 108, 0) 3px 3px 3px;
   }
@@ -25,8 +35,12 @@
 /* Hero */
 /* ----------------- */
   .header {
-    text-align: center
+    text-align: center;
+    cursor: default;
   }
+    .nav{
+      cursor: pointer;
+    }
 
     .title {
       font-family: 'Love Ya Like A Sister', regular;
@@ -52,19 +66,19 @@
     padding: 10px;
     background-color: orange;
   }
+
     .grid-container {
       justify-items: center;
       display: grid;
-      grid-template-columns: auto auto auto auto;
-      padding: 10px;
+      grid-template-columns: auto auto auto;
+      grid-row-gap: 50px;
+      grid-column-gap: 24px;
       align-self: center;
     }
+
     .grid-item {
       background-color: white;
       padding: 20px 10px 20px 10px;
-
-      margin: 10px;
-      margin-bottom: 40px;
       min-width: 270px;
       max-width: 320px;
       text-align: center;
@@ -94,34 +108,106 @@
       text-shadow: black 2px;
     }
 
+/* Profile Page */
+/* ----------------- */  
+
+
+.profilePage{
+
+}
+
+  .PPgrid-container{
+    margin-top: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: orange;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-self: center;
+  }
+
+    .grid-cell{
+      align-self: center;
+      text-align: center;
+      color: white;
+      font-size: 20px;
+    }
+
+      .center-cell{
+        background-color: orange;
+      }
+    
+        .profilename{
+          color:white;
+          font-family: 'Love Ya Like A Sister', regular;
+          font-size: 40px;
+        }
+
+        .pupperPic{
+          border: white solid 4px;
+        }
+
+  .PPbuttons{
+    cursor: pointer;
+  }
+
+
 /* Create/Add New Dog Form */
 /* ----------------- */
   .createForm{
-    display: block;
-    margin-top: 20px;
+    margin: auto;
+    border: orange solid 4px;
+    border-radius: 5%;
+    max-width: 600px;
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
   }
+
+    .createformtitle{
+      color: orange;
+      text-shadow: none;
+      padding: 0;
+      margin-top: 4px;
+      margin-bottom: 24px;
+    }
+
+    .submitNewPup{
+      align-self: center;
+      width: 100px;
+      height: 30px;
+      font-size: 14px;
+      color: white;
+      background-color: orange;
+      border-radius: 12%;
+      box-shadow: #dddddd 2px 4px 2px;
+      cursor: pointer;
+    }
 
 
 /* Gradebook Page */
 /* ----------------- */
   .gradebooktitle{
-    background-color: orange;
-    margin: 20px 0px 0px 0px;
-    padding: 20px;
+    margin: 30px 0px -30px 0px;
+    font-family: 'Love Ya Like A Sister', regular;
+    font-size: 40px;
+    color: orange;
+    text-align: center;
   }
+
   .gradeTable{
-    border: solid white 6px;
-    width: 75%;
-    margin: auto;
+    box-shadow: rgba(128, 128, 128, 0.514) 2px 4px 2px;
+    border-collapse: collapse;
+    width: 90%;
+    margin: 40px auto 0 auto;
     text-align: center;
     font-size: 20px;
-    box-shadow: rgba(128, 128, 128, 0.384) 6px 3px 3px;
   }
 
     .name{
       text-align: justify;
       padding-left: 8px;
-    }
+      }
 
     td,th{
       min-width: 150px;
@@ -129,7 +215,7 @@
       text-align: center;
       padding: 8px;
     }
-    
+
     tr:nth-child(even) {
       background-color: rgba(255, 166, 0, 0.212);
     }

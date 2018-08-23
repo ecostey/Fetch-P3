@@ -6,7 +6,7 @@ function Header(props) {
     return (
         <div className="header">
             <h1 className="title">Fetch</h1>
-            <h4 className="tag">For Man's Best (Behaved) Friend</h4>
+            <h4 className="tag">For Man's Best (Behaved) Friend 🐾</h4>
             <div className="nav">
                 {links.map(link => {
                     return <div
