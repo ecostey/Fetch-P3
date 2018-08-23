@@ -78,6 +78,7 @@ class UpdateDog extends Component {
                         name="size"
                         value={this.state.size}
                         onChange={this.handleChange} >
+                        <option value="" disabled>Choose a size</option>
                         <option value="small">small</option>
                         <option value="medium">medium</option>
                         <option value="large">large</option>
@@ -89,6 +90,7 @@ class UpdateDog extends Component {
                         name="age"
                         value={this.state.age}
                         onChange={this.handleChange} >
+                        <option value="" disabled>Choose the age:</option>
                         <option value="1">1yr</option>
                         <option value="2">2yrs</option>
                         <option value="3">3yrs</option>
