@@ -25,9 +25,7 @@
     font-family: 'Love Ya Like A Sister', regular;
     font-size: 40px;
     text-align: center;
-    padding: 0;
-    margin-top: 10;
-    margin-bottom: 40px;
+    padding: 24px;
     color: white;
     text-shadow: rgb(167, 108, 0) 3px 3px 3px;
   }
@@ -41,6 +39,7 @@
 
   .nav {
     cursor: pointer;
+    margin-bottom: 20px;
   }
 
   .title {
@@ -70,15 +69,18 @@
   .AllDogsPg {
     padding: 10px;
     background-color: orange;
+    margin-top: 20px;
   }
 
   .grid-container {
+    
     justify-items: center;
     display: grid;
     grid-template-columns: auto auto auto;
     grid-row-gap: 50px;
     grid-column-gap: 24px;
     align-self: center;
+    padding-bottom: 50px;
   }
 
   .grid-item {
@@ -116,14 +118,10 @@
 
 /* Profile Page */
 /* ----------------- */  
-  .profilePage {
-
-  }
-
   .PPgrid-container {
     margin-top: 40px;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 24px;
+    padding-bottom: 34px;
     background-color: orange;
     display: grid;
     grid-template-columns: auto auto auto;
@@ -142,6 +140,7 @@
   }
 
   .profilename {
+    padding-bottom: 12px;
     color:white;
     font-family: 'Love Ya Like A Sister', regular;
     font-size: 40px;
@@ -192,7 +191,7 @@
 /* Gradebook Page */
 /* ----------------- */
   .gradebooktitle {
-    margin: 30px 0px -30px 0px;
+    margin: 30px 0px 0px 0px;
     font-family: 'Love Ya Like A Sister', regular;
     font-size: 40px;
     color: orange;
@@ -211,6 +210,7 @@
   .name {
     text-align: justify;
     padding-left: 8px;
+    cursor: pointer;
     }
 
   td,th {
@@ -224,13 +224,21 @@
     background-color: rgba(255, 166, 0, 0.212);
   }
 
+  .pawsTile {
+    display: flex;
+    padding-left: 20px;
+    padding-top: 40px;
+    max-width: 900px;
+    opacity: 0.25;
+  }
+
 /* Updates Page */
 /* ----------------- */
   .updates-grid-container {
     grid-column-gap: 4px;
+    max-width: 1000px;
     justify-items: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin: auto;
     padding-top: 10px;
     padding-bottom: 16px;
     background-color: white;
@@ -253,6 +261,13 @@
   .middle-cell {
     max-width: 300px;
   }
+
+
+  .updateDogTitle {
+    font-family: 'Love Ya Like A Sister', regular;
+    font-size: 40px;
+    color: orange;
+    text-align: center;
 
   .planeteers {
     height: 125px;

@@ -22,7 +22,7 @@ class PupProfile extends Component {
       stay: dogGrade.stay || dog.stay,
     }
   }
-  
+
   //Render a dog's profile
   //Display dog's information, picture, and dog's grades.
   render() {
@@ -58,12 +58,17 @@ class PupProfile extends Component {
             </div>
           </div>
           <div className="grid-cell">
-           <p>Leash Training: {this.state.leash_training?"✔️":"💩"}</p>
-        <p>Leave It: {this.state.leave_it?"✔️":"💩"}</p>
-        <p>Potty Training: {this.state.potty_training?"✔️":"💩"}</p>
-        <p>Quiet: {this.state.quiet?"✔️":"💩"}</p>
-        <p>Sit: {this.state.sit?"✔️":"💩"}</p>
-        <p>Stay: {this.state.stay?"✔️":"💩"}</p>
+            <p>Leash Training: {this.state.leash_training ? "✔️" : "💩"}</p>
+            <br />
+            <p>Leave It: {this.state.leave_it ? "✔️" : "💩"}</p>
+            <br />
+            <p>Potty Training: {this.state.potty_training ? "✔️" : "💩"}</p>
+            <br />
+            <p>Quiet: {this.state.quiet ? "✔️" : "💩"}</p>
+            <br />
+            <p>Sit: {this.state.sit ? "✔️" : "💩"}</p>
+            <br />
+            <p>Stay: {this.state.stay ? "✔️" : "💩"}</p>
           </div>
         </div>
       </div>

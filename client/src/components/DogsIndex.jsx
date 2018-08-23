@@ -6,7 +6,7 @@ import React from 'react';
 function DogsIndex(props) {
     return (
         <div className="AllDogsPg">
-            <h2 className="pageHeader">Class Roster</h2>
+            <p className="pageHeader">Class Roster</p>
             <div className="grid-container">
                 {
                     props.dogs.map(dog => (
