@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
-// maybe needs a change
-import { fetchOneGrade, updateDoggy, deleteDog, updateGrades } from '../services/api';
-import UpdateGrades from './UpdateGrades';
-// import DeleteButton from './Deletebutton';
-import UpdateDog from './UpdateDog';
 
-
-
+// PupProfile component passing props to state
 class PupProfile extends Component {
   constructor(props) {
     super(props);
-    const { dogs, dog, dogGrade } = props;
+    const { dog, dogGrade } = props;
     this.state = {
       id: dog.id,
       owner: dog.owner,
@@ -27,43 +21,13 @@ class PupProfile extends Component {
       sit: dogGrade.sit,
       stay: dogGrade.stay,
     }
-
-    // this.handleDeleteClick = this.handleDeleteClick.bind(this);
-
   }
-
   
-  state(props) {
-    this.setState({
-      leash_training: props.dogGrade.leash_training,
-      leave_it: props.dogGrade.leave_it,
-      potty_training: props.dogGrade.potty_training,
-      quiet: props.dogGrade.quiet,
-      sit: props.dogGrade.sit,
-      stay: props.dogGrade.stay
-    })
-  }
-
-
-  // handle change
-  handleChange(e) {
-
-  }
-  // handle submit
-
-  // handle delete 
-  // handleDeleteClick() {
-  //   deleteDog()
-  //     .then(res => {
-  //       this.fetchOneDog();
-  //     })
-  // }
-
+  //Render a dog's profile
+  //Display dog's information, picture, and dog's grades.
   render() {
     return (
       <div className="profilePage">
-        {/* <UpdateGrades />
-        <DeleteButton dogs={this.state.dogs} handleDeleteClick={this.handleDeleteClick} /> */}
         <div className="PPgrid-container">
           {/* <h2>{this.state.name}</h2> */}
           <div className="grid-cell">
@@ -75,7 +39,7 @@ class PupProfile extends Component {
           </div>
           <div className="grid-cell center-cell">
             <p className="profilename">{this.state.name}</p>
-            <img src={this.state.picture} alt={'🐾 Sorry, No Image 🐾'} height="300" width="300" className="pupperPic" />
+            <img src={this.state.picture} alt={'Sorry, No Image 🐾'} height="300" width="300" className="pupperPic" />
             <div className="PPbuttons">
               <button
                 onClick={(ev) => {
@@ -94,18 +58,15 @@ class PupProfile extends Component {
             </div>
           </div>
           <div className="grid-cell">
-           <p>Leash Training: {this.state.leash_training?"✔️":"-"}</p>
-        <p>Leave It: {this.state.leave_it?"✔️":"-"}</p>
-        <p>Potty Training: {this.state.potty_training?"✔️":"-"}</p>
-        <p>Quiet: {this.state.quiet?"✔️":"-"}</p>
-        <p>Sit: {this.state.sit?"✔️":"-"}</p>
-        <p>Stay: {this.state.stay?"✔️":"-"}</p>
+           <p>Leash Training: {this.state.leash_training?"✔️":"💩"}</p>
+        <p>Leave It: {this.state.leave_it?"✔️":"💩"}</p>
+        <p>Potty Training: {this.state.potty_training?"✔️":"💩"}</p>
+        <p>Quiet: {this.state.quiet?"✔️":"💩"}</p>
+        <p>Sit: {this.state.sit?"✔️":"💩"}</p>
+        <p>Stay: {this.state.stay?"✔️":"💩"}</p>
           </div>
         </div>
       </div>
-      // render pup profile
-      // render forms (update)
-      // render forms (gradebook)
     );
   }
 

@@ -1,5 +1,7 @@
+// set base_url
 const BASE_URL = 'http://localhost:3001';
 
+//fetch all dogs
 export function fetchDogs() {
     return fetch(`${BASE_URL}/dogs`)
         .then(resp => resp.json())
@@ -8,6 +10,7 @@ export function fetchDogs() {
         });
 }
 
+// fetch all grades
 export function fetchAllGrades() {
     return fetch(`${BASE_URL}/grades`)
         .then(resp => {
@@ -17,6 +20,7 @@ export function fetchAllGrades() {
         });
 }
 
+// fetch one grade by id
 export function fetchOneGrade(id) {
     return fetch(`${BASE_URL}/grades/${id}`)
     .then(resp => resp.json())
@@ -25,11 +29,13 @@ export function fetchOneGrade(id) {
     })
 }
 
+// fetch one dog by id
 export function fetchOneDog(id) {
     return fetch(`${BASE_URL}/dogs/${id}`)
         .then(resp => resp.json());
 }
 
+// update one dog
 export function updateDoggy(dogs) {
     const opts = {
         method: 'PUT',
@@ -42,6 +48,7 @@ export function updateDoggy(dogs) {
     .then(resp => resp.json());
 }
 
+// update one grade
 export function updateGrades(dog) {
     const opts = {
         method: 'PUT',
@@ -54,6 +61,7 @@ export function updateGrades(dog) {
         .then(resp => resp.json());
 }
 
+// create one dog
 export function saveNewDog(dog) {
     const opts = {
         method: 'POST',
@@ -69,6 +77,7 @@ export function saveNewDog(dog) {
         });
 }
 
+// create new gradebook for dog
 export function saveNewGrade(grade) {
     const opts = {
         method: 'POST',
@@ -84,11 +93,11 @@ export function saveNewGrade(grade) {
         });
 }
 
+// delete one dog
 export function deleteDog(dog) {
     const opts = {
         method: 'Delete',
     }
-
     return fetch(`${BASE_URL}/dogs/${dog.id}`, opts)
     .catch ((e) => {
         throw Error(e);

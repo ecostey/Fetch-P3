@@ -1,8 +1,9 @@
+// require dog model
 const dogModel = require('../models/DogModels');
 
 module.exports = {
 
-  // get all of the dogs in the db
+  // get all of the dogs in the DB
   getAll(req, res, next) {
     dogModel.index()
       .then((dogs) => {
@@ -12,19 +13,18 @@ module.exports = {
       .catch(next);
   },
 
-  // get one dog in the data base by id
-
+  // get one dog in the DB by id
   getOneDog(req, res, next) {
     dogModel.getOneDog(req.params.id)
-      .then((dogs) => {
-        res.locals.dogs = dogs;
+      .then((dog) => {
+        res.locals.dog = dog;
         next();
       })
       .catch(next);
   },
 
 
-  // create a new entry to the db
+  // create a new dog in the DB
   createOne(req, res, next) {
     const data = {
       owner: req.body.owner,
@@ -42,7 +42,7 @@ module.exports = {
       .catch(next);
   },
 
-  // update the new entry to the db
+  // update dog
   updateDog(req, res, next) {
     const data = {
       id: req.body.id,
@@ -62,7 +62,7 @@ module.exports = {
       .catch(next);
   },
 
-  // delete an entry to the db
+  // delete dog from DB
   deleteDog(req, res, next) {
     dogModel.deleteDog(req.params.id)
       .then(() => {
