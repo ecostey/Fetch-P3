@@ -5,7 +5,7 @@ import React from 'react';
 function GradeBook(props) {
     return (
         <div>
-            <h2 className="gradebooktitle">Gradebook</h2>
+            <p className="gradebooktitle">Gradebook</p>
             <div>
                 <table className="gradeTable">
                     <tbody>
@@ -34,6 +34,10 @@ function GradeBook(props) {
                     </tbody>
                 </table>
             </div>
+            <div className="pawsTile">
+           <img src="https://i.imgur.com/kz1PDZx.png?3" alt={'Sorry, No Image 🐾'} />
+           <img src="https://i.imgur.com/LSfoaeG.png?2" alt={'Sorry, No Image 🐾'} />
+           </div>
         </div>
     )
 }

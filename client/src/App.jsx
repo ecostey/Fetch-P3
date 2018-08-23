@@ -190,7 +190,7 @@ class App extends Component {
       case 'Update Dog':
         return (
           <div>
-            <p className="gradebooktitle">{this.state.selectedDog.name}</p>
+            
             <div className="updates-grid-container">
               <div className="updates-grid-cell">
                 <UpdateDog
@@ -200,6 +200,7 @@ class App extends Component {
                 />
               </div>
               <div className="updates-grid-cell middle-cell">
+              <p className="updateDogTitle">{this.state.selectedDog.name}</p>
                 <img src='https://i.imgur.com/njer435.png' alt={'Sorry, No Image 🐾'} height="250" width="250" />
               </div>
               <div className="updates-grid-cell">
