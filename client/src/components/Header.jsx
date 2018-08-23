@@ -9,11 +9,11 @@ function Header(props) {
             <p className="tag">For Man's Best (Behaved) Friend 🐾</p>
             <div className="nav">
                 {links.map(link => {
-                    return <div
+                    return <button
                         key={link}
                         className="link"
                         onClick={() => props.onClick(link)}
-                    >{link}</div>
+                    >{link}</button>
                 })}
             </div>
         </div>

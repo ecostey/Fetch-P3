@@ -12,9 +12,9 @@ VALUES
 INSERT INTO gradebook (dogs_id, potty_training, stay, leash_training, sit, quiet, leave_it)
 VALUES
     (1, true,false,true,true,false,false),
-    (2, true,false,false,true,false,false),
+    (2, true,true,false,true,false,false),
     (3, true,false,true,false,false,true),
     (4, false,false,true,false,false,false),
-    (5, false,false,true,true,false,false),
+    (5, false,true,true,true,false,false),
     (6, true,false,false,true,true,true)
 ;
