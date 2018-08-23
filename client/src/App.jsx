@@ -112,11 +112,9 @@ class App extends Component {
 
   // create grade function
   createGrade(grade) {
-    console.log(grade)
     saveNewGrade(grade)
     .then(data => fetchAllGrades())
     .then(data => {
-      console.log(data)
       this.setState({
         grades: data.grades,
         currentView: 'Gradebook',
@@ -152,6 +150,13 @@ class App extends Component {
   // edit dog grade function
   editDogGrades(dog) {
     updateGrades(dog)
+    .then(data => fetchAllGrades())
+    .then(data => {
+      this.setState({
+        dogs: data.grades,
+      })
+      console.log(data);
+    })
       .then(data => fetchOneGrade(dog.dogs_id))
       .then(data => {
         this.setState({
@@ -222,12 +227,16 @@ class App extends Component {
   }
 
   handleLinkClick(link) {
-    this.setState({ currentView: link });
-  }
-
+    fetchAllGrades()
+    .then(data => {
+      this.setState({ 
+      currentView: link,
+      grades: data.grades
+    });
+  })}
+ 
   render() {
     const links = [
-      'All Dogs',
       'Create Pup',
       'Gradebook'
     ]
