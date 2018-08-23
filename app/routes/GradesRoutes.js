@@ -16,7 +16,7 @@ router.post('/',
 
 router.put('/:id',
   GradesController.updateGrade,
-  (req, res) => res.json({ grades: res.locals.grades }));
+  (req, res) => res.json(res.locals.grades));
 
 
 module.exports = router;

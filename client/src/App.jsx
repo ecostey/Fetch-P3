@@ -139,19 +139,16 @@ class App extends Component {
   // edit dog grade function
   editDogGrades(dog) {
     updateGrades(dog)
-      .then(data => fetchDogs())
+      .then(data => fetchOneGrade(dog.dogs_id))
       .then(data => {
         this.setState({
           currentView: 'Pup Profile',
-          grades: data.grades
+          dogGrade: data
         })
       })
   }
 
-  // select grade function
-  // create grade function? tbd
-
-
+// *****WE NEED TO CLEAN UP THE PROPS BEING PASSED THROUGH*******
   // SWITCH statement for which page to view
   determineWhichToRender() {
     const { currentView } = this.state;

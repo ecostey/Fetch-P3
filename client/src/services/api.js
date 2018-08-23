@@ -26,11 +26,8 @@ export function fetchOneGrade(id) {
 }
 
 export function fetchOneDog(id) {
-    return fetch(`${BASE_URL}/${id}`)
-        .then(resp => resp.json())
-        .catch((e) => {
-            throw Error(e);
-        });
+    return fetch(`${BASE_URL}/dogs/${id}`)
+        .then(resp => resp.json());
 }
 
 export function updateDoggy(dogs) {
@@ -54,7 +51,7 @@ export function updateGrades(dog) {
         },
     }
     return fetch(`${BASE_URL}/grades/${dog.dogs_id}`, opts)
-        .then(resp => console.log(resp.json()));
+        .then(resp => resp.json());
 }
 
 export function saveNewDog(dog) {

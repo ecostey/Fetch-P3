@@ -20,12 +20,12 @@ class PupProfile extends Component {
       age: dog.age,
       picture: dog.picture,
       dogs_id: dog.id,
-      leash_training: false,
-      leave_it: false,
-      potty_training: false,
-      quiet: false,
-      sit: false,
-      stay: false,
+      leash_training: dogGrade.leash_training,
+      leave_it: dogGrade.leave_it,
+      potty_training: dogGrade.potty_training,
+      quiet: dogGrade.quiet,
+      sit: dogGrade.sit,
+      stay: dogGrade.stay,
     }
 
     // this.handleDeleteClick = this.handleDeleteClick.bind(this);
@@ -91,17 +91,15 @@ class PupProfile extends Component {
             </div>
           </div>
           <div className="grid-cell">
-            <p>Leash Training: {this.state.leash_training ? "True" : "False"}</p><br />
-            <p>Leave It: {this.state.leave_it ? "True" : "False"}</p><br />
-            <p>Potty Training: {this.state.potty_training ? "True" : "False"}</p><br />
-            <p>Quiet: {this.state.quiet ? "True" : "False"}</p><br />
-            <p>Sit: {this.state.sit ? "True" : "False"}</p><br />
-            <p>Stay: {this.state.stay ? "True" : "False"}</p>
+           <p>Leash Training: {this.state.leash_training?"✔️":"-"}</p>
+        <p>Leave It: {this.state.leave_it?"✔️":"-"}</p>
+        <p>Potty Training: {this.state.potty_training?"✔️":"-"}</p>
+        <p>Quiet: {this.state.quiet?"✔️":"-"}</p>
+        <p>Sit: {this.state.sit?"✔️":"-"}</p>
+        <p>Stay: {this.state.stay?"✔️":"-"}</p>
           </div>
         </div>
-
       </div>
-
       // render pup profile
       // render forms (update)
       // render forms (gradebook)
