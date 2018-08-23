@@ -1,5 +1,5 @@
-// set base_url
-const BASE_URL = 'http://localhost:3001';
+// set base_url -- heroku url OR localhost
+const BASE_URL = process.env.REACT_APP_BASE_URL || 'http://localhost:3001';
 
 //fetch all dogs
 export function fetchDogs() {

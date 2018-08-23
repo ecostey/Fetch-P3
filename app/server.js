@@ -9,7 +9,8 @@ const cors = require('cors');
 const dogRouter = require('./routes/DogRoutes');
 const gradesRouter = require('./routes/GradesRoutes');
 
-const PORT = 3001;
+// Set up port to be either the environment port or port 3001
+const PORT = process.env.PORT || 3001;
 
 // set up logger
 app.use(logger('dev'));

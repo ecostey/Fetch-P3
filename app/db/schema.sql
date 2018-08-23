@@ -1,5 +1,3 @@
-\c fetch_db
-
 DROP TABLE IF EXISTS dogs, gradebook;
 
 CREATE TABLE dogs (
