@@ -50,7 +50,8 @@ class CreateForm extends Component {
                             type="text"
                             name="owner"
                             value={this.state.owner}
-                            onChange={this.handleChange} />
+                            onChange={this.handleChange}
+                            required />
                         <br />
                         <br />
                         <label>Dog's Name:</label>
@@ -58,7 +59,8 @@ class CreateForm extends Component {
                             type="text"
                             name="name"
                             value={this.state.name}
-                            onChange={this.handleChange} />
+                            onChange={this.handleChange}
+                            required />
                         <br />
                         <br />
                         <label>Breed:</label>
@@ -66,14 +68,17 @@ class CreateForm extends Component {
                             type="text"
                             name="breed"
                             value={this.state.breed}
-                            onChange={this.handleChange} />
+                            onChange={this.handleChange}
+                            required />
                         <br />
                         <br />
                         <label>Size:</label>
                         <select
                             name="size"
                             value={this.state.size}
-                            onChange={this.handleChange} >
+                            onChange={this.handleChange}
+                            required >
+                            <option value="" disabled>Choose a size</option>
                             <option value="small">small</option>
                             <option value="medium">medium</option>
                             <option value="large">large</option>
@@ -84,7 +89,9 @@ class CreateForm extends Component {
                         <select
                             name="age"
                             value={this.state.age}
-                            onChange={this.handleChange} >
+                            onChange={this.handleChange}
+                            required >
+                            <option value="" disabled>Choose the age:</option>
                             <option value="1">1yr</option>
                             <option value="2">2yrs</option>
                             <option value="3">3yrs</option>
@@ -107,8 +114,8 @@ class CreateForm extends Component {
                         <br />
                         <input
                             type="submit"
-                            value="Create Pup" 
-                            className="submitNewPup"/>
+                            value="Create Pup"
+                            className="submitNewPup" />
                     </form>
                 </div>
             </div>
