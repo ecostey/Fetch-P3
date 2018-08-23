@@ -1,5 +1,7 @@
+// require express
 const router = require('express')();
 
+// require dog controller
 const DogController = require('../controllers/DogController');
 
 // get all dogs

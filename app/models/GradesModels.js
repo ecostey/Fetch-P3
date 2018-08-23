@@ -1,3 +1,4 @@
+// require db from config
 const { db } = require('../config/conn');
 
 module.exports = {
@@ -35,6 +36,7 @@ module.exports = {
       RETURNING *`, data);
   },
 
+  // add new grade for new dog
   newGrade(data) {
     return db.one(`
     INSERT INTO gradebook
