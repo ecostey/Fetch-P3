@@ -1,5 +1,8 @@
 import React from 'react';
 
+
+//List all dogs (include each dog's image, name, breed, and age).
+//Display in a grid.
 function DogsIndex(props) {
     return (
         <div className="AllDogsPg">
@@ -8,7 +11,7 @@ function DogsIndex(props) {
                 {
                     props.dogs.map(dog => (
                         <div key={dog.id} className="grid-item">
-                            <img src={dog.picture} alt="🐾 Sorry, no image 🐾" className="pupperPics" />
+                            <img src={dog.picture} alt="Sorry, no image 🐾" className="pupperPics" />
                             <p className="dogName">{dog.name}</p>
                             <p className="desc">{dog.breed}, {dog.age}yrs</p>
                             <button

@@ -50,7 +50,7 @@ class UpdateDog extends Component {
     render() {
         return (
             <div>
-                <h2> Update {this.state.name}'s Profile </h2>
+                <h2> Update Profile </h2>
                 <form onSubmit={this.handleSubmit}>
                     <label>Owner:  </label>
                     <input
@@ -58,17 +58,20 @@ class UpdateDog extends Component {
                         value={this.state.owner}
                         onChange={this.handleChange} />
                     <br />
+                    <br />
                     <label>Name:  </label>
                     <input
                         name="name"
                         value={this.state.name}
                         onChange={this.handleChange} />
                     <br />
+                    <br />
                     <label>Breed:  </label>
                     <input
                         name="breed"
                         value={this.state.breed}
                         onChange={this.handleChange} />
+                    <br />
                     <br />
                     <label>Size:  </label>
                     <select
@@ -79,6 +82,7 @@ class UpdateDog extends Component {
                         <option value="medium">medium</option>
                         <option value="large">large</option>
                     </select>
+                    <br />
                     <br />
                     <label>Age:  </label>
                     <select
@@ -96,12 +100,14 @@ class UpdateDog extends Component {
                         <option value="9">9yrs</option>
                     </select>
                     <br />
+                    <br />
                     <label>Picture:  </label>
                     <input
                         name="picture"
                         value={this.state.picture}
                         onChange={this.handleChange} />
-
+                    <br />
+                    <br />
                     <input type="submit" value="Update Profile" />
                 </form>
             </div>

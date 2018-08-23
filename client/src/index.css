@@ -6,12 +6,12 @@
     font-family: sans-serif;
   }
 
-  p{
+  p {
     padding: 0px;
     margin: 0px;
   }
 
-  a{
+  a {
     text-decoration: none;
     color: white;
   }
@@ -21,7 +21,7 @@
     align-self: center;
   }
 
-  .pageHeader{
+  .pageHeader {
     font-family: 'Love Ya Like A Sister', regular;
     font-size: 40px;
     text-align: center;
@@ -38,7 +38,7 @@
     text-align: center;
     cursor: default;
   }
-    .nav{
+    .nav {
       cursor: pointer;
     }
 
@@ -51,7 +51,7 @@
       color: orange;
     }
 
-    .tag{
+    .tag {
       font-family: 'Love Ya Like A Sister', regular;
       font-size: 32px;
       padding: 0;
@@ -62,61 +62,59 @@
 
 /* All Dogs/DogsIndex/Landing Page */
 /* ----------------- */
-  .AllDogsPg{
+  .AllDogsPg {
     padding: 10px;
     background-color: orange;
   }
 
-    .grid-container {
-      justify-items: center;
-      display: grid;
-      grid-template-columns: auto auto auto;
-      grid-row-gap: 50px;
-      grid-column-gap: 24px;
-      align-self: center;
-    }
+  .grid-container {
+    justify-items: center;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-row-gap: 50px;
+    grid-column-gap: 24px;
+    align-self: center;
+  }
 
-    .grid-item {
-      background-color: white;
-      padding: 20px 10px 20px 10px;
-      min-width: 270px;
-      max-width: 320px;
-      text-align: center;
-      color: black;
-      font-family: 'Love Ya Like A Sister', regular;
-      font-size: 32px;
-      box-shadow: rgb(167, 108, 0) 3px 3px 3px;
-    }
+  .grid-item {
+    background-color: white;
+    padding: 20px 10px 20px 10px;
+    min-width: 270px;
+    max-width: 320px;
+    text-align: center;
+    color: black;
+    font-family: 'Love Ya Like A Sister', regular;
+    font-size: 32px;
+    box-shadow: rgb(167, 108, 0) 3px 3px 3px;
+  }
 
-     .pupperPics{
-      height: 160px;
-      width: 160px;
-      border: solid orange 2px;
-    }
+  .pupperPics {
+    height: 160px;
+    width: 160px;
+    border: solid orange 2px;
+  }
 
-    .dogName{
-      font-family: 'Love Ya Like A Sister', regular;
-      font-size: 32px;
-      color: orange;
-      padding: 0px;
-    } 
+  .dogName {
+    font-family: 'Love Ya Like A Sister', regular;
+    font-size: 32px;
+    color: orange;
+    padding: 0px;
+  } 
 
-    .desc{
-      color: gray;
-      font-size: 18px;
-      font-family: Arial, Helvetica, sans-serif;
-      text-shadow: black 2px;
-    }
+  .desc {
+    color: gray;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: black 2px;
+  }
 
 /* Profile Page */
 /* ----------------- */  
+  .profilePage {
 
+  }
 
-.profilePage{
-
-}
-
-  .PPgrid-container{
+  .PPgrid-container {
     margin-top: 40px;
     padding-top: 40px;
     padding-bottom: 40px;
@@ -126,28 +124,28 @@
     align-self: center;
   }
 
-    .grid-cell{
-      align-self: center;
-      text-align: center;
-      color: white;
-      font-size: 20px;
-    }
+  .grid-cell {
+    align-self: center;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+  }
 
-      .center-cell{
-        background-color: orange;
-      }
-    
-        .profilename{
-          color:white;
-          font-family: 'Love Ya Like A Sister', regular;
-          font-size: 40px;
-        }
+  .center-cell {
+    background-color: orange;
+  }
 
-        .pupperPic{
-          border: white solid 4px;
-        }
+  .profilename {
+    color:white;
+    font-family: 'Love Ya Like A Sister', regular;
+    font-size: 40px;
+  }
 
-  .PPbuttons{
+  .pupperPic {
+    border: white solid 4px;
+  }
+
+  .PPbuttons {
     cursor: pointer;
   }
 
@@ -164,30 +162,30 @@
     font-size: 18px;
   }
 
-    .createformtitle{
-      color: orange;
-      text-shadow: none;
-      padding: 0;
-      margin-top: 4px;
-      margin-bottom: 24px;
-    }
+  .createformtitle{
+    color: orange;
+    text-shadow: none;
+    padding: 0;
+    margin-top: 4px;
+    margin-bottom: 24px;
+  }
 
-    .submitNewPup{
-      align-self: center;
-      width: 100px;
-      height: 30px;
-      font-size: 14px;
-      color: white;
-      background-color: orange;
-      border-radius: 12%;
-      box-shadow: #dddddd 2px 4px 2px;
-      cursor: pointer;
-    }
+  .submitNewPup{
+    align-self: center;
+    width: 100px;
+    height: 30px;
+    font-size: 14px;
+    color: white;
+    background-color: orange;
+    border-radius: 12%;
+    box-shadow: #dddddd 2px 4px 2px;
+    cursor: pointer;
+  }
 
 
 /* Gradebook Page */
 /* ----------------- */
-  .gradebooktitle{
+  .gradebooktitle {
     margin: 30px 0px -30px 0px;
     font-family: 'Love Ya Like A Sister', regular;
     font-size: 40px;
@@ -195,7 +193,7 @@
     text-align: center;
   }
 
-  .gradeTable{
+  .gradeTable {
     box-shadow: rgba(128, 128, 128, 0.514) 2px 4px 2px;
     border-collapse: collapse;
     width: 90%;
@@ -204,18 +202,48 @@
     font-size: 20px;
   }
 
-    .name{
-      text-align: justify;
-      padding-left: 8px;
-      }
-
-    td,th{
-      min-width: 150px;
-      border: 1px solid #dddddd;
-      text-align: center;
-      padding: 8px;
+  .name {
+    text-align: justify;
+    padding-left: 8px;
     }
 
-    tr:nth-child(even) {
-      background-color: rgba(255, 166, 0, 0.212);
-    }
+  td,th {
+    min-width: 150px;
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: rgba(255, 166, 0, 0.212);
+  }
+
+/* Updates Page */
+/* ----------------- */
+  .updates-grid-container {
+    grid-column-gap: 4px;
+    justify-items: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding-top: 10px;
+    padding-bottom: 16px;
+    background-color: white;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-self: center;
+    border: grey solid 6px;
+  }
+
+  .updates-grid-cell {
+    /* background-color: orange; */
+    align-self: center;
+    box-align: center;
+    align-content: center;
+    text-align: center;
+    color: orange;
+    font-size: 20px;
+  }
+
+  .middle-cell {
+    max-width: 300px;
+  }

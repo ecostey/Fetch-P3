@@ -44,11 +44,11 @@ class UpdateGrades extends Component {
     handleChange(e) {
         const { name } = e.target;
         if (e.target.checked) {
-        this.setState({[name]: true}) 
+            this.setState({ [name]: true })
         } else {
-          this.setState({[name]: false})
+            this.setState({ [name]: false })
         }
-      }
+    }
 
     // render update grades form with pre-set values
     render() {
@@ -57,7 +57,7 @@ class UpdateGrades extends Component {
             <div>
                 <h2> Update Grades </h2>
                 <form onSubmit={this.handleSubmit}>
-                    <label>Potty Training:</label>
+                    <label>Potty Training:  </label>
                     <input
                         type="checkbox"
                         name="potty_training"
@@ -65,7 +65,8 @@ class UpdateGrades extends Component {
                         value={potty_training}
                         onClick={this.handleChange} />
                     <br />
-                    <label>Stay:</label>
+                    <br />
+                    <label>Stay:    </label>
                     <input
                         type="checkbox"
                         name="stay"
@@ -73,7 +74,8 @@ class UpdateGrades extends Component {
                         value={stay}
                         onChange={this.handleChange} />
                     <br />
-                    <label>Leash Training:</label>
+                    <br />
+                    <label>Leash Training:  </label>
                     <input
                         type="checkbox"
                         name="leash_training"
@@ -81,7 +83,8 @@ class UpdateGrades extends Component {
                         value={leash_training}
                         onChange={this.handleChange} />
                     <br />
-                    <label>Sit:</label>
+                    <br />
+                    <label>Sit: </label>
                     <input
                         type="checkbox"
                         name="sit"
@@ -89,7 +92,8 @@ class UpdateGrades extends Component {
                         value={sit}
                         onChange={this.handleChange} />
                     <br />
-                    <label>Quiet:</label>
+                    <br />
+                    <label>Quiet:   </label>
                     <input
                         type="checkbox"
                         name="quiet"
@@ -97,13 +101,15 @@ class UpdateGrades extends Component {
                         value={quiet}
                         onChange={this.handleChange} />
                     <br />
-                    <label>Leave it:</label>
+                    <br />
+                    <label>Leave it:    </label>
                     <input
                         type="checkbox"
                         name="leave_it"
                         defaultChecked={leave_it}
                         value={leave_it}
                         onChange={this.handleChange} />
+                    <br />
                     <br />
                     <input type="submit" value="Update Grades" />
                 </form>
