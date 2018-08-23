@@ -39,7 +39,29 @@
 
   .nav {
     cursor: pointer;
+<<<<<<< HEAD
+    justify-items: center;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-row-gap: 50px;
+    grid-column-gap: 24px;
+    align-self: center;
+  }
+
+  .link {
+    background-color: white;
+    width: 200px;
+    height: 30px;
+    text-align: center;
+    color: black;
+    font-family: 'Love Ya Like A Sister', regular;
+    font-size: 20px;
+    box-shadow: rgb(167, 108, 0) 3px 3px 3px;
+    cursor: pointer;
+
+=======
     margin-bottom: 20px;
+>>>>>>> 9ae14ec7df2903610482c308cb97bdc34688093b
   }
 
   .title {
