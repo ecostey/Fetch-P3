@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+// UpdateDog Component
+// pass props to state for one dog
 class UpdateDog extends Component {
     constructor(props) {
         super(props);
@@ -15,12 +17,12 @@ class UpdateDog extends Component {
             picture: selectedDog.picture,
         };
 
+        // bind handleChange and handleSubmit
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    // create a handle submit for the form
-
+    // handle submit passes data from state back to App.jsx
     handleSubmit(e) {
         e.preventDefault();
         const data = {
@@ -35,6 +37,7 @@ class UpdateDog extends Component {
         this.props.onSubmit(data);
     }
 
+    // handle change and set state
     handleChange(e) {
         e.preventDefault();
         const { name, value } = e.target;
@@ -43,6 +46,7 @@ class UpdateDog extends Component {
         });
     }
 
+    // render the update dog profile page with pre-set values
     render() {
         return (
             <div>

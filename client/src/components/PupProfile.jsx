@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
-// maybe needs a change
-import { fetchOneGrade, updateDoggy, deleteDog, updateGrades } from '../services/api';
-import UpdateGrades from './UpdateGrades';
-// import DeleteButton from './Deletebutton';
-import UpdateDog from './UpdateDog';
 
-
-
+// PupProfile component passing props to state
 class PupProfile extends Component {
   constructor(props) {
     super(props);
-    const { dogs, dog, dogGrade } = props;
+    const { dog, dogGrade } = props;
     this.state = {
       id: dog.id,
       owner: dog.owner,
@@ -27,34 +21,13 @@ class PupProfile extends Component {
       sit: dogGrade.sit,
       stay: dogGrade.stay,
     }
-
-    // this.handleDeleteClick = this.handleDeleteClick.bind(this);
-
   }
-
-
-
-  // handle change
-  handleChange(e) {
-
-  }
-  // handle submit
-
-  // handle delete 
-  // handleDeleteClick() {
-  //   deleteDog()
-  //     .then(res => {
-  //       this.fetchOneDog();
-  //     })
-  // }
-
+  
   //Render a dog's profile
   //Display dog's information, picture, and dog's grades.
   render() {
     return (
       <div className="profilePage">
-        {/* <UpdateGrades />
-        <DeleteButton dogs={this.state.dogs} handleDeleteClick={this.handleDeleteClick} /> */}
         <div className="PPgrid-container">
           {/* <h2>{this.state.name}</h2> */}
           <div className="grid-cell">
@@ -102,9 +75,6 @@ class PupProfile extends Component {
           </div>
         </div>
       </div>
-      // render pup profile
-      // render forms (update)
-      // render forms (gradebook)
     );
   }
 
