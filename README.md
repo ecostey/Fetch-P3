@@ -41,7 +41,10 @@ This database has two tables - a Dog table and a Grades table.
 
 ## RESOURCES
 - Referenced Drake Talley(Full-Crud, Books and Authors, Boxes Demo(https://git.generalassemb.ly/wdi-nyc-lambda/boxes-demo) and John Master's (Tweedr) lessons
+
 - Logo from captain planet
+
+- Special thanks to Mimi for guidance, logistics, and her presence!!! - <3 The Planeteers
 
 ## Code Snippet
 Part of the conditional rendering that switches the current view depending on the case.
