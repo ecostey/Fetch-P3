@@ -6,14 +6,14 @@ class PupProfile extends Component {
     super(props);
     const { dog, dogGrade } = props;
     this.state = {
-      id: dog.id || dogGrade.id,
+      id: dog.id || dogGrade.dogs_id,
       owner: dog.owner || dogGrade.owner,
       name: dog.name || dogGrade.name,
       breed: dog.breed || dogGrade.breed,
       size: dog.size || dogGrade.size,
       age: dog.age || dogGrade.age,
       picture: dog.picture || dogGrade.picture,
-      dogs_id: dog.id || dogGrade.id,
+      dogs_id: dog.id || dogGrade.dogs_id,
       leash_training: dogGrade.leash_training || dog.leash_training,
       leave_it: dogGrade.leave_it || dog.leave_it,
       potty_training: dogGrade.potty_training || dog.potty_training,

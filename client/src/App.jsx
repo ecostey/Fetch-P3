@@ -123,7 +123,7 @@ class App extends Component {
     .then(data => {
       this.setState({
         grades: data.grades,
-        currentView: 'Gradebook',
+        currentView: 'All Dogs',
       });
     })
   };
