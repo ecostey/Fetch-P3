@@ -91,6 +91,18 @@ Part of the conditional rendering that switches the current view depending on th
                                     props.selectDog(dog, grades)
                                 }}>
  ```
+## Dependencies
+- react
+- body-parser
+- cors
+- express
+- morgan
+- nodemon
+- pg promise
+- es-lint
+- heroku
+- surge
+
 ## Post MVP
 1. Would like to add a 3rd table for comments
 2. Delete popup
@@ -101,3 +113,5 @@ Part of the conditional rendering that switches the current view depending on th
 2. Bo (BoLeeNY)
 3. Carol (carolmwang)
 4. Liz (ecostey)
+
+Check it out here! --> http://enormous-fog.surge.sh/
