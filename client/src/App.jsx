@@ -36,9 +36,11 @@ class App extends Component {
       dogs: [],
       selectedDog: '',
       currentView: 'All Dogs',
+      loading: false,
     }
 
     // bind functions to use this in callback
+    this.toggleLoading = this.toggleLoading.bind(this);
     this.createDog = this.createDog.bind(this);
     this.createGrade = this.createGrade.bind(this);
     this.updateDoggy = this.updateDoggy.bind(this);
@@ -57,6 +59,14 @@ class App extends Component {
     fetchAllGrades()
       .then(data => this.setState({ grades: data.grades }));
   };
+
+  //toggle whether the loading view is hidden-false/active-true
+  toggleLoading() {
+    this.setState({
+      loading: !this.state.loading
+    })
+  }
+
 
   // fetch all dogs and sets state to all dogs 
   // whenever top nav logo is clicked
@@ -181,6 +191,7 @@ class App extends Component {
       // All dogs view
       case 'All Dogs':
         return <DogsIndex
+        loading={this.state.loading}
           grades={grades}
           dogs={dogs}
           oneDog={fetchOne}
