@@ -55,7 +55,12 @@ class App extends Component {
   // when page loads, fetch all dogs and all grades
   componentDidMount() {
     fetchDogs()
-      .then(data => this.setState({ dogs: data.dogs }));
+      .then(data => {
+        this.setState({
+          dogs: data.dogs,
+          loading: true
+        })
+      });
     fetchAllGrades()
       .then(data => this.setState({ grades: data.grades }));
   };
@@ -129,13 +134,13 @@ class App extends Component {
   // create grade function
   createGrade(grade) {
     saveNewGrade(grade)
-    .then(data => fetchAllGrades())
-    .then(data => {
-      this.setState({
-        grades: data.grades,
-        currentView: 'All Dogs',
-      });
-    })
+      .then(data => fetchAllGrades())
+      .then(data => {
+        this.setState({
+          grades: data.grades,
+          currentView: 'All Dogs',
+        });
+      })
   };
 
 
@@ -191,7 +196,8 @@ class App extends Component {
       // All dogs view
       case 'All Dogs':
         return <DogsIndex
-        loading={this.state.loading}
+          loading={this.state.loading}
+          // toggleLoading={}
           grades={grades}
           dogs={dogs}
           oneDog={fetchOne}
@@ -225,7 +231,7 @@ class App extends Component {
                 />
               </div>
               <div className="updates-grid-cell middle-cell">
-              <p className="updateDogTitle">{this.state.selectedDog.name}</p>
+                <p className="updateDogTitle">{this.state.selectedDog.name}</p>
                 <img src='https://i.imgur.com/njer435.png' alt={'Sorry, No Image 🐾'} height="250" width="250" />
               </div>
               <div className="updates-grid-cell">
@@ -239,10 +245,10 @@ class App extends Component {
         )
       // gradebook view :: all grades for all dogs
       case 'Gradebook':
-        return <GradeBook 
-        grades={grades}
-        selectDog={this.selectDog}
-        dogs={this.state.dogs} />
+        return <GradeBook
+          grades={grades}
+          selectDog={this.selectDog}
+          dogs={this.state.dogs} />
 
       // create grades for new dog view
       case 'Create Grade':

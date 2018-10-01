@@ -6,7 +6,7 @@ module.exports = {
   // Query for ALL dogs.
   // Will be displayed on the Landing page.
   index() {
-    return db.many(`
+    return db.manyOrNone(`
       SELECT *
       FROM dogs
       `);

@@ -44,19 +44,11 @@
   .nav {
     cursor: pointer;
     justify-items: center;
-    /* display: grid;
-    grid-template-columns: auto auto;
-    grid-row-gap: 50px;
-    grid-column-gap: 24px; */
     align-self: center;
     margin-bottom: 20px;
-    
   }
 
   .link {
-    /* text-align: center;
-    align-self: center;
-    align-content: justify; */
     width: 110px;
     height: 30px;
     font-size: 18px;
@@ -66,7 +58,6 @@
     box-shadow: #dddddd 2px 4px 2px;
     margin-left: 10px;
     margin-right: 10px;
-    /* cursor: pointer; */
   }
 
   .title {
@@ -102,9 +93,21 @@
   .loading {
     display: block;
     width: 50%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
   }
+
+  .ErrorNoDogs {
+    margin: auto;
+    text-align: center;
+  }
+
+  .loadingTxt{
+    font-family: 'Love Ya Like A Sister', regular;
+    font-size: 32px;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    color: orange;
+    }
 
   .grid-container {
     justify-items: center;
@@ -309,4 +312,11 @@
 
   .footer {
     margin: auto;
+    text-align: center;
+  }
+
+  .us {
+    color: rgba(128, 128, 128, 0.61);
+    font-size: 16px;
+    text-align: center;
   }

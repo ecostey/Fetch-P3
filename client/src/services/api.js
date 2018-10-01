@@ -1,12 +1,18 @@
 // set base_url -- heroku url OR localhost
-const BASE_URL = process.env.REACT_APP_BASE_URL || 'http://localhost:3001';
+const BASE_URL = 
+//process.env.REACT_APP_BASE_URL ||
+ 'http://localhost:3001';
 
 //fetch all dogs
 export function fetchDogs() {
     return fetch(`${BASE_URL}/dogs`)
-        .then(resp => resp.json())
-        .catch(e => {
-            throw Error(e);
+        .then(resp => {
+            let ret = resp.json()
+            console.log(ret)
+            return ret
+        }).catch(e => {
+            // throw Error(e);
+            console.log("FETCHDOGS: An error occurred")
         });
 }
 

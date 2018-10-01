@@ -4,15 +4,15 @@ import React from 'react';
 //List all dogs (include each dog's image, name, breed, and age).
 //Display in a grid.
 function DogsIndex(props) {
-    let content;
-    if (!props.dogs) {
-        content = (
+    // let content;
+    if (props.dogs.length === 0 && props.loading === false) {
+        return (
             <div className="loading">
-                <h1></h1>
+                <h1 className="loadingTxt">Fetching...</h1>
                 <img src="https://i.imgur.com/mmKTeaI.gif" alt="paw prints" className="loading" />
             </div>)
-    } else {
-        content =
+    } else if (props.dogs.length > 0) {
+        return (
             <div>
                 <div className="AllDogsPg">
                     <p className="pageHeader">Class Roster</p>
@@ -36,12 +36,22 @@ function DogsIndex(props) {
                 </div>
                 <footer>
                     <h3 className="us">
-                        Carol, Al, Liz, Bo
-            </h3>
+                        An App By : Carol | Al | Liz | Bo
+                    </h3>
                 </footer>
             </div>
+        )
+    } else if (props.dogs.length === 0 && props.loading === true) {
+        return (
+            <div className="ErrorNoDogs">
+                <h1 className="loadingTxt">There are currently no dogs on your roster!</h1>
+                <div className="dogHouseImg">
+                    <img src="https://i.imgur.com/g3eZLSY.png" alt="Sorry, no image 🐾" />
+                </div>
+            </div>
+        )
     }
-    return (content)
+    // return (content)
 }
 
 export default DogsIndex;
