@@ -43,10 +43,10 @@ function DogsIndex(props) {
         )
     } else if (props.dogs.length === 0 && props.loading === true) {
         return (
-            <div className="ErrorNoDogs">
-                <h1 className="loadingTxt">There are currently no dogs on your roster!</h1>
+            <div className="errorNoDogs">
+                <h1 className="loadingTxt-NoDogs">There are currently no dogs on your roster!</h1>
                 <div className="dogHouseImg">
-                    <img src="https://i.imgur.com/g3eZLSY.png" alt="Sorry, no image 🐾" />
+                    <img src="https://i.imgur.com/g3eZLSY.png" alt="Sorry, no image 🐾" className="dogHouseImg"/>
                 </div>
             </div>
         )

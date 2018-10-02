@@ -1,5 +1,10 @@
 /* Global */
 /* ----------------- */
+@viewport{
+  zoom: 1.0;
+  width: extend-to-zoom;
+}
+
   body {
     margin: 0;
     padding: 0;
@@ -71,6 +76,8 @@
     color: orange;
     cursor: pointer;
     width: 25%;
+    max-width: 100%;
+    height: auto;
   }
 
   .tag {
@@ -96,9 +103,26 @@
     margin: auto;
   }
 
-  .ErrorNoDogs {
+  .errorNoDogs {
     margin: auto;
     text-align: center;
+    background-color: orange;
+  }
+
+  .loadingTxt-NoDogs{
+    font-family: 'Love Ya Like A Sister', regular;
+    font-size: 32px;
+    word-wrap: break-word;
+    word-break: keep-all;
+    padding-top: 40px;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    color: white;
+  }
+
+  .dogHouseImg{
+    max-width: 100%;
+    height: auto;
   }
 
   .loadingTxt{
