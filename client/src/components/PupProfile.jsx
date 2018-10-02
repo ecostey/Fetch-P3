@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Emoji from './Emoji';
 
 // PupProfile component passing props to state
 class PupProfile extends Component {
@@ -57,17 +58,17 @@ class PupProfile extends Component {
             </div>
           </div>
           <div className="grid-cell">
-            <p>Leash Training: {this.state.leash_training ? "✔️" : "💩"}</p>
+            <p>Leash Training: {this.state.leash_training ? <Emoji symbol="✔️" label="check"/> : <Emoji symbol="💩" label="poop"/>}</p>
             <br />
-            <p>Leave It: {this.state.leave_it ? "✔️" : "💩"}</p>
+            <p>Leave It: {this.state.leave_it ? <Emoji symbol="✔️" label="check"/> : <Emoji symbol="💩" label="poop"/>}</p>
             <br />
-            <p>Potty Training: {this.state.potty_training ? "✔️" : "💩"}</p>
+            <p>Potty Training: {this.state.potty_training ? <Emoji symbol="✔️" label="check"/> : <Emoji symbol="💩" label="poop"/>}</p>
             <br />
-            <p>Quiet: {this.state.quiet ? "✔️" : "💩"}</p>
+            <p>Quiet: {this.state.quiet ? <Emoji symbol="✔️" label="check"/> : <Emoji symbol="💩" label="poop"/>}</p>
             <br />
-            <p>Sit: {this.state.sit ? "✔️" : "💩"}</p>
+            <p>Sit: {this.state.sit ? <Emoji symbol="✔️" label="check"/> : <Emoji symbol="💩" label="poop"/>}</p>
             <br />
-            <p>Stay: {this.state.stay ? "✔️" : "💩"}</p>
+            <p>Stay: {this.state.stay ? <Emoji symbol="✔️" label="check"/> : <Emoji symbol="💩" label="poop"/>}</p>
           </div>
         </div>
       </div>

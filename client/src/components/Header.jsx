@@ -1,4 +1,5 @@
 import React from 'react';
+import Emoji from './Emoji';
 
 //Set Up Header, Hero, and Nav to render on every page
 function Header(props) {
@@ -6,7 +7,7 @@ function Header(props) {
     return (
         <div className="header">
             <h1 className="title" onClick={homeView}>Fetch</h1>
-            <p className="tag">For Man's Best (Behaved) Friend 🐾</p>
+            <p className="tag">For Man's Best (Behaved) Friend <Emoji symbol="🐾" label="pawprints"/></p>
             <div className="nav">
                 {links.map(link => {
                     return <button
