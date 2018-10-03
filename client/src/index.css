@@ -106,7 +106,7 @@
   .errorNoDogs {
     margin: auto;
     text-align: center;
-    background-color: orange;
+    background-color: white;
   }
 
   .loadingTxt-NoDogs{
@@ -114,15 +114,15 @@
     font-size: 32px;
     word-wrap: break-word;
     word-break: keep-all;
-    padding-top: 40px;
     margin-top: 60px;
     margin-bottom: 20px;
-    color: white;
+    color: orange;
   }
 
   .dogHouseImg{
     max-width: 100%;
     height: auto;
+    opacity: 0.5;
   }
 
   .loadingTxt{
@@ -141,6 +141,12 @@
     grid-column-gap: 24px;
     align-self: center;
     padding-bottom: 50px;
+  }
+
+  @media screen and (max-width: 992px) {
+    .grid-container {
+        grid-template-columns: auto auto;
+    }
   }
 
   .grid-item {
